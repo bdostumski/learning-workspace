@@ -1,0 +1,68 @@
+
+* {
+  font-size: 14pt;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  /* background-image: linear-gradient(to right,#EDD400 0%, purple  100%),url('wp1821381.jpg'); */
+  background-image: url('968178.jpg');
+
+  background-attachment: fixed;
+  background-size: cover;
+  background-blend-mode: darken;
+  height: 100%;
+  position: relative;
+}
+
+#navbar-mycolor {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+#footer-mycolor {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+#input-mycolor {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+#article-main-mycolor {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  border: 5px solid black;
+}
+
+#article-header-mycolor {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+@media only screen and (max-width: 600px) {
+  #article-main-mycolor {
+    border: 1px solid white !important;
+  }
+}
+
+.article {
+  height: 100%;
+  margin-bottom: 170px;
+  box-shadow: 0px 0px 150px black;
+}
+
+
+.article::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.lead {
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+
+h1.lead {
+  font-size: 22pt;
+}

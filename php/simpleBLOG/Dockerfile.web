@@ -1,0 +1,19 @@
+FROM php:7.4-apache
+
+RUN apt-get update \
+    && apt-get install -y libpq-dev \
+    && docker-php-ext-install pdo_pgsql
+
+COPY apache-config.conf /etc/apache2/conf-available/000-custom.conf
+
+RUN a2enmod rewrite \
+    && a2enconf 000-custom
+
+RUN chmod -R 755 /var/www/html \
+    && mkdir -p /var/www/html/images \
+    && chmod -R 777 /var/www/html/images \
+    && chown -R www-data:www-data /var/www/html/images
+
+EXPOSE 80
+
+CMD ["apache2-foreground"]
