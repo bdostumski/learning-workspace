@@ -312,5 +312,20 @@ stream.on('error', (error) => console.log(error));
   - POST (insert data)
   - PUT (update data)
   - DELETE (delete data)
-  
+
+- HTTP Basics
+  - Port is a communication endpoint.
+
+- HTTP Headers 
+  - key-value metadata that describes request/response messages
+
+- HTTP Request Object
+  - It is a big object, that contains bunch of information. For example the method of request, the url of the request and etc.
+
+- HTTP HTML File
+  - Getting data from HTML file and send it as response body (index.html, about.html, test.json)
+
+## Express Info
 - 
+  
+
