@@ -273,5 +273,44 @@ stream.on('data', (result) => {
 
 stream.on('error', (error) => console.log(error));
 ```
+
 # Express
 
+## HTTP Request/Response Cycle
+- The user sends HTTP Request Message, and the server returns HTTP Response Message.
+
+## HTTP Messages
+- Request Message
+  - METHOD:
+    - Request URL: https://www.syscomz.com/apis/
+    - Request Method: GET
+    - Status Code: 200 OK
+    - Remote Address: 192.168.1.1:443
+    - Referrer Policy: strict-origin-when-cross-origin
+ - HEADERS (key-value, information about our request message):
+   - Pragma: no-cache
+   - Referer: https://www.syscomz.com/
+ - BODY (optional):
+   - Request Payload (view source)
+     - {email: "hellow@syscomz.com"}
+
+- Response Message
+  - METHOD:
+    - Request URL: https://syscomz.com/app/api
+    - Request Method: POST
+    - Status Code: 400
+    - Remote Address: 192.168.1.2:443
+    - Referrer Policy: strict-origin-when-cross-origin
+  - HEADERS (key-value, information about our request message):
+    - Content-Type: text/html; charset=UTF-8
+    - Content-Type: application/json; charset=utf-8
+  - BODY (optional):
+    - some html code for example
+
+- METHODS:
+  - GET (read data)
+  - POST (insert data)
+  - PUT (update data)
+  - DELETE (delete data)
+  
+- 
