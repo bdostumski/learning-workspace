@@ -233,3 +233,45 @@ const start = async() => {
 
 start();
 ```
+
+## Events Emitter - Code Example
+- losing for specific event and when it is trigger then callback function will start
+  - on -listen for event
+  - emit - emit an event
+- can have multiple events with same name as we need 
+
+``` javascript
+const EventEmitter = require('events');
+const customEmitter = new EventEmmiter();
+
+customEmitter.on('respose', (name, id) => {
+    console.log(`first data recieved ${name} with id ${id}`)
+})
+
+customEmitter.on('respose', () => {
+    console.log(`second data recieved `)
+})
+
+// Emit must be bellow the listeners => we need first to register listeners and after that to emit them
+customEmitter.emit('response', 'john', 34)
+```
+
+## Streams
+- Streams read and write data sequentially
+  - Writable
+  - Readable
+  - Duplex
+  - Transform
+
+``` javascript
+const {createReadStream} = require('fs');
+const stream = createReadStream('./content/big.txt', {highWaterMark: 90000, encoding: 'utf8'});
+
+stream.on('data', (result) => {
+   console.log(result) 
+}):
+
+stream.on('error', (error) => console.log(error));
+```
+# Express
+
