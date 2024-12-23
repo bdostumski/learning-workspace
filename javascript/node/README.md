@@ -154,3 +154,82 @@ console.log('third')
 ```
 
 ## Async Patterns - Blocking Code
+- Blocking code is code that is take a lot of time to be execute for example some loops. This will block all the application requests, even if loop is in the a sync block of code.
+- We should always strive to make our code async.
+
+## Async Patterns - Setup Promises
+- Promises will can handle multiple requests for example array of files
+
+``` javascript
+const { readFile } = require('fs')
+
+const getText = (path) => {
+    return new Promise((resolve, reject) => {
+        readFile(path, 'utf8', (err, data) => {
+            if(err) {
+               reject(err) 
+            } else {
+                resolve(data)
+            }
+        })
+    })
+}
+
+getText('.content/first.txt')
+    .then(result => console.log(result))
+    .catch(err => console.log(err))
+```
+
+## Async Patterns - Refactor to Async
+- Remove nestead callbac
+
+``` javascript
+const { readFile } = require('fs')
+
+const getText = (path) => {
+    return new Promise((resolve, reject) => {
+        readFile(path, 'utf8', (err, data) => {
+            if(err) {
+               reject(err) 
+            } else {
+                resolve(data)
+            }
+        })
+    })
+}
+
+const start = async() => {
+    try {
+        const first = await getText('./content/first.txt') // waithing for result
+        const second = await getText('./content/second.txt') // waithing for result
+        console.log(first) 
+        console.log(second)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+start();
+```
+
+# Async Patterns - Node's Native Option
+``` javascript
+const { readFile, writeFile } = require('fs')
+const util = require('util')
+const readFilePromise = util.promisify(readFile)
+const writeFilePromise = util.promisify(writeFile)
+
+const start = async() => {
+    try {
+        const first = readFilePromise('./content/first.txt', 'utf8') // waithing for result
+        const second = readFilePromise('./content/second.txt', 'utf8') // waithing for result
+        await writeFilePromise('./content/result.txt', `This is awsome: ${first, second}`)
+        console.log(first) 
+        console.log(second)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+start();
+```
