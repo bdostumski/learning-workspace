@@ -121,3 +121,36 @@ server.listen(5000);
 - Note: for example nodemon we can install it on our machine and not to be in our project dependencies, and then we can run nodemon from on our terminal to run the application
 
 ## package-lock.json
+- lock the application sub dependencies of our main dependencies to not be change. 
+
+## Important to understand
+
+## Event Loop
+- The event loop is what allows Node.js to perform non-blocking I/O operations - despite the fact that JavaScript is single-threaded.
+- Event Loop registers callback and when the operation is complete it is execute (this is async request)
+
+``` javascript
+const { readFile } = require('fs')
+
+console.log('started a first task')
+readFile('./content/first.txt', 'utr8', (err, result) => {
+    if(err) {
+        console.log(err)
+        return
+    }
+    console.log(result)
+    console.log('completed first task')
+})
+console.log('start next task')
+# result will be: started first task => starting next task => Hello this is first text file => completed first task
+
+# second example
+console.log('first')
+setTimeout(() => {
+    console.log('second')
+}, 0)
+console.log('third')
+# result will be: first => third => second
+```
+
+## Async Patterns - Blocking Code
