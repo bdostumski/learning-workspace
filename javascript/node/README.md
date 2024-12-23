@@ -326,6 +326,8 @@ stream.on('error', (error) => console.log(error));
   - Getting data from HTML file and send it as response body (index.html, about.html, test.json)
 
 ## Express Info
-- 
-  
+- Express is fast, minimalist web framework for Node.js
+
+- Express Basics
+  - 
 
