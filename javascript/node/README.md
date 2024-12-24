@@ -328,6 +328,12 @@ stream.on('error', (error) => console.log(error));
 ## Express Info
 - Express is fast, minimalist web framework for Node.js
 
-- Express Basics
-  - 
+## API VS SSR
+- API (JSON)
+  - SEND DATA
+  - RES.JSON()
+  
+- SSR (SERVER SITE RENDERING TEMPLATE)
+  - SEND TEMPLATE
+  - RES.RENDER()
 
