@@ -337,3 +337,18 @@ stream.on('error', (error) => console.log(error));
   - SEND TEMPLATE
   - RES.RENDER()
 
+## Middleware function - Setup
+- Express Middleware (functions that execute during the request to the server)
+- If I want to have same functionality in different methods. I can create new method, and after that can pass it to .get(), .post(), .put(), or .delete() method - right after the URL path.
+- "request" message comes in => "middleware" executes some custom logic => "response" message return's the result
+- We can add multiple middleware's into URL rout in array for example: [first-middleware, second-middleware]
+- Add static web-page data into all my URL requests <i>app.use(express.static('./public'))</i>
+- We can have and third party software into middleware for example "morgan" which is good logger for our software.
+
+## APP.USE
+- Adds middleware function to every URL path. It is into new file. We have method in app.use() and can pass into .use() method the logger and every time this log will be in any URL rout.
+
+## Refactoring Express Router
+- group routes
+- separate controller (API routes) from (functionality) - MVC pattern
+
