@@ -1,13 +1,24 @@
+# Test Application API's
+# Doom Emacs Rest Client Configuration File
+#
 # Global environments
 :base_url=http://localhost:3000/api/v1/tasks
 
-# GET all tasks
+=== GET ====
+# All Tasks
 GET :base_url
 Accept: application/json
 Accept-Encoding: gzip, deflate, br
 Connection: keep-alive
 
-# POST create task
+# Task By Identity
+GET :base_url/1
+Accept: application/json
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+
+=== POST ===
+# Create Task
 POST :base_url
 Accept: application/json
 Content-Type: application/json
@@ -18,13 +29,8 @@ Connection: keep-alive
     "name": "Third Task"
 }
 
-# GET task by identity
-GET :base_url/1
-Accept: application/json
-Accept-Encoding: gzip, deflate, br
-Connection: keep-alive
-
-# PATCH update task
+=== PATCH ===
+# Update Task
 PATCH :base_url/1
 Accept: application/json
 Content-Type: application/json
@@ -34,7 +40,8 @@ Connection: keep-alive
     "name": "New Task Name"
 }
 
-# DELETE delete dask
+=== DELETE ===
+# Delete Task
 DELETE :base_url/1
 Accept: application/json
 Content-Type: application/json
