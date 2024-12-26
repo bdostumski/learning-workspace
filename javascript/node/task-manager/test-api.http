@@ -1,7 +1,7 @@
 # Test Application API's
 # Doom Emacs Rest Client Configuration File
 #
-# Global environments
+# Global Environment Variables
 :base_url=http://localhost:3000/api/v1/tasks
 
 === GET ====
