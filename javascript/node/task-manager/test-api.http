@@ -1,0 +1,42 @@
+# Global environments
+:base_url=http://localhost:3000/api/v1/tasks
+
+# GET all tasks
+GET :base_url
+Accept: application/json
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+
+# POST create task
+POST :base_url
+Accept: application/json
+Content-Type: application/json
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+{
+    "id": "3",
+    "name": "Third Task"
+}
+
+# GET task by identity
+GET :base_url/1
+Accept: application/json
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+
+# PATCH update task
+PATCH :base_url/1
+Accept: application/json
+Content-Type: application/json
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+{
+    "name": "New Task Name"
+}
+
+# DELETE delete dask
+DELETE :base_url/1
+Accept: application/json
+Content-Type: application/json
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
