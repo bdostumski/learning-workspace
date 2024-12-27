@@ -1,6 +1,7 @@
 const express = require('express')
 const tasks = require('./routes/tasks')
 const connectDB = require('./database/connect')
+const notFound = require('./middleware/not-found')
 
 // get .env variables
 require('dotenv').config()
@@ -14,6 +15,9 @@ const router = new express.Router()
 app.use(express.json())
 app.use('/api/v1/tasks', tasks)
 app.use(express.static('./public'))
+
+// custom error response
+app.use(notFound)
 
 // routes
 router.get('/').post('/')
