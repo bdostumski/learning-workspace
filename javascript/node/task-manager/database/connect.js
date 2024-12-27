@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')
 
-const connectionString = 'mongodb://localhost:27017/task-manager'
+const connectDB = (url) => {
+  return mongoose.connect(url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false
+  })
+}
 
-mongoose.connect(connectionString,
-                {
-                        useNewUrlParser: true,
-                        useUnifiedTopology: true
-                })
-        .then(() => console.log('Connected to database'))
-        .catch((err) => console.log(err))
+module.exports = connectDB
