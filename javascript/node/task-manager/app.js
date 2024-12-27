@@ -8,7 +8,7 @@ const errorHandlerMiddleware = require('./middleware/error-handler')
 require('dotenv').config()
 
 // server config
-const port = process.env.PORT || 3000
+const port = process.env.APP_PORT || 3000
 const app = express()
 const router = new express.Router()
 

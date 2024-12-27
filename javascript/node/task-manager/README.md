@@ -1,5 +1,19 @@
 # Task Manager
 
+## Run Application
+
+``` shell
+docker compose -f database-docker-compose.yml up # run only database server and express client
+nodemod start # run task manager the application
+```
+
+``` shell
+docker compose -f task-manager-app-docker-compose.yml up # run database server, express client and task manager application 
+```
+
+<p>Mongo Express DBMS will start on port 8081</p>
+<p>Task Manager Application will start on port that is set in the environment variable APP_PORT or by default 3000</p>
+
 ## Project Setup 
 <p>In order to run the project, setup .env and set MONGO_URI variable equal to DB connection string.</p>
 <p>In order to avoid port collision, in the source code port value is 5000</p>
