@@ -1,5 +1,7 @@
-// controllers
+// models
+const Task = require('../models/Task')
 
+// controllers
 const getAllTasks = (req, res) => {
   res.json([
     {
@@ -13,8 +15,9 @@ const getAllTasks = (req, res) => {
   ])
 }
 
-const createTask = (req, res) => {
-  res.json(req.body)
+const createTask = async (req, res) => {
+  const task = await Task.create(req.body)
+  res.status(201).json({ task })
 }
 
 const getTask = (req, res) => {
