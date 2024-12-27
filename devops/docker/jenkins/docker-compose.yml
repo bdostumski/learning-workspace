@@ -1,0 +1,22 @@
+version: "3.3"
+
+services:
+  
+  jenkins:
+    container_name: jenkins
+    image: jenkins/jenkins
+    volumes:
+      - /home/dostumski/jenkins_compose/jenkins_configuration:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 5551:8080
+      - 5552:50000
+    privileged: true
+    user: root
+    networks:
+      - development
+    restart: unless-stopped
+
+networks:
+  development:
+    driver: bridge

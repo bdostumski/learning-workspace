@@ -1,0 +1,16 @@
+version: "3.3"
+
+services:
+  
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3.9.11-management-alpine
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - development
+
+networks:
+  development:
+    driver: bridge

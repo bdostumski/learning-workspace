@@ -1,0 +1,62 @@
+version: "3.3"
+
+services:
+
+  web:
+    image: php:7.4-apache
+    container_name: php-web
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html/
+      - ./apache-config.conf:/etc/apache2/conf-available/000-custom.conf    
+      - ./images:/var/www/html/images
+      - .:/usr/local/etc/conf.d/custom.ini
+    networks:
+      - development
+    depends_on:
+      - postgres
+    environment:
+      PHP_UPLOAD_MAX_FILESIZE: 10M  
+      PHP_POST_MAX_SIZE: 20M         
+      PHP_MAX_EXECUTION_TIME: 30
+    restart: unless-stopped
+    command: /bin/bash -c "apt-get update && apt-get install -y libpq-dev && docker-php-ext-install pdo_pgsql && apache2-foreground && chmod -R 755 /var/www/html && mkdir -p /var/www/html/images && chmod -R 777 /var/www/html/images && chown -R www-data:www-data /var/www/html/images && a2enmod rewrite && a2enconf 000-custom && apache2ctl -D FOREGROUND"
+
+  postgres:
+    container_name: postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      PGDATA: syscomz_blog
+    volumes:
+      - ./syscomz_blog.sql:/docker-entrypoint-initdb.d/syscomz_blog.sql:ro
+    ports:
+      - "5432:5432"
+    networks:
+      - development
+    restart: unless-stopped
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: b.dostumski@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: password
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    ports:
+      - "5050:80"
+    networks:
+      - development
+    restart: unless-stopped
+
+networks:
+  development:
+    driver: bridge
+
+volumes:
+  postgres:
+  pgadmin:

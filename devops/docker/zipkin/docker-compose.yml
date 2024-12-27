@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+  
+  zipkin:
+    container_name: zipkin
+    image: openzipkin/zipkin
+    ports:
+      - "9411:9411"
+    networks:
+      - development
+
+networks:
+  development:
+    driver: bridge

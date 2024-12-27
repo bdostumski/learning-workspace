@@ -1,0 +1,134 @@
+version: "3.3"
+
+services:
+
+  postgres:
+    container_name: postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - development
+    restart: unless-stopped
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: b.dostumski@syscomz.com
+      PGADMIN_DEFAULT_PASSWORD: password
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    ports:
+      - "5050:80"
+    networks:
+      - development
+    restart: unless-stopped
+
+  jenkins:
+    container_name: jenkins
+    image: jenkins/jenkins
+    volumes:
+      - /home/dostumski/jenkins_compose/jenkins_configuration:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 5551:8080
+      - 5552:50000
+    privileged: true
+    user: root
+    networks:
+      - development
+    restart: unless-stopped
+
+  drupal:
+    image: drupal:10-apache
+    ports:
+      - 8090:80
+    volumes:
+      - /var/www/html/modules
+      - /var/www/html/profiles
+      - /var/www/html/themes
+      - /var/www/html/sites
+    restart: always
+
+  # rabbitmq:
+  #   container_name: rabbitmq
+  #   image: rabbitmq:3.9.11-management-alpine
+  #   ports:
+  #     - "5672:5672"
+  #     - "15672:15672"
+  #   networks:
+  #     - development
+
+  # elasticsearch:
+  #   container_name: elasticsearch
+  #   image: docker.elastic.co/elasticsearch/elasticsearch:8.11.3
+  #   environment:
+  #     - bootstrap.memory_lock=true
+  #     - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+  #     - "discovery.type=single-node"
+  #     - xpack.security.enabled=false
+  #   volumes:
+  #     - elastic_data:/usr/share/elasticsearch/data
+  #   ports:
+  #     - "9200:9200"
+  #   networks:
+  #     - development
+
+  # kibana:
+  #   container_name: kibana
+  #   image: docker.elastic.co/kibana/kibana:8.11.3
+  #   environment:
+  #     ELASTICSEARCH_URL: http://elasticsearch:9200
+  #     ELASTICSEARCH_HOSTS: '["http://elasticsearch:9200"]'
+  #   ports:
+  #     - "5601:5601"
+  #   networks:
+  #     - development
+  #   depends_on:
+  #     - elasticsearch
+
+  # logstash:
+  #   container_name: logstash
+  #   image: docker.elastic.co/logstash/logstash:8.11.3
+  #   environment:
+  #     LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+  #   volumes:
+  #     - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
+  #     - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
+  #   ports:
+  #     - "5044:5044"
+  #     - "5000:5000/tcp"
+  #     - "5000:5000/udp"
+  #     - "9600:9600"
+  #   networks:
+  #     - development
+  #   depends_on:
+  #     - elasticsearch
+
+  # zipkin:
+  #   container_name: zipkin
+  #   image: openzipkin/zipkin
+  #   ports:
+  #     - "9411:9411"
+  #   networks:
+  #     - development
+
+networks:
+  development:
+    driver: bridge
+
+volumes:
+  postgres:
+  pgadmin:
+  elastic_data:
+    driver: local
+
+
