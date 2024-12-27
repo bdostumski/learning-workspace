@@ -3,12 +3,8 @@
 ## Run Application
 
 ``` shell
-docker compose -f database-docker-compose.yml up # run only database server and express client
+docker compose --env-file ../.env -f docker-compose.yml up # run only database server and express client
 nodemod start # run task manager the application
-```
-
-``` shell
-docker compose -f task-manager-app-docker-compose.yml up # run database server, express client and task manager application 
 ```
 
 <p>Mongo Express DBMS will start on port 8081</p>
