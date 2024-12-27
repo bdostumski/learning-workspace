@@ -12,9 +12,5 @@
       <h5 class="text-white ml-4 mt-4"><i class="fab fa-youtube"></i><a class="text-white ml-1"
           href="https://www.youtube.com/channel/UC3boJA-8Mt1nYtTfuBRigrg" target="_blank">YouTube</a></h5>
     </div>
-    <div class="col-lg-6 col-sm-12 pl-4">
-      <h5 class="text-warning mb-3"><i class="fas fa-at"></i> Contact Form</h5>
-      <?php include 'contact.php' ?>
-    </div>
   </div>
 </div>

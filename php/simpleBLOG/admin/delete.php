@@ -100,28 +100,6 @@ if(isset($_SESSION['logged'])) {
 
       </div>
       <div class="col-lg-6 col-sm-12 pl-4">
-        <h5 class="text-warning mb-3"><i class="fas fa-at"></i> Contact Form</h5>
-        <form method="post" action="includes/phpemail.php">
-          <div class='row'>
-            <div class="col-lg-4 col-sm-12">
-              <input name="name" type="text" class="form-control mb-2 bg-dark text-white" placeholder="Name"
-                id="input-mycolor">
-            </div>
-            <div class="col-lg-4 col-sm-12">
-              <input name="subject" type="text" class="form-control mb-2 bg-dark text-white" placeholder="Subject"
-                id="input-mycolor">
-            </div>
-            <div class="col-lg-4 col-sm-12">
-              <input name="email" type="email" class="form-control mb-2 bg-dark text-white" placeholder="Email"
-                id="input-mycolor">
-            </div>
-            <div class="col-lg-12 col-sm-12">
-              <textarea name="message" class="form-control mb-3 bg-dark text-white" placeholder="Message" rows="5"
-                id="input-mycolor"></textarea>
-              <button name="submit" type="submit" class="btn btn-outline-warning">Send</button>
-            </div>
-          </div>
-        </form>
       </div>
     </div>
   </div>
