@@ -2,12 +2,13 @@ const express = require('express')
 const tasks = require('./routes/tasks')
 const connectDB = require('./database/connect')
 const notFound = require('./middleware/not-found')
+const errorHandlerMiddleware = require('./middleware/error-handler')
 
 // get .env variables
 require('dotenv').config()
 
 // server config
-const port = 3000
+const port = process.env.PORT || 3000
 const app = express()
 const router = new express.Router()
 
@@ -18,6 +19,7 @@ app.use(express.static('./public'))
 
 // custom error response
 app.use(notFound)
+app.use(errorHandlerMiddleware)
 
 // routes
 router.get('/').post('/')
