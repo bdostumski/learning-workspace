@@ -8,17 +8,16 @@ require('dotenv').config()
 // server config
 const port = 3000
 const app = express()
+const router = new express.Router()
 
 // middleware
 app.use(express.json())
 app.use('/api/v1/tasks', tasks)
+app.use(express.static('./public'))
 
 // routes
-app.get('/')
-app.post('/')
-app.get('/:id')
-app.patch('/:id')
-app.delete('/:id')
+router.get('/').post('/')
+router.get('/:id').patch('/:id').delete('/:id')
 
 const startApp = async () => {
   try {
