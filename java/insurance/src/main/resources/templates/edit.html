@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+            integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+            crossorigin="anonymous" />
+        <link rel="stylesheet" th:href="@{../css/edit.css}">
+
+        <title>Edit Profile - Safety Car</title>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-light bg-primary">
+            <a th:href="@{/}" class="navbar-brand text-light"><i class="fas fa-car-crash"></i> Safety Car</a>
+            <ul th:object="${userInfo}" class="nav justify-content-end">
+                <li th:if="${userInfo.enabled}" class="nav-item">
+                    <a th:href="@{/profile}" class="nav-link text-light mx-3"><i class="far fa-user"></i> Welcome
+                        <span th:text="${userInfo.firstname}">FirstName</span>
+                        <span th:text="${userInfo.lastname}">LastName</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a th:if="${userInfo.userRole.id == 1}" th:href="@{/admin-filter/new-agent}" class="nav-link text-light mx-3" href="#"><i class="fas fa-user-plus"></i> New Agent</a>
+                    <a th:if="${userInfo.userRole.id == 3}" th:href="@{/}" class="nav-link text-light mx-3" href="#"><i class="fas fa-plus"></i> New policy</a>
+                </li>
+                <li class="nav-item">
+                    <a th:if="${userInfo.userRole.id == 1}" th:href="@{/admin-filter}" class="nav-link text-light mx-3" href="#"><i class="far fa-folder-open"></i> Agents</a>
+                    <a th:if="${userInfo.userRole.id == 2}" th:href="@{/agent-filter}" class="nav-link text-light mx-3" href="#"><i class="far fa-folder-open"></i> Policies</a>
+                    <a th:if="${userInfo.userRole.id == 3}" th:href="@{/user-filter}" class="nav-link text-light mx-3" href="#"><i class="far fa-folder-open"></i> My policies</a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/logout}" class="nav-link text-light mx-3" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-12 d-flex justify-content-start my-5">
+                    <h1><i class="far fa-edit"></i> Edit Profile</h1>
+                </div>
+            </div>
+            <form th:action="@{/profile/update-user}" method="post" th:object="${userInfo}">
+                <div class="row">
+                    <div class="col-12 my-1">
+                        <h4><b>Firstname:</b> <span><input type="text" th:placeholder="${userInfo.firstname}" th:value="${userInfo.firstname}" th:field="*{firstname}" required></span></h4>
+                    </div>
+                    <div class="col-12 my-1">
+                        <h4><b>Lastname:</b> <span><input type="text" th:placeholder="${userInfo.lastname}" th:value="${userInfo.lastname}" th:field="*{lastname}" required></span></h4>
+                    </div>
+                    <div class="col-12 my-1">
+                        <h4><b>Birthdate:</b> <span><input id="birthDay" type="date" th:field="*{birthdate}" required></span></h4>
+                    </div>
+                    <div class="col-12 my-1">
+                        <h4><b>Email:</b> <span><input type="text" th:placeholder="${userInfo.email}" th:value="${userInfo.email}" th:field="*{email}" required></span></h4>
+                    </div>
+                    <div class="col-12 my-1">
+                        <h4><b>Phone:</b> <span><input type="text" th:placeholder="${userInfo.phoneNumber}" th:value="${userInfo.phoneNumber}" th:field="*{phoneNumber}" required></span></h4>
+                    </div>
+                    <div class="col-12 my-1">
+                        <h4><b>Postal Address:</b> <span><input type="text" th:placeholder="${userInfo.address}" th:value="${userInfo.address}" th:field="*{address}" required></span></h4>
+                    </div>
+                    <div class="col-12 my-1">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-check"></i> Confirm</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <script>
+            let maxDay = new Date();
+            let birthDay;
+            let dd = maxDay.getDate();
+            let mm = maxDay.getMonth()+1;
+            let yyyy = maxDay.getFullYear();
+
+            let birth_day_month = (maxDay.getMonth() - 6);
+            let birth_day_year = maxDay.getFullYear() - 18;
+
+            if(dd<10)
+                dd='0'+dd
+
+            if(mm<10)
+                mm='0'+mm
+
+            if(birth_day_month<10)
+                birth_day_month='0'+birth_day_month
+
+            birthDay = birth_day_year+'-'+birth_day_month+'-'+dd;
+
+            document.getElementById("birthDay").max = birthDay;
+        </script>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+        </script>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  mysql-standalone4:
+    image: mysql:latest
+    container_name: mysql-standalone4
+    environment:
+      - MYSQL_ROOT_PASSWORD=drakola
+      - MYSQL_DATABASE=employeemanager
+  springboot-docker-container4:
+    image: springboot-docker-container4
+    container_name: springboot-docker-container4
+    ports:
+      - 8080:8080
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql-standalone4
