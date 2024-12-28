@@ -15,10 +15,7 @@ public class AmazonConfig {
     // Connect my AWS S3 Service with my account credentials
     @Bean
     public AmazonS3 s3() {
-        AWSCredentials awsCredentials = new BasicAWSCredentials(
-                "AKIASG3WLO2YNGZ65SLN",
-                "nRvR6QTCdvnXU6Y/91SW7QqmiDfpmHHmUtsZU9hl"
-        );
+        AWSCredentials awsCredentials = new BasicAWSCredentials("", ""); // add aws secrets
 
         return AmazonS3ClientBuilder
                 .standard()
