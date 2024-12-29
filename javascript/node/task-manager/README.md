@@ -19,9 +19,9 @@ nodemod start # run task manager the application
 <p>Example of my .env file</p>
 
 ## Environment Variables 
-MONGO_INITDB_ROOT_USERNAME=root
-MONGO_INITDB_ROOT_PASSWORD=password
-MONGO_EXPRESS_USERNAME=admin
-MONGO_EXPRESS_PASSWORD=password
-MONGO_URI='mongodb://root:password@localhost:27017/task-manager?authSource=admin&retryWrites=true&w=majority'
-PORT=5000
+MONGO_INITDB_ROOT_USERNAME=root<br/>
+MONGO_INITDB_ROOT_PASSWORD=password<br/>
+MONGO_EXPRESS_USERNAME=admin<br/>
+MONGO_EXPRESS_PASSWORD=password<br/>
+MONGO_URI='mongodb://root:password@localhost:27017/task-manager?authSource=admin&retryWrites=true&w=majority'<br/>
+PORT=5000<br/>
