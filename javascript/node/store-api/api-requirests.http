@@ -1,0 +1,61 @@
+# # # # # # # # # #
+#
+# Store API
+# Test Application API's
+# Doom Emacs Rest Client Configuration File
+#
+# Global Environment Variables
+:base_url=http://localhost:5000/api/v1/tasks
+#
+# # # # # # # # # #
+#
+#
+# === GET ====
+# All Tasks
+GET :base_url
+Accept: application/json
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+#
+# Task By Identity
+GET :base_url/676f0782c010a0fb6544aa65
+Accept: application/json
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+#
+#
+# === POST ===
+# Create Task
+POST :base_url
+Content-Type: application/json
+Accept: application/json
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+{
+  "name": "First Task",
+  "completed": true
+}
+#
+#
+# === PATCH ===
+# Update Task
+PATCH :base_url/676f0782c010a0fb6544aa65
+Accept: application/json
+Content-Type: application/json
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+{
+    "name": "Other New Task",
+    "completed": true
+}
+#
+#
+# === DELETE ===
+# Delete Task
+DELETE :base_url/676f0782c010a0fb6544aa65
+Accept: application/json
+Content-Type: application/json
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+#
+# # # # # # # # # #
