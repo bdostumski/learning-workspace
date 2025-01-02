@@ -1,18 +1,10 @@
 
 const getAllProductsStatic = async (req, res) => {
-  try {
-    res.status(200).json({msg: 'static products testing route'});
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
+  res.status(200).json({ msg: 'static products testing route' });
 }
 
 const getAllProducts = async (req, res) => {
-  try {
-    res.status(200).json({msg: 'products testing route'});
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
+  res.status(200).json({ msg: 'products testing route' });
 }
 
 module.exports = {

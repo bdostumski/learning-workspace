@@ -5,14 +5,20 @@
 # Doom Emacs Rest Client Configuration File
 #
 # Global Environment Variables
-:base_url=http://localhost:5000/api/v1/tasks
+:base_url=http://localhost:5000/api/v1/products
 #
 # # # # # # # # # #
 #
 #
 # === GET ====
-# All Tasks
+# All Products
 GET :base_url
+Accept: application/json
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+#
+# All Static Products
+GET :base_url/static
 Accept: application/json
 Accept-Encoding: gzip, deflate, br
 Connection: keep-alive
