@@ -10,57 +10,16 @@
 # # # # # # # # # #
 #
 # === STATIC ===
-# All Static Products
+# All Static Products (No Query Parameters)
 GET :base_url/static
 Accept: application/json
 Accept-Encoding: gzip, deflate, br
 Connection: keep-alive
 #
 # === GET ====
-# All Products
-GET :base_url?featured=true&company=ikea&name=high-back bench
+# All Products (Filter With Query Parameters)
+GET :base_url?featured=false&company=ikea&name=e&sort=name -price&fields=name,rating,price,company&limit=2&page=2&numericFilters=price>29,rating>=4
 Accept: application/json
-Accept-Encoding: gzip, deflate, br
-Connection: keep-alive
-#
-# Task By Identity
-GET :base_url/676f0782c010a0fb6544aa65
-Accept: application/json
-Accept-Encoding: gzip, deflate, br
-Connection: keep-alive
-#
-#
-# === POST ===
-# Create Task
-POST :base_url
-Content-Type: application/json
-Accept: application/json
-Accept-Encoding: gzip, deflate, br
-Connection: keep-alive
-{
-  "name": "First Task",
-  "completed": true
-}
-#
-#
-# === PATCH ===
-# Update Task
-PATCH :base_url/676f0782c010a0fb6544aa65
-Accept: application/json
-Content-Type: application/json
-Accept-Encoding: gzip, deflate, br
-Connection: keep-alive
-{
-    "name": "Other New Task",
-    "completed": true
-}
-#
-#
-# === DELETE ===
-# Delete Task
-DELETE :base_url/676f0782c010a0fb6544aa65
-Accept: application/json
-Content-Type: application/json
 Accept-Encoding: gzip, deflate, br
 Connection: keep-alive
 #
