@@ -18,8 +18,8 @@ app.get('/', (req, res) => {
 app.use('/api/v1/products', productsRouter);
 
 // errors handling
-app.use(notFoundMiddleware)
-app.use(errorMiddleware)
+app.use(notFoundMiddleware);
+app.use(errorMiddleware);
 
 // server
 const port = process.env.APP_PORT || 3000;
