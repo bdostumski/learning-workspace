@@ -6,8 +6,8 @@ const productSchema = new mongoose.Schema({
     required: [true, 'product name must be provided']
   },
   price: {
-    type: Number
-      required: [true, 'product price must be provided']
+    type: Number,
+    required: [true, 'product price must be provided']
   },
   featured: {
     type: Boolean,
@@ -30,4 +30,4 @@ const productSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.module('Product', productSchema);
+module.exports = mongoose.model('Product', productSchema);
