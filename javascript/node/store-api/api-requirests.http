@@ -9,16 +9,16 @@
 #
 # # # # # # # # # #
 #
-#
-# === GET ====
-# All Products
-GET :base_url
+# === STATIC ===
+# All Static Products
+GET :base_url/static
 Accept: application/json
 Accept-Encoding: gzip, deflate, br
 Connection: keep-alive
 #
-# All Static Products
-GET :base_url/static
+# === GET ====
+# All Products
+GET :base_url?featured=true&company=ikea&name=high-back bench
 Accept: application/json
 Accept-Encoding: gzip, deflate, br
 Connection: keep-alive
