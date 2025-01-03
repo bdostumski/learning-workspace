@@ -10,14 +10,17 @@
 # # # # # # # # # #
 #
 # === GET ===
-# Dashboard
+# Dashboard - sent back Bearer Token
 GET :base_url/dashboard
+Host: :base_url
+Content-Type: application/json
 Accept: application/json
 Accept-Encoding: gzip, deflate, br
 Connection: keep-alive
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJqb2huIiwiaWF0IjoxNzM1ODk4MDc1LCJleHAiOjE3Mzg0OTAwNzV9.GgpPupx0xyoZeQWY4-n1_UBs-Fs5FoOlXqyJKNL61Kk
 #
 # === POST ====
-# Login
+# Login - generate JWT
 POST :base_url/login
 Content-Type: application/json
 Accept: application/json
