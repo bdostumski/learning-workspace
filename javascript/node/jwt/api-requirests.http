@@ -19,6 +19,7 @@ Connection: keep-alive
 # === POST ====
 # Login
 POST :base_url/login
+Content-Type: application/json
 Accept: application/json
 Accept-Encoding: gzip, deflate, br
 Connection: keep-alive

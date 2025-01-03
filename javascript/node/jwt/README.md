@@ -53,4 +53,5 @@ MONGO_INITDB_ROOT_PASSWORD=password<br/>
 MONGO_EXPRESS_USERNAME=admin<br/>
 MONGO_EXPRESS_PASSWORD=password<br/>
 MONGO_URI='mongodb://root:password@localhost:27017/jwt-auth?authSource=admin&retryWrites=true&w=majority'<br/>
+JWT_SECRET=secret<br/>
 PORT=5000<br/>
