@@ -4,7 +4,8 @@ const express = require('express');
 const app = express();
 
 // database
-//
+const database = require('./database/config');
+
 // routers
 const authRouter = require('./routes/auth');
 const jobsRouter = require('./routes/jobs');
@@ -27,6 +28,7 @@ const port = process.env.APP_PORT || 3000;
 
 const start = async () => {
   try {
+    await database(process.env.MONOGO_URI);
     app.listen(port, () =>
       console.log(`Server is listening on port ${port}...`)
     );
