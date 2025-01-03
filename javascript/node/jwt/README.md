@@ -1,5 +1,34 @@
 # JWT (JSON Web Token) Authentication Basics
 
+## How JWT works
+### First Request from the CLIENT:
+    - The CLIENT sends correct username and password for Login Request message [CLIENT -> SERVER]
+    - The SERVER return Response + Signed JWT to the CLIENT [CLIENT <- SERVER]
+
+### Other Requests from the CLIENT:
+    - The CLIENT send Request + Signed JWT to the SERVER [CLIENT -> SERVER]
+    - The SERVER returns Response messages [CLIENT <- SERVER]
+    
+### JWT Structure (xxxxx.yyyyy.zzzzz):
+    - HEADER (type of token, and algorithm) encoded in Base64Url
+    - PAYLOAD (some data) encoded in Base64Url
+    - SIGNATURE (secret) encoded in Base64Url
+
+``` shell
+HMACSHA256 (
+    base64UrlEncode(header) + "." +
+    base64UrlEncode(payload),
+    secret
+)
+```
+
+### This is HOW the CLIENT sends back the token to the SERVER
+
+``` shell
+Authorization: Bearer <token>
+```
+
+
 ## Run Application
 
 ``` shell
