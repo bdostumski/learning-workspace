@@ -17,7 +17,7 @@ Content-Type: application/json
 Accept: application/json
 Accept-Encoding: gzip, deflate, br
 Connection: keep-alive
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJqb2huIiwiaWF0IjoxNzM1ODk4MDc1LCJleHAiOjE3Mzg0OTAwNzV9.GgpPupx0xyoZeQWY4-n1_UBs-Fs5FoOlXqyJKNL61Kk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJqb2huIiwiaWF0IjoxNzM1ODk4MjEzLCJleHAiOjE3Mzg0OTAyMTN9.9dT5Jgvz2U7auLkaBSDlQMu9HQQfBBh1l0JeZKUiGkw
 #
 # === POST ====
 # Login - generate JWT
