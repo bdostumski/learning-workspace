@@ -1,0 +1,26 @@
+# Doom Emacs Rest Client Configuration File
+#
+# Global Environment Variables
+:base_url=http://localhost:5000/api/v1
+#
+# # # # # # # # # #
+#
+# === GET ===
+# Dashboard
+GET :base_url/dashboard
+Accept: application/json
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+#
+# === POST ====
+# Login
+POST :base_url/login
+Accept: application/json
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+{
+    "username": "john",
+    "password": "password"
+}
+#
+# # # # # # # # # #
