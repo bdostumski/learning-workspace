@@ -20,3 +20,6 @@ MONGO_URI='mongodb://root:password@localhost:27017/jobs-api?authSource=admin&ret
 JWT_SECRET=6bR7jnhJvWolyr7MKM0Yy48LOhLHm1ZF<br/>
 JWT_LIFETIME=30d<br/>
 APP_PORT=5000<br/>
+
+## Environment Variables Notes:
+JWT_SECRET is using Encryption key 256
