@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
 
-const UserSchema = new Mongoose.Schema({
+const UserSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, 'Please add a name']
+    required: [true, 'Please add a name'],
     minlength: 3,
     maxlength: 50
   },
   email: {
     type: String,
-    required: [ture, 'Please add an email'],
+    required: [true, 'Please add an email'],
     match: [/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,'Please add a valid email'],
     unique: true
   },

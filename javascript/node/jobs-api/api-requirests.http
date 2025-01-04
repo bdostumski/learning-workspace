@@ -8,10 +8,11 @@
 :base_url=http://localhost:5000/api/v1
 #
 # # # # # # # # # #
+# === AUTHORIZATION API ===
 #
 # === GET ===
-# Dashboard - sent back Bearer Token
-GET :base_url/dashboard
+#
+GET :base_url/login
 Host: :base_url
 Content-Type: application/json
 Accept: application/json
@@ -20,14 +21,15 @@ Connection: keep-alive
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJqb2huIiwiaWF0IjoxNzM1ODk2MjExLCJleHAiOjE3Mzg0ODgyMTF9.nrRgWzF99XQZz_lImRt7VUwNMJ9vnQQpf8a64wMDz8U
 #
 # === POST ====
-# Login - generate JWT
-POST :base_url/login
+# 
+POST :base_url/register
 Content-Type: application/json
 Accept: application/json
 Accept-Encoding: gzip, deflate, br
 Connection: keep-alive
 {
-    "username": "john",
+    "name": "john",
+    "email": "john@gmail.com",
     "password": "password"
 }
 #
