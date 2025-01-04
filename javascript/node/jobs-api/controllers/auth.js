@@ -7,7 +7,6 @@ const register = async (req, res) => {
 }
 
 const login = async (req, res) => {
-  console.log(req.headers);
   res.status(StatusCodes.OK).json(req.headers);
 }
 
