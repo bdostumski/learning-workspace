@@ -9,20 +9,10 @@
 #
 # # # # # # # # # #
 # === AUTHORIZATION API ===
+# === POST REQUEST MESSAGES ====
 #
-# === GET ===
-#
-GET :base_url/login
-Host: :base_url
-Content-Type: application/json
-Accept: application/json
-Accept-Encoding: gzip, deflate, br
-Connection: keep-alive
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJqb2huIiwiaWF0IjoxNzM1ODk2MjExLCJleHAiOjE3Mzg0ODgyMTF9.nrRgWzF99XQZz_lImRt7VUwNMJ9vnQQpf8a64wMDz8U
-#
-# === POST ====
-# 
-POST :base_url/register
+# ---REGISTER ---
+POST :base_url/auth/register
 Content-Type: application/json
 Accept: application/json
 Accept-Encoding: gzip, deflate, br
@@ -32,5 +22,14 @@ Connection: keep-alive
     "email": "john@gmail.com",
     "password": "password"
 }
+#
+# --- LOGIN ---
+POST :base_url/auth/login
+Host: :base_url
+Content-Type: application/json
+Accept: application/json
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJqb2huIiwiaWF0IjoxNzM1ODk2MjExLCJleHAiOjE3Mzg0ODgyMTF9.nrRgWzF99XQZz_lImRt7VUwNMJ9vnQQpf8a64wMDz8U
 #
 # # # # # # # # # #
