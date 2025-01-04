@@ -4,7 +4,6 @@ BLOG WEBSITE
 
 ## **simpleBLOG** is a:
 * Blog website
-* GPL (General Public License)
 
 <div align="center">
   <img src="./images/wallpaper.png" width="100%" />
