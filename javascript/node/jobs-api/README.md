@@ -17,5 +17,6 @@ MONGO_INITDB_ROOT_PASSWORD=password<br/>
 MONGO_EXPRESS_USERNAME=admin<br/>
 MONGO_EXPRESS_PASSWORD=password<br/>
 MONGO_URI='mongodb://root:password@localhost:27017/jobs-api?authSource=admin&retryWrites=true&w=majority'<br/>
-JWT_SECRET=secret<br/>
-PORT=5000<br/>
+JWT_SECRET=6bR7jnhJvWolyr7MKM0Yy48LOhLHm1ZF<br/>
+JWT_LIFETIME=30d<br/>
+APP_PORT=5000<br/>
