@@ -7,7 +7,7 @@ BLOG WEBSITE
 * GPL (General Public License)
 
 <div align="center">
-  <img src="images/wallpaper.png" width="100%" />
+  <img src="./images/wallpaper.png" width="100%" />
 </div>
 
 <a href="https://www.youtube.com/watch?v=YKbuZ7UPjUs&t=14s">simpleBLOG VIDEO</a>
