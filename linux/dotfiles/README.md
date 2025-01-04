@@ -1,3 +1,0 @@
-
-# Dotfiles Custom Templates
-
