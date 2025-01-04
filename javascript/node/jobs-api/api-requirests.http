@@ -30,6 +30,10 @@ Content-Type: application/json
 Accept: application/json
 Accept-Encoding: gzip, deflate, br
 Connection: keep-alive
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJqb2huIiwiaWF0IjoxNzM1ODk2MjExLCJleHAiOjE3Mzg0ODgyMTF9.nrRgWzF99XQZz_lImRt7VUwNMJ9vnQQpf8a64wMDz8U
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Nzc5N2ZmMDBiNjM4MmM5MTE4NWVmMGIiLCJuYW1lIjoiam9obiIsImlhdCI6MTczNjAxNTg1NiwiZXhwIjoxNzM4NjA3ODU2fQ.w9wlkVVg2tw4SlxaygbL-sFztMzlYCeXD-mMl745qms
+{
+    "email": "john@gmail.com",
+    "password": "password"
+}
 #
 # # # # # # # # # #
