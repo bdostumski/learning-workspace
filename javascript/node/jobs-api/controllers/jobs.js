@@ -1,22 +1,25 @@
+const User = require('../models/User');
+const { StatusCodes } = require('http-status-codes');
+const { BadRequestError, UnauthenticatedError } = require('../errors');
 
-const getAllJobs = async (res, req) => {
-  res.send('get all jobs');
+const getAllJobs = async (req, res) => {
+  res.status(StatusCodes.OK).json(req.user);
 }
 
-const getJob = async (res, req) => {
-  res.send('get job');
+const getJob = async (req, res) => {
+  res.status(StatusCodes.OK).json(req.user);
 }
 
-const createJob = async (res, req) => {
-  res.send('create job');
+const createJob = async (req, res) => {
+  res.status(StatusCodes.OK).json(req.user);
 }
 
-const updateJob = async (res, req) => {
-  res.send('update job');
+const updateJob = async (req, res) => {
+  res.status(StatusCodes.OK).json(req.user);
 }
 
-const deleteJob = async (res, req) => {
-  res.send('delete job');
+const deleteJob = async (req, res) => {
+  res.status(StatusCodes.OK).json(req.user);
 }
 
 module.exports = {

@@ -1,14 +1,13 @@
 # # # # # # # # # #
 #
 # Store API
-# Test Application API's
+# Test AUTHORIZATION APIs
 # Doom Emacs Rest Client Configuration File
 #
 # Global Environment Variables
 :base_url=http://localhost:5000/api/v1
 #
 # # # # # # # # # #
-# === AUTHORIZATION API ===
 # === POST REQUEST MESSAGES ====
 #
 # ---REGISTER ---
@@ -30,7 +29,7 @@ Content-Type: application/json
 Accept: application/json
 Accept-Encoding: gzip, deflate, br
 Connection: keep-alive
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Nzc5N2ZmMDBiNjM4MmM5MTE4NWVmMGIiLCJuYW1lIjoiam9obiIsImlhdCI6MTczNjAxNTg1NiwiZXhwIjoxNzM4NjA3ODU2fQ.w9wlkVVg2tw4SlxaygbL-sFztMzlYCeXD-mMl745qms
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Nzc5OTQwZDY2NmNjNmZhYzBmYzcwNWIiLCJuYW1lIjoiam9obiIsImlhdCI6MTczNjAyMTAwNSwiZXhwIjoxNzM4NjEzMDA1fQ.aPR91cUe5RYTZbFz5nyZi8NJENtZLaausrOwBMnrFSE
 {
     "email": "john@gmail.com",
     "password": "password"

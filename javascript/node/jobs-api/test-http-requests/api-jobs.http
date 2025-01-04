@@ -1,0 +1,67 @@
+# # # # # # # # # #
+#
+# Store API
+# Test JOBS Application APIs
+# Doom Emacs Rest Client Configuration File
+#
+# Global Environment Variables
+:base_url=http://localhost:5000/api/v1
+#
+# # # # # # # # # #
+# === GET REQUEST MESSAGES ====
+#
+# --- FIND ALL JOBS ---
+GET :base_url/jobs
+Host: :base_url
+Content-Type: application/json
+Accept: application/json
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Nzc5N2ZmMDBiNjM4MmM5MTE4NWVmMGIiLCJuYW1lIjoiam9obiIsImlhdCI6MTczNjAxNTg1NiwiZXhwIjoxNzM4NjA3ODU2fQ.w9wlkVVg2tw4SlxaygbL-sFztMzlYCeXD-mMl745qms
+#
+# --- FIND JOB ---
+GET :base_url/jobs/[jobID]
+Host: :base_url
+Content-Type: application/json
+Accept: application/json
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Nzc5N2ZmMDBiNjM4MmM5MTE4NWVmMGIiLCJuYW1lIjoiam9obiIsImlhdCI6MTczNjAxNTg1NiwiZXhwIjoxNzM4NjA3ODU2fQ.w9wlkVVg2tw4SlxaygbL-sFztMzlYCeXD-mMl745qms
+#
+# # # # # # # # # #
+# === POST REQUEST MESSAGES ====
+#
+# --- CREATE JOB ---
+POST :base_url/jobs
+Host: :base_url
+Content-Type: application/json
+Accept: application/json
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Nzc5OTQwZDY2NmNjNmZhYzBmYzcwNWIiLCJuYW1lIjoiam9obiIsImlhdCI6MTczNjAyMTAwNSwiZXhwIjoxNzM4NjEzMDA1fQ.aPR91cUe5RYTZbFz5nyZi8NJENtZLaausrOwBMnrFSE
+#
+# # # # # # # # # #
+# === PATCH REQUEST MESSAGES ====
+#
+# --- UPDATE JOB ---
+PATCH :base_url/jobs/[jobId]
+Host: :base_url
+Content-Type: application/json
+Accept: application/json
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Nzc5N2ZmMDBiNjM4MmM5MTE4NWVmMGIiLCJuYW1lIjoiam9obiIsImlhdCI6MTczNjAxNTg1NiwiZXhwIjoxNzM4NjA3ODU2fQ.w9wlkVVg2tw4SlxaygbL-sFztMzlYCeXD-mMl745qms
+#
+# # # # # # # # # #
+# === DELETE REQUEST MESSAGES ====
+#
+# --- DELETE JOB ---
+DELETE :base_url/jobs/[jobID]
+Host: :base_url
+Content-Type: application/json
+Accept: application/json
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Nzc5N2ZmMDBiNjM4MmM5MTE4NWVmMGIiLCJuYW1lIjoiam9obiIsImlhdCI6MTczNjAxNTg1NiwiZXhwIjoxNzM4NjA3ODU2fQ.w9wlkVVg2tw4SlxaygbL-sFztMzlYCeXD-mMl745qms
+#
+# # # # # # # # # #
