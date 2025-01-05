@@ -48,19 +48,23 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Nzc5O
 # === PATCH REQUEST MESSAGES ====
 #
 # --- UPDATE JOB ---
-PATCH :base_url/jobs/[jobId]
+PATCH :base_url/jobs/677a3a4dcdcbd221ab661512
 Host: :base_url
 Content-Type: application/json
 Accept: application/json
 Accept-Encoding: gzip, deflate, br
 Connection: keep-alive
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Nzc5OTQwZDY2NmNjNmZhYzBmYzcwNWIiLCJuYW1lIjoiam9obiIsImlhdCI6MTczNjAyMTAwNSwiZXhwIjoxNzM4NjEzMDA1fQ.aPR91cUe5RYTZbFz5nyZi8NJENtZLaausrOwBMnrFSE
+{
+   "company": "facebook",
+   "position": "full stack developer"
+}
 #
 # # # # # # # # # #
 # === DELETE REQUEST MESSAGES ====
 #
 # --- DELETE JOB ---
-DELETE :base_url/jobs/[jobID]
+DELETE :base_url/jobs/677a3a4dcdcbd221ab661512
 Host: :base_url
 Content-Type: application/json
 Accept: application/json
