@@ -7,6 +7,13 @@ const errorHandlerMiddleware = (err, req, res, next) => {
     msg: err.message || 'Something went wrong, please try again later'
   }
 
+  if (err.name === 'CastError') {
+    customError = {
+      statusCode: StatusCodes.BAD_REQUEST,
+      msg: `Invalid ${err.path} : ${err.value}`
+    }
+  }
+
   if (err.name === 'ValidationError') {
     customError = {
       statusCode: StatusCodes.BAD_REQUEST,
