@@ -14,6 +14,11 @@ const authenticateUser = require('./middleware/authentication');
 // database
 const connectDB = require('./database/connect');
 
+// main route
+app.get('/', (req, res) => {
+  res.send('Jobs API');
+});
+
 // routers
 const authRouter = require('./routes/auth');
 const jobsRouter = require('./routes/jobs');
