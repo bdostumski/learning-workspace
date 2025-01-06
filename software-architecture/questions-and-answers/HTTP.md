@@ -1,4 +1,4 @@
-# HTTP (Hipertext Transfer Protocol)
+# HTTP (Hypertext Transfer Protocol)
 
 Hypertext Transfer Protocol (HTTP) is an application-layer protocol for transmitting hypermedia documents.
  
