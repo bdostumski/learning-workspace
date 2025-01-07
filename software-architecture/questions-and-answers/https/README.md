@@ -41,7 +41,7 @@ Hypertext Transfer Protocol (HTTP) is an application-layer protocol for transmit
 
 ## HTTP Headers
 
-**Common HTTP Headers**
+### Common HTTP Headers
 
 1. **Accept** - Informs the server about the media types the client can process 
    - [ Accept: text/html, application/xhtml+xml ]
@@ -54,7 +54,7 @@ Hypertext Transfer Protocol (HTTP) is an application-layer protocol for transmit
 1. **Location** - Used in redirects to indicate the new URL
    - [ Location: https://example.com/new-pag ]
 
-**Caching HTTP Headers**
+### Caching HTTP Headers
 
 1. **Cache-Control** - Specifies caching policies, helping to improve load times and reduce server load
    - [ Cache-Control: no-cache, no-store, must-revalidate ]
@@ -63,7 +63,7 @@ Hypertext Transfer Protocol (HTTP) is an application-layer protocol for transmit
 1. **Expires** - Specifies an expiration date for cached resources 
    - [ Expires: Wed, 21 Oct 2025 07:28:00 GMT ]
 
-**Authentication HTTP Headers:**
+### Authentication HTTP Headers
 
 1. **Notes:**
    - **HTTP** - Always use HTTPS to encrypt the headers and protect sensitive information
@@ -78,7 +78,7 @@ Hypertext Transfer Protocol (HTTP) is an application-layer protocol for transmit
 1. **HMAC (Hash-Based Message Authentication Code)** - Authorization: HMAC username="user", signature="generated-signature"
 1. **Custom Token-Based Authentication** - X-Auth-Token: your-custom-token
 
-**Security Related HTTP Headers:**
+### Security Related HTTP Headers
 
 1. **Content Security Policy (CSP):** Helps prevent XSS attacks by controlling the sources of content that the browser can load.
 1. **Cross-Origin Resource Policy (CORP):** Prevents resources from being loaded cross-origin.
