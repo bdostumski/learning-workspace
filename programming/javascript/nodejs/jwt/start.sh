@@ -5,9 +5,10 @@ current_dir=$(pwd)
 
 app_path="${current_dir}/app.js"
 
-if [ -f "./app.js" ]; then
+if [ -f "${app_path}" ]; then
+    npm install
     echo "Starting node.js application from app.js..."
-    node "${app_path}"
+    nodemon "${app_path}"
 else
     echo "No app.js found in the current directory."
 fi
