@@ -48,8 +48,8 @@ Authentication HTTP Headers:
    - **Token Expiration** - For token-based methods, consider token expiration and refresh mechanisms
    - **Security** - Avoid sending sensitive data like passwords in headers without encryption
 
-1. **Basic Authentication** - Authorization: Basic <base64-encoded-username:password>
-1. **Bearer Token Authentication** - Authorization: Bearer <token>
+1. **Basic Authentication** - Authorization: Basic < base64-encoded-username:password >
+1. **Bearer Token Authentication** - Authorization: Bearer < token >
 1. **API Key Authentication** - Authorization: ApiKey your-api-key
 1. **Digest Authentication** - Authorization: Digest username="user", realm="example.com", nonce="xyz", uri="/", response="abc123"
 1. **HMAC (Hash-Based Message Authentication Code)** - Authorization: HMAC username="user", signature="generated-signature"
