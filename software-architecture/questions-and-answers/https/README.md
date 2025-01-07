@@ -99,7 +99,7 @@ Hypertext Transfer Protocol (HTTP) is an application-layer protocol for transmit
 
 CORS (Cross-Origin Resource Sharing) is a mechanism that allows web servers to specify who can access their resources from different origins (domains).
 
-**CORS HTTP Headers:**
+### CORS HTTP Headers
 
 1. **Access-Control-Allow-Origin:** Specifies which origin(s) are allowed to access the resource. Can be a specific domain or * (to allow all domains).
 1. **Access-Control-Allow-Methods:** Specifies which HTTP methods are allowed when accessing the resource.
