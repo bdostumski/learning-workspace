@@ -43,17 +43,25 @@ Hypertext Transfer Protocol (HTTP) is an application-layer protocol for transmit
 
 **Common HTTP Headers**
 
-1. **Accept** - Informs the server about the media types the client can process [ Accept: text/html, application/xhtml+xml ]
-1. **Accept-Encoding** - Indicates the encoding algorithms (like gzip) the client supports [ Accept-Encoding: gzip, deflate, br ]
-1. **Accept-Language** - Specifies the preferred languages for the response [ Accept-Language: en-US,en;q=0.5 ]
-1. **Content-Type** - Specifies the media type of the resource, crucial for both requests and responses [ Content-Type: application/json ]
-1. **Location** - Used in redirects to indicate the new URL [ Location: https://example.com/new-pag ]
+1. **Accept** - Informs the server about the media types the client can process 
+   - [ Accept: text/html, application/xhtml+xml ]
+1. **Accept-Encoding** - Indicates the encoding algorithms (like gzip) the client supports 
+   - [ Accept-Encoding: gzip, deflate, br ]
+1. **Accept-Language** - Specifies the preferred languages for the response
+   - [ Accept-Language: en-US,en;q=0.5 ]
+1. **Content-Type** - Specifies the media type of the resource, crucial for both requests and responses 
+   - [ Content-Type: application/json ]
+1. **Location** - Used in redirects to indicate the new URL
+   - [ Location: https://example.com/new-pag ]
 
 **Caching HTTP Headers**
 
-1. **Cache-Control** - Specifies caching policies, helping to improve load times and reduce server load [ Cache-Control: no-cache, no-store, must-revalidate ]
-1. **ETag** - Allows the server to identify the version of a resource to enable conditional requests and reduce bandwidth [ ETag: "12345" ]
-1. **Expires** - Specifies an expiration date for cached resources [ Expires: Wed, 21 Oct 2025 07:28:00 GMT ]
+1. **Cache-Control** - Specifies caching policies, helping to improve load times and reduce server load
+   - [ Cache-Control: no-cache, no-store, must-revalidate ]
+1. **ETag** - Allows the server to identify the version of a resource to enable conditional requests and reduce bandwidth 
+   - [ ETag: "12345" ]
+1. **Expires** - Specifies an expiration date for cached resources 
+   - [ Expires: Wed, 21 Oct 2025 07:28:00 GMT ]
 
 **Authentication HTTP Headers:**
 
