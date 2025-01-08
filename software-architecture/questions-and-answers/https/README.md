@@ -65,35 +65,56 @@ Hypertext Transfer Protocol (HTTP) is an application-layer protocol for transmit
 
 ### Authentication HTTP Headers
 
-1. **Notes:**
-   - **HTTP** - Always use HTTPS to encrypt the headers and protect sensitive information
-   - **Token Expiration** - For token-based methods, consider token expiration and refresh mechanisms
-   - **Security** - Avoid sending sensitive data like passwords in headers without encryption
+1. **Basic Authentication** - Basic Authentication encodes the username and password in Base64 and sends it in the header. It’s simple but insecure if not used over HTTPS
+   - [ Authorization: Basic < base64-encoded-username:password > ]
+1. **Bearer Token Authentication** - Bearer Token Authentication involves sending a token that authorizes the client to access resources. This is commonly used in OAuth 2.0.
+   - [ Authorization: Bearer < token > ] 
+1. **API Key Authentication** - API Key Authentication uses a key passed in the request header to authenticate the request.
+   - [ Authorization: ApiKey your-api-key ] 
+1. **Digest Authentication** - Digest Authentication is more secure than Basic Authentication. It involves a server-specified data set that is hashed and sent along with the username.
+   - [ Authorization: Digest username="user", realm="example.com", nonce="xyz", uri="/", response="abc123" ] 
+1. **HMAC (Hash-Based Message Authentication Code)** - HMAC involves hashing the request data and secret key together to generate a signature.
+   - [ Authorization: HMAC username="user", signature="generated-signature" ] 
+1. **Custom Token-Based Authentication** - A custom token-based approach can use a custom header field to pass the token.
+   - [ X-Auth-Token: your-custom-token ] 
 
+**Notes:**
 
-1. **Basic Authentication** - Authorization: Basic < base64-encoded-username:password >
-1. **Bearer Token Authentication** - Authorization: Bearer < token >
-1. **API Key Authentication** - Authorization: ApiKey your-api-key
-1. **Digest Authentication** - Authorization: Digest username="user", realm="example.com", nonce="xyz", uri="/", response="abc123"
-1. **HMAC (Hash-Based Message Authentication Code)** - Authorization: HMAC username="user", signature="generated-signature"
-1. **Custom Token-Based Authentication** - X-Auth-Token: your-custom-token
+- **HTTP** - Always use HTTPS to encrypt the headers and protect sensitive information
+- **Security** - Avoid sending sensitive data like passwords in headers without encryption
+- **Token Expiration** - For token-based methods, consider token expiration and refresh mechanisms
+   
 
 ### Security Related HTTP Headers
 
-1. **Content Security Policy (CSP):** Helps prevent XSS attacks by controlling the sources of content that the browser can load.
-1. **Cross-Origin Resource Policy (CORP):** Prevents resources from being loaded cross-origin.
-1. **Cross-Origin Opener Policy (COOP):** Helps isolate the browsing context to prevent certain attacks.
-1. **Cross-Origin Embedder Policy (COEP):** Ensures that a document only loads cross-origin resources that explicitly grant permission.
-1. **DNS Prefetch Control:** Controls DNS prefetching to prevent information leaks.
-1. **Expect-CT:** Helps detect and prevent misissued **SSL/TLS** certificates.
+1. **Content Security Policy (CSP):** - CSP helps prevent XSS attacks by controlling the sources from which the browser is allowed to load resources.
+   - [ Content-Security-Policy: default-src 'self'; img-src 'self' https://example.com; script-src 'none'; ] 
+1. **Cross-Origin Resource Policy (CORP):** - CORP prevents a resource from being loaded by a document from a different origin unless explicitly allowed.
+   - [ Cross-Origin-Resource-Policy: same-origin ] 
+1. **Cross-Origin Opener Policy (COOP):** - COOP isolates the browsing context, mitigating the risk of cross-origin attacks.
+   - [ Cross-Origin-Opener-Policy: same-origin ] 
+1. **Cross-Origin Embedder Policy (COEP):** - COEP ensures that the document only loads cross-origin resources that grant permission.
+   - [ Cross-Origin-Embedder-Policy: require-corp ] 
+1. **DNS Prefetch Control:** - Controls whether the browser prefetches DNS for links to reduce latency.
+   - [ X-DNS-Prefetch-Control: off ] 
+1. **Expect-CT:** - Helps detect and prevent misissued **SSL/TLS** certificates.
+   - [ DNS-Prefetch-Control: off ] 
 1. **Feature Policy:** Allows control over which features and APIs can be used in the browser.
+   - [ Feature-Policy: geolocation 'self'; microphone 'none' ] 
 1. **Frameguard:** Prevents clickjacking attacks by controlling whether the browser can render your site in a frame.
+   - [ X-Frame-Options: DENY ] 
 1. **Hide Powered-By:** Removes the X-Powered-By header to make it less obvious what technology the app is using.
+   - [ X-Powered-By: ]
 1. **HSTS (HTTP Strict Transport Security):** Forces the use of HTTPS to prevent man-in-the-middle attacks.
+   - [ Strict-Transport-Security: max-age=31536000; includeSubDomains ] 
 1. **IE No Open:** Sets X-Download-Options to prevent Internet Explorer from executing downloads in the site's context.
+   - [ X-Download-Options: noopen ]
 1. **No Sniff:** Helps prevent browsers from sniffing MIME types.
+   - [ X-Content-Type-Options: nosniff ]
 1. **Referrer Policy:** Controls the information sent in the Referer header.
+   - [ Referrer-Policy: no-referrer ]
 1. **XSS Filter:**  Enables the Cross-site scripting (XSS) filter built into most browsers.
+   - [ X-XSS-Protection: 1; mode=block ] 
 
 # CORS (Cross Origin Resource Sharing) 
 
@@ -102,8 +123,14 @@ CORS (Cross-Origin Resource Sharing) is a mechanism that allows web servers to s
 ### CORS HTTP Headers
 
 1. **Access-Control-Allow-Origin:** Specifies which origin(s) are allowed to access the resource. Can be a specific domain or * (to allow all domains).
+   - [ Access-Control-Allow-Origin: https://example.com ]
+   - [ Access-Control-Allow-Origin: * ]
 1. **Access-Control-Allow-Methods:** Specifies which HTTP methods are allowed when accessing the resource.
+   - [ Access-Control-Allow-Methods: GET, POST, PUT, DELETE ]
 1. **Access-Control-Allow-Headers:** Lists the headers that are allowed to be used when making the request.
+   - [ Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With ]
 1. **Access-Control-Allow-Credentials:** Indicates whether credentials (like cookies) are allowed in the request.
+   - [ Access-Control-Allow-Credentials: true ]
 1. **Access-Control-Max-Age:** Specifies how long the results of a preflight request can be cached.
+   - [ Access-Control-Max-Age: 86400 ]
 
