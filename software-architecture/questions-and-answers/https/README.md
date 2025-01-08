@@ -116,11 +116,9 @@ Hypertext Transfer Protocol (HTTP) is an application-layer protocol for transmit
 1. **XSS Filter:**  Enables the Cross-site scripting (XSS) filter built into most browsers.
    - [ X-XSS-Protection: 1; mode=block ] 
 
-# CORS (Cross Origin Resource Sharing) 
+### CORS (Cross Origin Resource Sharing) HTTP Headers
 
-CORS (Cross-Origin Resource Sharing) is a mechanism that allows web servers to specify who can access their resources from different origins (domains).
-
-### CORS HTTP Headers
+**Notes:** CORS is a mechanism that allows web servers to specify who can access their resources from different origins (domains).
 
 1. **Access-Control-Allow-Origin:** Specifies which origin(s) are allowed to access the resource. Can be a specific domain or * (to allow all domains).
    - [ Access-Control-Allow-Origin: https://example.com ]
@@ -133,4 +131,5 @@ CORS (Cross-Origin Resource Sharing) is a mechanism that allows web servers to s
    - [ Access-Control-Allow-Credentials: true ]
 1. **Access-Control-Max-Age:** Specifies how long the results of a preflight request can be cached.
    - [ Access-Control-Max-Age: 86400 ]
+
 
