@@ -1,0 +1,317 @@
+openapi: 3.0.3
+info:
+  title: Jobs - API
+  description: |-
+    Jobs - API Swagger Documentation
+  contact:
+    email: b.dostumski@gmail.com
+  version: 1.0.0
+servers:
+  - url: http://localhost:5000/api/v1
+security:
+  - bearerAuth: []
+tags:
+  - name: Authorization
+    description: Register and Login users
+  - name: Jobs
+    description: Jobs CRUD operations
+paths:
+  /auth/register:
+    post:
+      tags:
+        - Authorization
+      summary: Register User
+      description: Create New User
+      operationId: registerUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      security: []
+
+  /auth/login:
+    post:
+      tags:
+        - Authorization
+      summary: User Login
+      description: User Login required email and password
+      operationId: userLogin
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthUser'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+
+  /jobs:
+    post:
+      tags:
+        - Jobs
+      summary: Create Job
+      description: Create new job
+      operationId: createJob
+      requestBody:
+        description: Create Job
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatedJob'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreatedJob'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+    get:
+      tags:
+        - Jobs
+      summary: Get All Jobs
+      description: Get all member jobs
+      operationId: getAllJobs
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Job'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+  /jobs/{jobId}:
+    get:
+      tags:
+        - Jobs
+      summary: Get Job By Identity
+      description: Get job information by job identity
+      operationId: getJobs
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+    patch:
+      tags:
+        - Jobs
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+      summary: Update Job
+      description: Update job by identity and request body
+      operationId: updateJob
+      requestBody:
+        description: Update Job
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateJob'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdatedJob'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+    delete:
+      tags:
+        - Jobs
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+      summary: Delete Job
+      description: Delete job by identity
+      operationId: deleteJob
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        name:
+          type: string
+          example: John
+        email:
+          type: string
+          example: john@gmail.com
+        password:
+          type: string
+          example: 'password'
+    AuthUser:
+      type: object
+      properties:
+        name:
+          type: string
+          example: John
+        token:
+          type: string
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Nzc5OTkyOWNlOGI1OGNkODQ5ODFkY2UiLCJuYW1lIjoiam9obiIsImlhdCI6MTczNjM2ODkyMCwiZXhwIjoxNzM4OTYwOTIwfQ.Nv-coNaNbimSp1HTXh3xPGTvnZttShW81mKdwWvqXVo
+    Job:
+      type: object
+      properties:
+        status:
+          type: string
+          example: pending
+        company:
+          type: string
+          example: google
+        position:
+          type: string
+          example: intern
+        createdBy:
+          type: string
+          example: 6779940d666cc6fac0fc705b
+        createdAt:
+          type: string
+          example: 2025-01-08T20:54:43.832Z
+        updatedAt:
+          type: string
+          example: 2025-01-08T20:54:43.832Z
+    CreateJob:
+      type: object
+      properties:
+        company:
+          type: string
+          example: google
+        position:
+          type: string
+          example: intern
+    CreatedJob:
+      type: object
+      properties:
+        status:
+          type: string
+          example: pending
+        company:
+          type: string
+          example: google
+        position:
+          type: string
+          example: intern
+        createdBy:
+          type: string
+          example: 6779940d666cc6fac0fc705b
+        createdAt:
+          type: string
+          example: 2025-01-08T20:54:43.832Z
+        updatedAt:
+          type: string
+          example: 2025-01-08T20:54:43.832Z
+    UpdateJob:
+      type: object
+      properties:
+        company:
+          type: string
+          example: facebook
+        position:
+          type: string
+          example: full stack developer
+    UpdatedJob:
+      type: object
+      properties:
+        status:
+          type: string
+          example: pending
+        company:
+          type: string
+          example: facebook
+        position:
+          type: string
+          example: full stack developer
+        createdBy:
+          type: string
+          example: 6779940d666cc6fac0fc705b
+        createdAt:
+          type: string
+          example: 2025-01-08T20:54:43.832Z
+        updatedAt:
+          type: string
+          example: 2025-01-08T21:06:18.832Z
+              
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

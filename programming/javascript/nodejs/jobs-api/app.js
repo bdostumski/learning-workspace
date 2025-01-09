@@ -9,14 +9,22 @@ const rateLimit = require('express-rate-limit');
 
 const express = require('express');
 const app = express();
-const authenticateUser = require('./middleware/authentication');
+const authUser = require('./middleware/authentication');
 
 // database
 const connectDB = require('./database/connect');
 
+// swagger
+const swaggerUi = require('swagger-ui-express');
+const YAML = require('yamljs');
+const swaggerDocument = YAML.load('./swagger.yaml');
+
+// swagger route
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 // main route
 app.get('/', (req, res) => {
-  res.send('Jobs API');
+  res.send('<h1>Jobs API</h1><a href="/api-docs">Documentation</a');
 });
 
 // routers
@@ -40,7 +48,7 @@ app.use(rateLimit({
 
 // routes
 app.use('/api/v1/auth', authRouter);
-app.use('/api/v1/jobs', authenticateUser, jobsRouter);
+app.use('/api/v1/jobs', authUser, jobsRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);

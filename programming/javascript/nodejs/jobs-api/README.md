@@ -1,5 +1,9 @@
 # Jobs API
 
+## Swagger
+
+URL: http://localhost:5000/api-docs/
+
 ## Environment Variables Notes:
 
 JWT_SECRET is using Encryption key 256
