@@ -53,6 +53,12 @@ paths:
       summary: User Login
       description: User Login required email and password
       operationId: userLogin
+      requestBody:
+        description: Create Job
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthUser'
       responses:
         '200':
           description: OK
@@ -222,12 +228,12 @@ components:
     AuthUser:
       type: object
       properties:
-        name:
+        email:
           type: string
-          example: John
-        token:
+          example: john@gmail.com
+        password:
           type: string
-          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Nzc5OTkyOWNlOGI1OGNkODQ5ODFkY2UiLCJuYW1lIjoiam9obiIsImlhdCI6MTczNjM2ODkyMCwiZXhwIjoxNzM4OTYwOTIwfQ.Nv-coNaNbimSp1HTXh3xPGTvnZttShW81mKdwWvqXVo
+          example: password
     Job:
       type: object
       properties:
