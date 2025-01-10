@@ -16,7 +16,7 @@ const login = async (req, res) => {
 
   const user = await User.findOne({ email });
   if (!user)
-    throw UnauthenticatedError('Invalid credentials');
+    throw new UnauthenticatedError('Invalid credentials');
   const token = user.createJWT();
   res.status(StatusCodes.OK).json({ user: { name: user.name }, token })
 }
