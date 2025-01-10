@@ -39,12 +39,15 @@ const UserSchema = new mongoose.Schema({
   },
 })
 
-UserSchema.pre('save', async function () {
+UserSchema.pre('save', async function() {
+  if (!this.isModified('password'))
+    return;
+
   const salt = await bcrypt.genSalt(10)
   this.password = await bcrypt.hash(this.password, salt)
 })
 
-UserSchema.methods.createJWT = function () {
+UserSchema.methods.createJWT = function() {
   return jwt.sign(
     { userId: this._id, name: this.name },
     process.env.JWT_SECRET,
@@ -54,7 +57,7 @@ UserSchema.methods.createJWT = function () {
   )
 }
 
-UserSchema.methods.comparePassword = async function (canditatePassword) {
+UserSchema.methods.comparePassword = async function(canditatePassword) {
   const isMatch = await bcrypt.compare(canditatePassword, this.password)
   return isMatch
 }
