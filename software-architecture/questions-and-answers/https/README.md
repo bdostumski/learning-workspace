@@ -2,7 +2,7 @@
 
 Hypertext Transfer Protocol (HTTP) is an application-layer protocol for transmitting hypermedia documents.
 
-<a href="https://developer.mozilla.org/en-US/">Mozilla MDN Documentation</a>
+<a href="https://developer.mozilla.org/en-US/" target="_blank">Mozilla MDN Documentation</a>
 
 ## HTTP Methods 
 
