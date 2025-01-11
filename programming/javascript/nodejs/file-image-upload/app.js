@@ -5,7 +5,7 @@ const express = require('express');
 const app = express();
 
 // database
-const connectDB = require('./db/connect');
+const connectDB = require('./database/connect');
 
 // error handler
 const notFoundMiddleware = require('./middleware/not-found');
@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
-const port = process.env.PORT || 3000;
+const port = process.env.APP_PORT || 3000;
 
 const start = async () => {
   try {
