@@ -21,20 +21,30 @@ const getAllJobs = async (req, res) => {
   let result = Job.find(queryObject);
 
   if (sort === 'latest')
-    result = result.sort('-createdAt');
+    result = result.sort('-createdAt')
 
   if (sort === 'oldest')
-    result = result.sort('createdAt');
+    result = result.sort('createdAt')
 
   if (sort === 'a-z')
-    result = result.sort('position');
+    result = result.sort('position')
 
   if (sort === 'z-a')
-    result = result.sort('-position');
+    result = result.sort('-position')
 
+  const page = Number(req.query.page) || 1
+  const limit = Number(req.query.limit) || 10
+  const skipt = (page - 1) * limit
+
+  result = result.skip(skipt).limit(limit);
   const jobs = await result;
-  res.status(StatusCodes.OK).json({ jobs })
+
+  const totalJobs = await Job.countDocuments(queryObject);
+  const numOfPages = Math.ceil(totalJobs / limit);
+
+  res.status(StatusCodes.OK).json({ jobs, totalJobs, numOfPages })
 }
+
 const getJob = async (req, res) => {
   const {
     user: { userId },
