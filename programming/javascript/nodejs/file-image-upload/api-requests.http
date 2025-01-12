@@ -7,8 +7,6 @@
 # Global Environment Variables
 :base_url=http://localhost:5000/api/v1/products
 #
-# # # # # # # # # #
-#
 #
 # === GET ====
 # All Products (Filter With Query Parameters)
@@ -29,7 +27,7 @@ Accept-Encoding: gzip, deflate, br
 Connection: keep-alive
 {
     "name": "Produc Name",
-    "price": 300,
+    "price": 600,
     "image": "/uploads/computer-1.jpeg"
 }
 #
