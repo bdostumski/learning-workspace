@@ -9,7 +9,7 @@
 #
 # === GET ====
 # All Products (Filter With Query Parameters)
-GET :base_url/all
+GET :base_url/
 Accept: application/json
 Accept-Encoding: gzip, deflate, br
 Connection: keep-alive

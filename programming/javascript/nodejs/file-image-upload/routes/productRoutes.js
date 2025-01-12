@@ -4,7 +4,7 @@ const router = express.Router();
 const { createProduct, getAllProducts } = require('../controllers/productController');
 const { uploadProductImage } = require('../controllers/uploadsController');
 
-router.post('/', createProduct).get('/all', getAllProducts);
+router.post('/', createProduct).get('/', getAllProducts);
 router.post('/uploads', uploadProductImage);
 
 module.exports = router;
