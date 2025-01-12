@@ -7,7 +7,6 @@
 # Global Environment Variables
 :base_url=http://localhost:5000/api/v1/products
 #
-#
 # === GET ====
 # All Products (Filter With Query Parameters)
 GET :base_url/all
