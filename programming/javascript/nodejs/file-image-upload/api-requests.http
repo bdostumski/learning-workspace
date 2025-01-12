@@ -28,17 +28,14 @@ Accept: application/json
 Accept-Encoding: gzip, deflate, br
 Connection: keep-alive
 {
-
+    "name": "Produc Name",
+    "price": 300,
+    "image": "/uploads/computer-1.jpeg"
 }
 #
 # --- UPLOAD IMAGE ---
-POST :base_url/uploads
-Content-Type: application/json
-Accept: application/json
-Accept-Encoding: gzip, deflate, br
-Connection: keep-alive
-{
-
-}
 #
+### CURL
+curl --location 'http://localhost:5000/api/v1/products/uploads' \
+--form 'image=@"/home/dostumski/workspace/learning-workspace/programming/javascript/nodejs/file-image-upload/images/computer-1.jpeg"'
 # # # # # # # # # #
