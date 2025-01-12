@@ -5,13 +5,14 @@
 # Doom Emacs Rest Client Configuration File
 #
 # Global Environment Variables
-:base_url=http://localhost:5000/api/v1/
+:base_url=http://localhost:5000/api/v1/products
 #
 # # # # # # # # # #
 #
+#
 # === GET ====
 # All Products (Filter With Query Parameters)
-GET :base_url/
+GET :base_url/all
 Accept: application/json
 Accept-Encoding: gzip, deflate, br
 Connection: keep-alive
@@ -21,10 +22,23 @@ Connection: keep-alive
 # === POST REQUEST MESSAGES ====
 #
 # --- CREATE PRODUCT ---
-POST :base_url/products
+POST :base_url/
 Content-Type: application/json
 Accept: application/json
 Accept-Encoding: gzip, deflate, br
 Connection: keep-alive
+{
+
+}
+#
+# --- UPLOAD IMAGE ---
+POST :base_url/uploads
+Content-Type: application/json
+Accept: application/json
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+{
+
+}
 #
 # # # # # # # # # #
