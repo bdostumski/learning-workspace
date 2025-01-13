@@ -47,7 +47,7 @@ Hypertext Transfer Protocol (HTTP) is an application-layer protocol for transmit
 
 1. **Accept** - Informs the server about the media types the client can process 
    - [ Accept: text/html, application/xhtml+xml ]
-1. **Accept-Encoding** - Indicates the encoding algorithms (like gzip) the client supports 
+1. **Accept-Encoding** - Indicates the encoding algorithms (like gzip) the client supports (it reduces the size of the payload to 70% and can speed up the application by around 15% - it is very important when we have a large amount of data)
    - [ Accept-Encoding: gzip, deflate, br ]
 1. **Accept-Language** - Specifies the preferred languages for the response
    - [ Accept-Language: en-US,en;q=0.5 ]
