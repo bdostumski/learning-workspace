@@ -1,4 +1,4 @@
-# Node JS Notes
+# Node JS and Express JS Notes
 
 ## GLOBALS
 - __dirname - path to current directory
