@@ -5,7 +5,7 @@ current_dir=$(pwd)
 #
 # Install dependencies if package.json is present in the current directory
 dependencies_path="${current_dir}/package.json"
-if [ -f "${dependencies_path}"]; then
+if [ -f "${dependencies_path}" ]; then
     echo "Install dependencies..."
     npm install -y
 else
