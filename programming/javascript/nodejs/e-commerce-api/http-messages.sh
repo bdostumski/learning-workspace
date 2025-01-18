@@ -7,11 +7,11 @@ while true; do
 
     echo -e "\n"
     echo "= = = = = = = = = ="
-    echo "Choose a category:"
+    echo "Demo E-commerce API"
     echo -e "\n"
     echo "1. Authentication"
     echo "2. Not implemented yet"
-    echo "x. Exit from programm"
+    echo "x. Exit"
     echo -e "\n"
     read -rp "Enter your choice: " category_choice
 
@@ -25,12 +25,12 @@ while true; do
             while true; do
                 echo -e "\n"
                 echo "= = = = = = = = = ="
-                echo "Choose an option:"
+                echo "User Authentication"
                 echo -e "\n"
                 echo "1. Register"
                 echo "2. Login"
                 echo "3. Logout"
-                echo "x. Back to main menu"
+                echo "x. Back"
                 echo -e "\n"
                 read -rp "Enter your choice: " auth_choice
 
@@ -42,36 +42,33 @@ while true; do
                     1)
                         echo -e "\n"
                         echo "= = = = = = = = = ="
-                        echo "Executing Logout ..."
+                        echo "Register User API"
                         echo -e "\n"
-                        curl --location 'http://localhost:5000/api/v1/auth/logout'
+                        curl --location --request POST 'http://localhost:5000/api/v1/auth/register'
                         echo -e "\n"
                         read -rp "Press enter to continue ..."
                         ;;
                     2)
                         echo -e "\n"
                         echo "= = = = = = = = = ="
+                        echo "Login User API"
                         echo -e "\n"
-                        echo "Executing Register ..."
-                        echo -e "\n"
-                        curl --location --request POST 'http://localhost:5000/api/v1/auth/register'
+                        curl --location --request POST 'http://localhost:5000/api/v1/auth/login'
                         echo -e "\n"
                         read -rp "Press enter to continue ..."
                         ;;
                     3)
                         echo -e "\n"
                         echo "= = = = = = = = = ="
+                        echo "Logout User API"
                         echo -e "\n"
-                        echo "Execuring Login ..."
-                        echo -e "\n"
-                        curl --location --request POST 'http://localhost:5000/api/v1/auth/login'
+                        curl --location 'http://localhost:5000/api/v1/auth/logout'
                         echo -e "\n"
                         read -rp "Press enter to continue ..."
                         ;;
                     *)
                         echo -e "\n"
                         echo "= = = = = = = = = ="
-                        echo -e "\n"
                         echo "Invalid choice"
                         echo -e "\n"
                         read -rp "Press enter to continue ..."
