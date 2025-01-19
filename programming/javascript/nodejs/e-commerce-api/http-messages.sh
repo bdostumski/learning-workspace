@@ -44,7 +44,13 @@ while true; do
                         echo "= = = = = = = = = ="
                         echo "Register User API"
                         echo -e "\n"
-                        curl --location --request POST 'http://localhost:5000/api/v1/auth/register'
+                        curl --location 'http://localhost:5000/api/v1/auth/register' \
+                            --header 'Content-Type: application/json' \
+                            --data-raw '{
+                                "name": "David",
+                                "email": "david@gmail.com",
+                                "password": "password"
+                            }'
                         echo -e "\n"
                         read -rp "Press enter to continue ..."
                         ;;
