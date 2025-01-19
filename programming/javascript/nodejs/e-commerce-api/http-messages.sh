@@ -49,7 +49,7 @@ while true; do
                             --data-raw '{
                                 "name": "David",
                                 "email": "david@gmail.com",
-                                "password": "password"
+                                "password": "password",
                             }'
                         echo -e "\n"
                         read -rp "Press enter to continue ..."
