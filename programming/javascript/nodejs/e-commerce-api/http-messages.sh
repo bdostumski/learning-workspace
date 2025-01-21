@@ -40,6 +40,7 @@ while true; do
 
                 case $auth_choice in
                     1)
+                        headers_file=$(mktemp)
                         echo -e "\n"
                         echo "= = = = = = = = = ="
                         echo "Register User API"
@@ -48,14 +49,26 @@ while true; do
                         read -rp "Email: " email
                         read -rp "Password: " password
                         echo -e "\n"
-                        curl --location 'http://localhost:5000/api/v1/auth/register' \
+                        response=$(curl --silent --location --write-out "%{http_code}" \
+                            --output response_body.txt \
                             --header 'Content-Type: application/json' \
+                            --dump-header "$headers_file" \
                             --data-raw "{
                                     \"name\": \"$username\",
                                     \"email\": \"$email\",
                                     \"password\": \"$password\"
-                                    }"
+                                    }" \
+                            "http://localhost:5000/api/v1/auth/register")
                         echo -e "\n"
+                        echo "Response body:"
+                        cat response_body.txt
+                        echo -e "\n"
+                        echo "HTTP Status Code: $response"
+                        echo -e "\n"
+                        echo "Cookies:"
+                        grep -i '^set-cookie:' "$headers_file"
+                        echo -e "\n"
+                        rm "$headers_file" response_body.txt
                         read -rp "Press enter to continue ..."
                         ;;
                     2)
