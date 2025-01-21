@@ -36,6 +36,6 @@ post_register_user() {
     printf "\n"
     rm "$headers_file" response_body.txt
     printf "\nPress enter to continue ..."
-    read -r exit
-    export response, exit
+    read -r continue
+    export response
 }
