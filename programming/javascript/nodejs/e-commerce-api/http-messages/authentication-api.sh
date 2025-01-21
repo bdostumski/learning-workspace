@@ -2,8 +2,11 @@
 #
 # Authentication Request Messages
 #
-post_register_user() {
 
+. ../.env
+MAIN_PATH="$API_VERSION/auth"
+
+post_register_user() {
     headers_file=$(mktemp)
     printf "\n"
     printf "= = = = = = = = = ="
@@ -24,7 +27,7 @@ post_register_user() {
             \"email\": \"$email\",
             \"password\": \"$password\"
             }" \
-        "http://localhost:5000/api/v1/auth/register")
+        "$APP_URL:$APP_PORT/$MAIN_PATH/register")
     printf "\n"
     printf "Response body:"
     cat response_body.txt
