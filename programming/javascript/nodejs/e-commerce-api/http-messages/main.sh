@@ -3,18 +3,11 @@
 # CURL HTTP REQUEST MESSAGES FOR API DEMO AND TESTING
 #
 
+source ./display_menu.sh
+
 while true; do
 
-    echo -e "\n"
-    echo "= = = = = = = = = ="
-    echo "Demo E-commerce API"
-    echo -e "\n"
-    echo "1. Authentication"
-    echo "2. Not implemented yet"
-    echo "x. Exit"
-    echo -e "\n"
-    read -rp "Enter your choice: " category_choice
-
+    display_category_choice_menu
     if [ "$category_choice" = "x" ]; then
         echo "Exiting ..."
         break
@@ -23,17 +16,8 @@ while true; do
     case $category_choice in
         1)
             while true; do
-                echo -e "\n"
-                echo "= = = = = = = = = ="
-                echo "User Authentication"
-                echo -e "\n"
-                echo "1. Register"
-                echo "2. Login"
-                echo "3. Logout"
-                echo "x. Back"
-                echo -e "\n"
-                read -rp "Enter your choice: " auth_choice
 
+                display_authentication_choice_menu
                 if [ "$auth_choice" = "x" ]; then
                     break
                 fi
