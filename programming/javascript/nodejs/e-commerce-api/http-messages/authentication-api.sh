@@ -19,7 +19,10 @@ post_register_user() {
     printf "Password: "
     read -r password
     printf "\n"
-    response=$(curl --silent --location --write-out "%{http_code}" --output response_body.txt \
+    response=$(curl \
+        --silent \
+        --location \
+        --write-out "%{http_code}" --output response_body.txt \
         --header 'Content-Type: application/json' \
         --dump-header "$headers_file" \
         --data-raw "{
