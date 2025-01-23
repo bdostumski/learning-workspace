@@ -33,11 +33,16 @@ const login = async (req, res) => {
 
   const tokenUser = { name: user.name, userId: user._id, role: user.role };
   attachCookiesToResponse({ res, user: tokenUser });
-  return res.status(StatusCodes.CREATED).json({ user });
+  return res.status(StatusCodes.OK).json({ user: tokenUser });
 }
 
 const logout = async (req, res) => {
-  res.send('logout');
+  res.cookie('token', 'logout', {
+    httpOnly: true,
+    expires: new Date(Date.now())
+  });
+
+  return res.status(StatusCodes.OK).json({ msg: 'User logged out!' });
 }
 
 module.exports = {
