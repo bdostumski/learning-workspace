@@ -9,6 +9,7 @@ const port = process.env.APP_PORT || 3000;
 
 // other packages
 const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
 
 // database
 const connectDB = require('./database/connect');
@@ -22,13 +23,20 @@ const errorHandlerMiddleware = require('./middleware/error-handler');
 
 app.use(morgan('tiny'));
 app.use(express.json());
+app.use(cookieParser());
 
 // route
 app.get('/', (req, res) => {
   res.send('e-commerce api');
 });
 
+
+app.get('/api/v1', (req, res) => {
+  res.send('e-commerce api v1');
+});
+
 app.use('/api/v1/auth', authRouter);
+
 
 // error handling
 app.use(notFoundMiddleware);

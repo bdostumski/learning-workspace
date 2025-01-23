@@ -13,7 +13,7 @@ post_register_user() {
     printf "\nRegister User API"
     printf "\n"
     printf "Username: "
-    read -r  username
+    read -r username
     printf "Email: "
     read -r email
     printf "Password: "
@@ -31,13 +31,17 @@ post_register_user() {
             \"password\": \"$password\"
             }" \
         "$APP_URL:$APP_PORT/$MAIN_PATH/register")
-    printf "\n"
-    printf "Response body:"
-    cat response_body.txt
+    printf "\n\n"
+    printf "= = = = = = = = = ="
     printf "\n"
     printf 'HTTP Status Code: %s', "$response"
+    printf "\n\n"
+    printf "Response body:"
     printf "\n"
+    cat response_body.txt
+    printf "\n\n"
     printf "Cookies:"
+    printf "\n"
     grep -i '^set-cookie:' "$headers_file"
     printf "\n"
     rm "$headers_file" response_body.txt
