@@ -15,51 +15,39 @@ while true; do
     fi
 
     case $category_choice in
-        1)
-            while true; do
+    1)
+        while true; do
 
-                display_authentication_choice_menu
-                if [ "$auth_choice" = "x" ]; then
-                    break
-                fi
+            display_authentication_choice_menu
+            if [ "$auth_choice" = "x" ]; then
+                break
+            fi
 
-                case $auth_choice in
-                    1)
-                        post_register_user
-                        ;;
-                    2)
-                        echo -e "\n"
-                        echo "= = = = = = = = = ="
-                        echo "Login User API"
-                        echo -e "\n"
-                        curl --location --request POST 'http://localhost:5000/api/v1/auth/login'
-                        echo -e "\n"
-                        read -rp "Press enter to continue ..."
-                        ;;
-                    3)
-                        echo -e "\n"
-                        echo "= = = = = = = = = ="
-                        echo "Logout User API"
-                        echo -e "\n"
-                        curl --location 'http://localhost:5000/api/v1/auth/logout'
-                        echo -e "\n"
-                        read -rp "Press enter to continue ..."
-                        ;;
-                    *)
-                        echo -e "\n"
-                        echo "= = = = = = = = = ="
-                        echo "Invalid choice"
-                        echo -e "\n"
-                        read -rp "Press enter to continue ..."
-                        ;;
-                esac
-            done
-            ;;
-        2)
-            echo -e "\nNot implemented yet."
-            ;;
-        *)
-            echo -e "\nInvalid category choice"
-            ;;
+            case $auth_choice in
+            1)
+                post_register_user
+                ;;
+            2)
+                post_login_user
+                ;;
+            3)
+                post_logout_user
+                ;;
+            *)
+                echo -e "\n"
+                echo "= = = = = = = = = ="
+                echo "Invalid choice"
+                echo -e "\n"
+                read -rp "Press enter to continue ..."
+                ;;
+            esac
+        done
+        ;;
+    2)
+        echo -e "\nNot implemented yet."
+        ;;
+    *)
+        echo -e "\nInvalid category choice"
+        ;;
     esac
 done
