@@ -24,18 +24,19 @@ const errorHandlerMiddleware = require('./middleware/error-handler');
 app.use(morgan('tiny'));
 app.use(express.json());
 app.use(cookieParser(process.env.JWT_SECRET));
+app.use(express.static('./public'));
 
 // route
 app.get('/', (req, res) => {
   res.send('e-commerce api');
 });
 
+// testing cookies
 app.get('/api/v1', (req, res) => {
-  res.send('e-commerce api v1');
+  res.send(req.signedCookies);
 });
 
 app.use('/api/v1/auth', authRouter);
-
 
 // error handling
 app.use(notFoundMiddleware);

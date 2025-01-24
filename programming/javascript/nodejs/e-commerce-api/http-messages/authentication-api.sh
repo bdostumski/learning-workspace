@@ -121,6 +121,3 @@ post_logout_user() {
     read -r continue
     export response
 }
-
-# next curl example
-# logout just send request
