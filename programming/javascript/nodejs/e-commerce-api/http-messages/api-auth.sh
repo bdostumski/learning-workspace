@@ -126,4 +126,3 @@ post_logout_user() {
 
     handle_response "$response" "$headers_file" response_body.json
 }
-json
