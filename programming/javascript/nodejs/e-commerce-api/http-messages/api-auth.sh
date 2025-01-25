@@ -18,7 +18,13 @@ handle_response() {
     printf "\n\n"
     printf "Response body:"
     printf "\n"
-    cat "$body_file"
+
+    if command -v jq &>/dev/null; then
+        jq . "$body_file"
+    else
+        cat "$body_file"
+    fi
+
     printf "\n\n"
     printf "Cookies:"
     printf "\n"
@@ -50,7 +56,7 @@ post_register_user() {
             --silent \
             --request POST \
             --location "$APP_URL:$APP_PORT/$MAIN_PATH/register" \
-            --write-out "%{http_code}" --output response_body.txt \
+            --write-out "%{http_code}" --output response_body.json \
             --header 'Content-Type: application/json' \
             --header 'Accept: application/json' \
             --dump-header "$headers_file" \
@@ -62,7 +68,7 @@ post_register_user() {
 
     )
 
-    handle_response "$response" "$headers_file" response_body.txt
+    handle_response "$response" "$headers_file" response_body.json
 }
 
 post_login_user() {
@@ -85,7 +91,7 @@ post_login_user() {
             --silent \
             --request POST \
             --location "$APP_URL:$APP_PORT/$MAIN_PATH/login" \
-            --write-out "%{http_code}" --output response_body.txt \
+            --write-out "%{http_code}" --output response_body.json \
             --header 'Content-Type: application/json' \
             --header 'Accept: application/json' \
             --header "Cookie: token=\"$cookie_token\"" \
@@ -96,7 +102,7 @@ post_login_user() {
             }"
     )
 
-    handle_response "$response" "$headers_file" response_body.txt
+    handle_response "$response" "$headers_file" response_body.json
 }
 
 post_logout_user() {
@@ -112,11 +118,12 @@ post_logout_user() {
             --silent \
             --request POST \
             --location "$APP_URL:$APP_PORT/$MAIN_PATH/logout" \
-            --write-out "%{http_code}" --output response_body.txt \
+            --write-out "%{http_code}" --output response_body.json \
             --header 'Content-Type: application/json' \
             --header 'Accept: application/json' \
             --dump-header "$headers_file"
     )
 
-    handle_response "$response" "$headers_file" response_body.txt
+    handle_response "$response" "$headers_file" response_body.json
 }
+json

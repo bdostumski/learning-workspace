@@ -18,7 +18,13 @@ handle_response() {
     printf "\n\n"
     printf "Response body:"
     printf "\n"
-    cat "$body_file"
+
+    if command -v jq &>/dev/null; then
+        jq . "$body_file"
+    else
+        cat "$body_file"
+    fi
+
     printf "\n\n"
     printf "Cookies:"
     printf "\n"
@@ -43,13 +49,13 @@ get_all_users() {
             --silent \
             --request GET \
             --location "$APP_URL:$APP_PORT/$MAIN_PATH" \
-            --write-out "{http_code}" --output response_body.text \
+            --write-out "{http_code}" --output response_body.json \
             --header 'Content-Type: application/json' \
             --header 'Accept: application/json' \
             --dump-header "$headers_file"
     )
 
-    handle_response "$response" "$headers_file" response_body.text
+    handle_response "$response" "$headers_file" response_body.json
 }
 
 get_show_current_user() {
@@ -65,13 +71,13 @@ get_show_current_user() {
             --silent \
             --request GET \
             --location "$APP_URL:$APP_PORT/$MAIN_PATH/showMe" \
-            --write-out "{http_code}" --output response_body.text \
+            --write-out "{http_code}" --output response_body.json \
             --header 'Content-Type: application/json' \
             --header 'Accept: application/json' \
             --dump-header "$headers_file"
     )
 
-    handle_response "$response" "$headers_file" response_body.text
+    handle_response "$response" "$headers_file" response_body.json
 }
 
 get_single_user() {
@@ -90,13 +96,13 @@ get_single_user() {
             --silent \
             --request GET \
             --location "$APP_URL:$APP_PORT/$MAIN_PATH/$user_id" \
-            --write-out "{http_code}" --output response_body.text \
+            --write-out "{http_code}" --output response_body.json \
             --header 'Content-Type: application/json' \
             --header 'Accept: application/json' \
             --dump-header "$headers_file"
     )
 
-    handle_response "$response" "$headers_file" response_body.text
+    handle_response "$response" "$headers_file" response_body.json
 }
 
 patch_update_user() {
@@ -112,7 +118,7 @@ patch_update_user() {
             --silent \
             --request PATCH \
             --location "$APP_URL:$APP_PORT/$MAIN_PATH/updateUser" \
-            --write-out "{http_code}" --output response_body.text \
+            --write-out "{http_code}" --output response_body.json \
             --header 'Content-Type: application/json' \
             --header 'Accept: application/json' \
             --dump-header "$headers_file" \
@@ -122,7 +128,7 @@ patch_update_user() {
             }'
     )
 
-    handle_response "$response" "$headers_file" response_body.text
+    handle_response "$response" "$headers_file" response_body.json
 }
 
 patch_update_user_password() {
@@ -138,7 +144,7 @@ patch_update_user_password() {
             --silent \
             --request PATCH \
             --location "$APP_URL:$APP_PORT/$MAIN_PATH/updateUserPassword" \
-            --write-out "{http_code}" --output response_body.text \
+            --write-out "{http_code}" --output response_body.json \
             --header 'Content-Type: application/json' \
             --header 'Accept: application/json' \
             --dump-header "$headers_file" \
@@ -147,5 +153,5 @@ patch_update_user_password() {
             }'
     )
 
-    handle_response "$response" "$headers_file" response_body.text
+    handle_response "$response" "$headers_file" response_body.json
 }

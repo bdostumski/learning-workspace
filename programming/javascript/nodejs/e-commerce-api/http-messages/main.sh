@@ -3,8 +3,8 @@
 # CURL HTTP REQUEST MESSAGES FOR API DEMO AND TESTING
 #
 
-source ./authentication-api.sh
-source ./users-api.sh
+source ./api-auth.sh
+source ./api-users.sh
 
 while true; do
 
