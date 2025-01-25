@@ -87,6 +87,7 @@ post_login_user() {
             --location "$APP_URL:$APP_PORT/$MAIN_PATH/login" \
             --write-out "%{http_code}" --output response_body.txt \
             --header 'Content-Type: application/json' \
+            --header 'Accept: application/json' \
             --header "Cookie: token=\"$cookie_token\"" \
             --dump-header "$headers_file" \
             --data-raw "{

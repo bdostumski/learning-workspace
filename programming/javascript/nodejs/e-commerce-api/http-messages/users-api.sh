@@ -81,19 +81,19 @@ get_single_user() {
     printf "= = = = = = = = = ="
     printf "\nGet Single User"
     printf "\n"
+    printf "Enter user id: "
+    read -r user_id
+    printf "\n"
 
     response=$(
         curl \
             --silent \
             --request GET \
-            --location "$APP_URL:$APP_PORT/$MAIN_PATH/1" \
+            --location "$APP_URL:$APP_PORT/$MAIN_PATH/$user_id" \
             --write-out "{http_code}" --output response_body.text \
             --header 'Content-Type: application/json' \
             --header 'Accept: application/json' \
-            --dump-header "$headers_file" \
-            --data-raw '{
-                       "id": 1
-            }'
+            --dump-header "$headers_file"
     )
 
     handle_response "$response" "$headers_file" response_body.text
