@@ -92,8 +92,8 @@ get_single_user() {
             --header 'Accept: application/json' \
             --dump-header "$headers_file" \
             --data-raw '{
-            "id": 1
-        }'
+                       "id": 1
+            }'
     )
 
     handle_response "$response" "$headers_file" response_body.text
@@ -117,8 +117,8 @@ patch_update_user() {
             --header 'Accept: application/json' \
             --dump-header "$headers_file" \
             --data-raw '{
-            "name": "New Name",
-            "email": "test@test.dd"
+                       "name": "New Name",
+                       "email": "test@test.dd"
             }'
     )
 
@@ -143,8 +143,8 @@ patch_update_user_password() {
             --header 'Accept: application/json' \
             --dump-header "$headers_file" \
             --data-raw '{
-            "password": "newpassword"
-        }'
+                       "password": "newpassword"
+            }'
     )
 
     handle_response "$response" "$headers_file" response_body.text

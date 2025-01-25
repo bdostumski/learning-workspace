@@ -55,9 +55,9 @@ post_register_user() {
             --header 'Accept: application/json' \
             --dump-header "$headers_file" \
             --data-raw "{
-            \"name\": \"$username\",
-            \"email\": \"$email\",
-            \"password\": \"$password\"
+                       \"name\": \"$username\",
+                       \"email\": \"$email\",
+                       \"password\": \"$password\"
             }"
 
     )
@@ -90,8 +90,8 @@ post_login_user() {
             --header "Cookie: token=\"$cookie_token\"" \
             --dump-header "$headers_file" \
             --data-raw "{
-            \"email\": \"$email\",
-            \"password\": \"$password\"
+                       \"email\": \"$email\",
+                       \"password\": \"$password\"
             }"
     )
 
