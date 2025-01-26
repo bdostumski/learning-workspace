@@ -15,6 +15,12 @@ const authenticateUser = async (req, res, next) => {
   }
 }
 
+const authorizePermissions = (req, res, next) => {
+
+  next();
+}
+
 module.exports = {
   authenticateUser,
+  authorizePermissions
 }
