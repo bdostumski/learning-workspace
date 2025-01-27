@@ -11,7 +11,7 @@ const authenticateUser = async (req, res, next) => {
     req.user = { name, userId, role };
     next();
   } catch (error) {
-    throw new CustomError.UnauthenticatedError('No token provided');
+    throw new CustomError.UnauthenticatedError('Invalid token');
   }
 }
 
