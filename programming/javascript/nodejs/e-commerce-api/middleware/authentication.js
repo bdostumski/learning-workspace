@@ -15,9 +15,12 @@ const authenticateUser = async (req, res, next) => {
   }
 }
 
-const authorizePermissions = (req, res, next) => {
-
-  next();
+const authorizePermissions = (...roles) => {
+  return (req, res, next) => {
+    if (!roles.includes(req.user.role))
+      throw new CustomError.UnauthorizedError('You do not have permission to perform this action');
+    next();
+  }
 }
 
 module.exports = {
