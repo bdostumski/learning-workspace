@@ -19,7 +19,7 @@ router.route('/').get(authenticateUser,
 
 router.route('/showMe').get(authenticateUser, showCurrentUser);
 router.route('/updateUser').patch(updateUser);
-router.route('/updateUserPassword').patch(updateUserPassowrd);
+router.route('/updateUserPassword').patch(authenticateUser, updateUserPassowrd);
 
 router.route('/:id').get(authenticateUser, getSingleUser);
 
