@@ -14,13 +14,17 @@ const {
   uploadImage
 } = require('../controllers/productController');
 
-router.route('/').get(getAllProducts);
+router
+  .route('/')
+  .get(getAllProducts);
 
 router
   .route('/createProduct')
   .post([authenticateUser, authorizePermissions('admin')], createProduct);
 
-router.route('/uploadImage').post([authenticateUser, authorizePermissions('admin')] uploadImage);
+router
+  .route('/uploadImage')
+  .post([authenticateUser, authorizePermissions('admin')] uploadImage);
 
 router
   .route('/:id')
