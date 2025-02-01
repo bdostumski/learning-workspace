@@ -3,22 +3,22 @@ const router = express.Router();
 const { authenticateUser } = require('../middleware/authentication');
 
 const {
-  getProducts,
-  getProductById,
-  createProduct,
-  updateProduct,
-  deleteProduct
-} = require('../controllers/productController');
+  createReview,
+  getAllReviews,
+  getSingleReview,
+  updateReview,
+  deleteReview
+} = require('../controllers/reviewController');
 
 router
   .route('/')
   .post(authenticateUser, createReview)
-  .get(getReviews);
+  .get(getAllReviews);
 
 router
     .route('/:id')
-    .get(getReviewById)
-    .put(authenticateUser, updateReview)
+    .get(getSingleReview)
+    .patch(authenticateUser, updateReview)
     .delete(authenticateUser, deleteReview);
 
 module.exports = router;
