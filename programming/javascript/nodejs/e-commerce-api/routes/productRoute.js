@@ -11,10 +11,9 @@ const {
   getSingleProduct,
   updateProduct,
   deleteProduct,
-  uploadImage
+  uploadImage,
+  getSingleProductReviews
 } = require('../controllers/productController');
-
-const { getSingleProductReviews } = require('../controllers/reviewController');
 
 router
   .route('/')
