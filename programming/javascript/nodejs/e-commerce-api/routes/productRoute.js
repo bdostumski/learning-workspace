@@ -12,8 +12,9 @@ const {
   updateProduct,
   deleteProduct,
   uploadImage,
-  getSingleProductReviews
 } = require('../controllers/productController');
+
+const { getSingleProductReviews } = require('../controllers/reviewController');
 
 router
   .route('/')
@@ -36,5 +37,6 @@ router
 router
   .route('/:id/reviews')
   .get(getSingleProductReviews);
+
 
 module.exports = router;

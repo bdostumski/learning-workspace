@@ -37,7 +37,7 @@ const deleteProduct = async (req, res) => {
   const product = await Product.findOne({ _id: productId });
   if (!product)
     throw new CustomError.NotFoundError(`No product with id : ${productId}`);
-  await Product.deleteOne({ _id: productId });
+  await product.remove();
   res.status(StatusCodes.OK).json({ message: 'Product deleted successfully' });
 }
 
@@ -59,18 +59,11 @@ const uploadImage = async (req, res) => {
   res.status(StatusCodes.OK).json({ image: `/uploads/${productImage.name}` });
 }
 
-const getSingleProductReviews = async (req, res) => {
-  const { id: productId } = req.params;
-  const reviews = await Review.find({ product: productId });
-  res.status(StatusCodes.OK).json({ reviews, count: reviews.length });
-}
-
 module.exports = {
   createProduct,
   getAllProducts,
   getSingleProduct,
   updateProduct,
   deleteProduct,
-  uploadImage,
-  getSingleProductReviews
+  uploadImage
 }
