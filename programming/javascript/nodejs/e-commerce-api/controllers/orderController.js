@@ -2,7 +2,7 @@ const Order = require('../models/Order');
 const Product = require('../models/Product');
 
 const { StatusCodes } = require('http-status-codes');
-const { checkPermissions } = require('../utils');
+const checkPermissions = require('../utils/checkPermissions');
 const CustomErrors = require('../errors');
 
 const fakeStripeAPI = async ({ amount, currencty }) => {
