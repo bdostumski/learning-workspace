@@ -28,9 +28,15 @@ const UserSchema = new mongoose.Schema({
     enum: ['admin', 'user'],
     default: 'user',
   },
+  verificationToken: String,
+  isVerified: {
+    type: Boolean,
+    default: false,
+  },
+  verified: Date,
 });
 
-UserSchema.pre('save', async function () {
+UserSchema.pre('save', async function() {
   // console.log(this.modifiedPaths());
   // console.log(this.isModified('name'));
   if (!this.isModified('password')) return;
@@ -38,7 +44,7 @@ UserSchema.pre('save', async function () {
   this.password = await bcrypt.hash(this.password, salt);
 });
 
-UserSchema.methods.comparePassword = async function (canditatePassword) {
+UserSchema.methods.comparePassword = async function(canditatePassword) {
   const isMatch = await bcrypt.compare(canditatePassword, this.password);
   return isMatch;
 };
