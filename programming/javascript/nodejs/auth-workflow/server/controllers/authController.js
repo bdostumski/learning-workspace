@@ -32,26 +32,31 @@ const register = async (req, res) => {
     });
 
 };
+
 const login = async (req, res) => {
   const { email, password } = req.body;
 
-  if (!email || !password) {
+  if (!email || !password)
     throw new CustomError.BadRequestError('Please provide email and password');
-  }
+
   const user = await User.findOne({ email });
 
-  if (!user) {
+  if (!user)
     throw new CustomError.UnauthenticatedError('Invalid Credentials');
-  }
+
   const isPasswordCorrect = await user.comparePassword(password);
-  if (!isPasswordCorrect) {
+  if (!isPasswordCorrect)
     throw new CustomError.UnauthenticatedError('Invalid Credentials');
-  }
+
+  if(!user.isVerified)
+    throw new CustomError.UnauthorizedError('Please verify your account first!');
+
   const tokenUser = createTokenUser(user);
   attachCookiesToResponse({ res, user: tokenUser });
 
   res.status(StatusCodes.OK).json({ user: tokenUser });
 };
+
 const logout = async (req, res) => {
   res.cookie('token', 'logout', {
     httpOnly: true,
