@@ -2,6 +2,7 @@ const User = require('../models/User');
 const { StatusCodes } = require('http-status-codes');
 const CustomError = require('../errors');
 const { attachCookiesToResponse, createTokenUser } = require('../utils');
+const crypto = require('crypto');
 
 const register = async (req, res) => {
   const { email, name, password } = req.body;
@@ -15,7 +16,7 @@ const register = async (req, res) => {
   const isFirstAccount = (await User.countDocuments({})) === 0;
   const role = isFirstAccount ? 'admin' : 'user';
 
-  const verificationToken = 'fake token';
+  const verificationToken = crypto.randomBytes(40).toString('hex');
 
   const user = await User.create({
     name,
@@ -48,7 +49,7 @@ const login = async (req, res) => {
   if (!isPasswordCorrect)
     throw new CustomError.UnauthenticatedError('Invalid Credentials');
 
-  if(!user.isVerified)
+  if (!user.isVerified)
     throw new CustomError.UnauthorizedError('Please verify your account first!');
 
   const tokenUser = createTokenUser(user);
