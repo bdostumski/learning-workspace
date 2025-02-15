@@ -6,7 +6,8 @@ const crypto = require('crypto');
 const {
   attachCookiesToResponse,
   createTokenUser,
-  sendVerificationEmail
+  sendVerificationEmail,
+  sendResetPasswordEmail
 } = require('../utils');
 
 const register = async (req, res) => {
@@ -142,7 +143,16 @@ const forgotPassword = async (req, res) => {
   const user = await User.findOne({ email: email });
   if (user) {
     const passwordToken = crypto.randomBytes(70).toString('hex');
-    // send email
+
+    const protocol = req.get('x-forwarded-proto');
+    const host = req.get('x-forwarded-host');
+
+    await sendResetPasswordEmail({
+      name: user.name,
+      email: user.email,
+      token: passwordToken,
+      origin: `${protocol}://${host}`,
+    });
 
     const tenMinutes = 10 * 60 * 1000;
     const passwordTokenExpirationDate = new Date(Date.now() + tenMinutes);
