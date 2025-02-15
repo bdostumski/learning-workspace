@@ -98,10 +98,10 @@ const login = async (req, res) => {
     userAgent,
     user: user._id
   };
-  const token = await Token.create(userToken);
+  await Token.create(userToken);
 
-  attachCookiesToResponse({ res, user: tokenUser });
-  res.status(StatusCodes.OK).json({ user: tokenUser, token });
+  attachCookiesToResponse({ res, user: tokenUser, refreshToken });
+  res.status(StatusCodes.OK).json({ user: tokenUser });
 };
 
 const logout = async (req, res) => {
