@@ -135,7 +135,29 @@ const logout = async (req, res) => {
 };
 
 const forgotPassword = async (req, res) => {
-  res.send('forgot password');
+  const { email } = req.body;
+  if (!email)
+    throw new CustomError.BadRequestError('Please provide email');
+
+  const user = await User.findOne({ email: email });
+  if (user) {
+    const passwordToken = crypto.randomBytes(70).toString('hex');
+    // send email
+
+    const tenMinutes = 10 * 60 * 1000;
+    const passwordTokenExpirationDate = new Date(Date.now() + tenMinutes);
+
+    user.passwordToken = passwordToken;
+    user.passwordTokenExpiration = passwordTokenExpirationDate;
+    await user.save();
+  }
+
+
+
+
+
+  res.status(StatusCodes.OK)
+    .json({ msg: 'Please check your email for reset password link' });
 }
 
 const resetPassword = async (req, res) => {
