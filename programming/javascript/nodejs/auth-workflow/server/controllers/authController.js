@@ -152,10 +152,6 @@ const forgotPassword = async (req, res) => {
     await user.save();
   }
 
-
-
-
-
   res.status(StatusCodes.OK)
     .json({ msg: 'Please check your email for reset password link' });
 }
