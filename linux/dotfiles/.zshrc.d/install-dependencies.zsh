@@ -45,7 +45,7 @@ packages=(
 	composer # PHP dependency manager
 	python # Python programming language
 	pyenv # Python version manager
-	mysql # Relational database
+	mariadb # MySQL database
 	postgresql # Object-relational database
 	redis # In-memory data structure store
 	cmake # Cross-platform build system
@@ -72,13 +72,9 @@ packages=(
 
 	# DevOps & Containeriztion
 	docker # Container engine
-	iptables-nft # Firewall utility
 	minikube # Run Kubernetes locally
 	kubeadm # Kubernetes cluster setup tool
-	kubernetes-control-plane # Kubernetes control plane
-	kubernetes-node # Kubernetes worker nodes
 	kubectl # Kubernetes command-line tool
-	kubelet # Runs on nodes and manages containers
 	containerd # Container runtime
 	helm # Kubernetes package manager
 	vagrant # Virtual machine automation
