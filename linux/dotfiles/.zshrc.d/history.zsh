@@ -1,6 +1,6 @@
 # History
 
-HISTFILE=~/.zsh_history
+HISTFILE=~/.logs.d/.zsh_history
 if [ ! -f "$HISTFILE" ]; then
 	touch "$HISTFILE"
 fi
@@ -8,9 +8,10 @@ fi
 HISTSIZE=50000
 SAVEHIST=50000
 
-setopt append_history # Append history insted of overwriting
-setopt inc_append_history # Write commands to history imediately
-setopt hist_ignore_dups # Ignore duplicate commands
-setopt hist_ignore_space # Ignore commands starting with space
-setopt hist_verify # Show command before execution
-setopt share_history # Share history across sessions
+setopt appendhistory # append history insted of overwriting
+setopt sharehistory # share history across sessions
+setopt inc_append_history # write commands to history imediately
+setopt hist_ignore_dups # ignore duplicate commands
+setopt hist_find_no_dups # do not display duplicates when searching history
+setopt hist_ignore_space # ignore commands starting with space
+setopt hist_verify # show command before execution

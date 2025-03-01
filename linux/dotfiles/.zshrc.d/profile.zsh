@@ -1,21 +1,18 @@
-# Prompt & Keybindings
+# Prompt Theme & Keybindings
 
-# enabve vi mode for command-line editing
-bindkey -v
+# custom themes
+# To create new prompt configuration, run `p10k configure`
 
-# custom zsh propmt with git
-autoload -Uz promptinit && promptinit
+# add powerlevel10k theme
+zinit ice depth=1; zinit light romkatv/powerlevel10k
 
-# set the prompt
-PROMPT='%F{cyan}%n@%m%f:%F{yellow}%~%f %# '
+# prompt pure theme using (p10k plugin)
+[[ ! -f ~/.zshrc.d/zinit.d/themes/zsh-themes/.pure_theme.zsh ]] || source ~/.zshrc.d/zinit.d/themes/zsh-themes/.pure_theme.zsh
 
-# terminal title
-case ${TERM} in
-	xterm*|rxvt*|Eterm*|aterm|kterm|gnome*alacritty|st|konsole*|kitty*)
-		PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\007"'
-		;;
-	screen*)
-		PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\033\\"'
-		;;
-esac
+# custom ls colors | and prebuild with vivid plugin
+if [ -d ~/.zshrc.d/zinit.d/themes/ls-color-schemes ]; then
+	export LS_COLORS="$(cat ~/.zshrc.d/zinit.d/themes/ls-color-schemes/snazzy)"
+else
+	export LS_COLORS="di=36:fi=0:ln=34:mh=00:pi=33:so=35:do=35:bd=33;1:cd=33;1:or=31;1:mi=0:su=31:sg=31:ca=31:tw=32:ow=32:st=34;1:ex=92"
+fi
 

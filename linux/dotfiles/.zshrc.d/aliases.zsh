@@ -7,13 +7,15 @@ alias emacs-cli="/usr/bin/emacs -nw"
 alias emacs-kill="killall emacs || echo 'Emacs server not running'; /usr/bin/emacs --daemon"
 
 # ls
-alias ls='eza -al --color=always --group-directories-first'
-alias la='eza -a --color=always --group-directories-first'
-alias ll='eza -l --color=always --group-directories-first'
-alias lt='eza -aT --color=always --group-directories-first'
-alias l.='eza -al --color=always --group-directories-first ../'
-alias l..='eza -al --color=always --group-directories-first ../../'
-alias l...='eza -al --color=always --group-directories-first ../../../'
+# --color=always for ls colors in scripts
+# --icon for icons
+alias ls='eza -al --color=auto --icons --color=auto --group-directories-first' 
+alias la='eza -a --color=auto --icons --color=auto --group-directories-first'
+alias ll='eza -l --color=auto --icons --color=auto --group-directories-first'
+alias lt='eza -aT --color=auto --icons --color=auto --group-directories-first'
+alias l.='eza -a --color=auto --icons --color=auto --group-directories-first ../'
+alias l..='eza -a --color=auto --icons --color=auto --group-directories-first ../../'
+alias l...='eza -a --color=auto --icons --color=auto --group-directories-first ../../../'
 
 # pacman
 alias pacsyu='sudo pacman -Syu'

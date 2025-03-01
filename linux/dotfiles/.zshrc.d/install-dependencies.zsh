@@ -14,19 +14,16 @@ packages=(
 	btop # A graphical system monitor (better than htop)
 	htop # An interactive process viewer
 	stow # Manages symlinks (useful for dotfiles)
-	eza # Enhanced ls with git integration
 	ranger # File manager with VI keybindings
-	nnn # A lightweight terminal file manager
 	tmux # Terminal multiplexer
+	eza # A modern replacement for ls
+	vivid # A themeable LS_COLORS generator
 	ripgrep # Faster alternative to grep for searching files
 	lazygit # Terminal UI for git
 	httpie # A user-friendly HTTP client (better than curl)
 	ncdu # Disk usage analyzer
 	neofetch # Show system information with a logo
 	fastfetch # A faster neofetch alternative. Customization posibbilites are endless.
-	fzf # Fuzzy finder for the command-line
-	jq # JSON processor
-	thefuck # Corrects your previous command
 	wine # Windows compatibility layer
 
 	# Development Tools 
@@ -92,11 +89,6 @@ packages=(
 	obs-studio # Screen recording and streaming software
 	kdenlive # Video editor
 
-	# Zsh Plugins
-	zsh-syntax-highlighting
-	zsh-autosuggestions
-	zsh-completions
-	zsh-history-substring-search
 )
 
 # Install packages using pacman
