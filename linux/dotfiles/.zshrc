@@ -21,7 +21,7 @@ if [[ ! -d "$HOME/.logs.d" ]]; then
 	touch "$HOME/.logs.d/.zsh_history"
 fi
 
-# load zinit
+# load zinit plugin manager
 source "${ZINIT_HOME}/zinit.zsh"
 
 # load enviroment variables
@@ -48,6 +48,3 @@ source "${ZINIT_HOME}/zinit.zsh"
 # load local machine-specific configuration (optional)
 # this file is for settings that should not be shared between machines
 [ -f "$ZDOTDIR/.zshrc.d/local.zsh" ] && source "$ZDOTDIR/.zshrc.d/local.zsh"
-
-# To customize prompt, run `p10k configure` or edit ~/.zshrc.d/zinit.d/.p10k.zsh.
-[[ ! -f ~/.zshrc.d/zinit.d/.p10k.zsh ]] || source ~/.zshrc.d/zinit.d/.p10k.zsh

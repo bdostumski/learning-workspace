@@ -17,4 +17,6 @@ bindkey '^X' autosuggest-execute # accept and execute the current suggestion
 bindkey '^P' history-search-backward # search backward in history for a related command
 bindkey '^N' history-search-forward # search forward in history for a related command
 
-
+# fzf key bindings
+bindkey '^R' fzf-history-widget # search history with fzf
+# bindkey '^T' fzf-file-widget # search files with fzf

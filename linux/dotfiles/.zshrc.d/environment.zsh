@@ -1,3 +1,4 @@
+#!/bin/zsh
 # Environment
 
 # ZSH Environment Configuration
@@ -7,7 +8,8 @@ export LANG='en_US.UTF-8' # Set language to US English
 export LC_ALL='en_US.UTF-8' # Set locale to US English
 export EDITOR="emacsclient -t -a ''" # Set editor to emacsclient
 export VISUAL="emacsclient -c -a emacs" # Set visual to emacsclient
-export MANPAGER="nvim +Man!" # 
+export MANPAGER="nvim +Man!"
+export PAGER="nvim +Man!"
 
 # Path Configuration
 #

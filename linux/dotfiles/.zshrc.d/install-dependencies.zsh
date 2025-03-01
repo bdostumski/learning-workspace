@@ -16,6 +16,7 @@ packages=(
 	stow # Manages symlinks (useful for dotfiles)
 	ranger # File manager with VI keybindings
 	tmux # Terminal multiplexer
+	fzf # Fuzzy finder for the command-line
 	eza # A modern replacement for ls
 	vivid # A themeable LS_COLORS generator
 	ripgrep # Faster alternative to grep for searching files

@@ -1,6 +1,6 @@
 # History
 
-HISTFILE=~/.logs.d/.zsh_history
+HISTFILE=$HOME/.logs.d/.zsh_history
 if [ ! -f "$HISTFILE" ]; then
 	touch "$HISTFILE"
 fi
