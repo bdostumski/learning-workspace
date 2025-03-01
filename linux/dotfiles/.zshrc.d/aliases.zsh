@@ -16,10 +16,13 @@ alias more='less' # less is more
 alias mkdir='mkdir -p' # create parent directories
 alias diff='diff --color=auto' # diff with colors
 alias du='du -h' # disk usage
+alias ncdu='ncdu --color dark' # disk usage with colors
+alias httpie='http --print=HhBb' # httpie with headers and body
 alias df='df -h' # disk free
 alias ping='ping -c 5' # ping 5 times
 alias free='free -m' # show memory in MB
 alias grep='grep --color=auto' # grep with colors
+alias gh-copilot='gh extension upgrade gh-copilot' # upgrade github cli
 
 # ls commands
 # --color=always for ls colors in scripts
@@ -70,6 +73,7 @@ alias psmem='ps auxf | sort -nr -k 4'
 alias pscpu='ps auxf | sort -nr -k 3'
 
 # git
+alias git-gui='lazygit'
 alias add='git add'
 alias addall='git add .'
 alias branch='git branch'

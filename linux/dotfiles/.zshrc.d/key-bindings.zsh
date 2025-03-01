@@ -4,6 +4,10 @@
 bindkey -v # use vi key bindings
 # bindkey -e # use emacs key bindings
 
+# github copilot key bindings
+bindkey '^[|' zsh_gh_copilot_explain  # bind Alt+shift+\ to explain
+bindkey '^[\' zsh_gh_copilot_suggest  # bind Alt+\ to suggest
+
 # setup auto-suggestions
 bindkey '^V' autosuggest-accept # accept the current suggestion
 bindkey '^X' autosuggest-execute # accept and execute the current suggestion

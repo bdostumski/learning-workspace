@@ -5,6 +5,10 @@
 zinit snippet OMZ::plugins/z # z jump around directories with ease
 zinit snippet OMZ::plugins/jsontools # json tools
 
+# plugins from zinit repository
+zinit light loiccoyle/zsh-github-copilot # github copilot
+zinit light ael-code/zsh-colored-man-pages # colored man pages
+
 # syntax highlighting - colorize commands and options
 zinit light zsh-users/zsh-syntax-highlighting
 
