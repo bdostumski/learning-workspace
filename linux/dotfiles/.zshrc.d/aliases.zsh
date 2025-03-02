@@ -24,6 +24,13 @@ alias df='df -h' # disk free
 alias ping='ping -c 5' # ping 5 times
 alias free='free -m' # show memory in MB
 alias grep='grep --color=auto' # grep with colors
+alias find-file='find . -type f -name ' # find file
+alias find-dir='find . -type d -name ' # find directory
+alias find-text='grep -r ' # find text in files
+alias cd.='cd ..' # go back one directory
+alias cd..='cd ../..' # go back two directories
+alias cd...='cd ../../..' # go back three directories
+
 
 # ls commands
 alias ls='eza -al --color=auto --icons --color=auto --group-directories-first' 
@@ -70,7 +77,6 @@ alias psmem='ps auxf | sort -nr -k 4'
 alias pscpu='ps auxf | sort -nr -k 3'
 
 # git
-alias git-gui='lazygit'
 alias add='git add'
 alias addall='git add .'
 alias branch='git branch'
@@ -84,6 +90,7 @@ alias status='git status'
 alias tag='git tag'
 alias newtag='git tag -a'
 # gh cli
+alias git-cli='lazygit'
 alias gh-copilot='gh copilot' # github copilot
 alias gh='gh --color=always' # github cli with colors
 
@@ -109,7 +116,7 @@ alias gpg-export='gpg2 --export' # export a key
 alias gpg-import='gpg2 --import' # import a key
 alias gpg-delete='gpg2 --delete-key' # delete a key
 
-# ssh encription/decryption
+# ssh encription
 alias ssh-keygen='ssh-keygen -t ed25519 -C' # generate ssh key
 alias ssh-copy='ssh-copy-id' # copy ssh key
 alias ssh-add='ssh-add -K' # add ssh key
