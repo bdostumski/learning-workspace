@@ -8,6 +8,7 @@ alias emacs-cli="/usr/bin/emacs -nw"
 alias emacs-kill="killall emacs || echo 'Emacs server not running'; /usr/bin/emacs --daemon"
 
 # common commands
+alias source-zsh='source ~/.zshrc' # source zsh
 alias cat='bat' # cat with syntax highlighting
 alias btop='btop -d 5' # top with delay
 alias htop='htop -d 5' # htop with delay
@@ -22,11 +23,8 @@ alias df='df -h' # disk free
 alias ping='ping -c 5' # ping 5 times
 alias free='free -m' # show memory in MB
 alias grep='grep --color=auto' # grep with colors
-alias gh-copilot='gh extension upgrade gh-copilot' # upgrade github cli
 
 # ls commands
-# --color=always for ls colors in scripts
-# --icon for icons
 alias ls='eza -al --color=auto --icons --color=auto --group-directories-first' 
 alias la='eza -a --color=auto --icons --color=auto --group-directories-first'
 alias ll='eza -l --color=auto --icons --color=auto --group-directories-first'
@@ -64,8 +62,6 @@ alias mirrord='sudo reflector --latest 50 --number 20 --sort delay --save /etc/p
 alias mirrors='sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist'
 alias mirrora='sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist'
 
-# flags 
-
 # ps
 alias psa='ps auxf'
 alias psgrep='ps aux | grep -v grep | grep -i -e VSZ -e'
@@ -86,6 +82,9 @@ alias push='git push origin'
 alias status='git status'
 alias tag='git tag'
 alias newtag='git tag -a'
+# gh cli
+alias gh-copilot='gh copilot' # github copilot
+alias gh='gh --color=always' # github cli with colors
 
 # error messages
 alias journal='journalctl -xe' # show journalctl with errors
@@ -96,11 +95,25 @@ alias journalf='journalctl -f' # follow journalctl
 alias journalc='journalctl --disk-usage' # show disk usage of journalctl
 alias journalctl='journalctl -p 3 -xb' # show journalctl with errors
 
-# gpg encription
-# verify signature for isos
-alias gpg-check='gpg2 --keyserver-options auto-key-retrive --verify'
-# receive the key of a developer
-alias gpg-retrive='gpg2 --keyserver-options auto-key-retrive --receive-keys'
+# gpg encription/decription
+alias gpg-check='gpg2 --keyserver-options auto-key-retrive --verify' # verify signature for isos
+alias gpg-retrive='gpg2 --keyserver-options auto-key-retrive --receive-keys' # receive the key of a developer
+alias gpg-encrypt='gpg2 --encrypt' # encrypt a file
+alias gpg-decrypt='gpg2 --decrypt' # decrypt a file
+alias gpg-sign='gpg2 --sign' # sign a file
+alias gpg-verify='gpg2 --verify' # verify a signature
+alias gpg-list='gpg2 --list-keys' # list keys
+alias gpg-list-secret='gpg2 --list-secret-keys' # list secret keys
+alias gpg-export='gpg2 --export' # export a key
+alias gpg-import='gpg2 --import' # import a key
+alias gpg-delete='gpg2 --delete-key' # delete a key
+
+# ssh encription/decryption
+alias ssh-keygen='ssh-keygen -t ed25519 -C' # generate ssh key
+alias ssh-copy='ssh-copy-id' # copy ssh key
+alias ssh-add='ssh-add -K' # add ssh key
+alias ssh-agent='eval $(ssh-agent -s)' # start ssh agent
+alias ssh-kill='killall ssh-agent' # kill ssh agent
 
 # change shell
 alias tobash="sudo chsh $USER -s /bin/bash && echo 'Log out and log in again'"

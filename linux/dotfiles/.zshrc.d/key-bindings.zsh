@@ -1,8 +1,8 @@
 # Key Bindings
 
 # setup zsh key bindings
-bindkey -v # use vi key bindings
-# bindkey -e # use emacs key bindings
+# bindkey -v # use vi key bindings
+bindkey -e # use emacs key bindings
 
 # github copilot key bindings
 bindkey '^[|' zsh_gh_copilot_explain  # bind Alt+shift+\ to explain
