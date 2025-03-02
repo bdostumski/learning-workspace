@@ -17,6 +17,7 @@ autoload -Uz compinit
 zinit ice wait lucid
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zsh-users/zsh-completions
+rm -f ~/.zcompdump
 compinit
 
 # autosuggestions - use ctrl+f key to accept suggestion

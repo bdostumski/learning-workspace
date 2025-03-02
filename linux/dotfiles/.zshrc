@@ -7,12 +7,21 @@
 export ZDOTDIR="$HOME"
 
 # set the directory we want to store zinit and plugins
-ZINIT_HOME="$ZDOTDIR/.zshrc.d/zinit.d/.zinit.git"
-
+ZINIT_HOME="$ZDOTDIR/.config/zinit/.zinit.git"
 # download zinit, if not already installed
 if [[ ! -d "$ZINIT_HOME" ]]; then
 	mkdir -p "$(dirname $ZINIT_HOME)"
 	git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+# load zinit plugin manager
+source "${ZINIT_HOME}/zinit.zsh"
+
+# set tmux as the default terminal multiplexer
+TMUX_HOME="$ZDOTDIR/.config/.tmux/plugins/tpm"
+# download tmux plugin manager, if not already installed
+if [[ ! -d "$TMUX_HOME" ]]; then
+	mkdir -p "$(dirname $TMUX_HOME)"
+	git clone https://github.com/tmux-plugins/tpm "$TMUX_HOME"
 fi
 
 # create logs directory for application history and log files
@@ -20,9 +29,6 @@ if [[ ! -d "$HOME/.logs.d" ]]; then
 	mkdir -p "$HOME/.logs.d"
 	touch "$HOME/.logs.d/.zsh_history"
 fi
-
-# load zinit plugin manager
-source "${ZINIT_HOME}/zinit.zsh"
 
 # load enviroment variables
 [ -f "$ZDOTDIR/.zshrc.d/environment.zsh" ] && source "$ZDOTDIR/.zshrc.d/environment.zsh"
@@ -48,3 +54,13 @@ source "${ZINIT_HOME}/zinit.zsh"
 # load local machine-specific configuration (optional)
 # this file is for settings that should not be shared between machines
 [ -f "$ZDOTDIR/.zshrc.d/local.zsh" ] && source "$ZDOTDIR/.zshrc.d/local.zsh"
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+### End of Zinit's installer chunk

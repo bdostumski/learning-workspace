@@ -37,6 +37,11 @@ fi
 if [ -d "$HOME/Applications" ]; then 
 	PATH="$HOME/Applications:$PATH"
 fi
+
+# add tmux path
+if [ -d "$HOME/.config/.tmux/plugins/tpm" ]; then
+	PATH="$HOME/.config/.tmux/plugins/tpm:$PATH"
+fi
 #
 # Export path
 export PATH
@@ -54,9 +59,9 @@ ZSH_IGNORE_ALL_DUPS=1 # ignore all duplicates in history
 # ZSH_AUTOSUGGEST_IGNORE_WIDGET="^i" # ignore autosuggest widget
 
 # Zinit Configuration
-#ZINIT[PLUGINS_DIR]=$HOME/.zshrc.d/zinit.d/share/zinit/plugins
-#ZINIT[SNIPPETS_DIR]=$HOME/.zshrc.d/zinit.d/share/zinit/snippets
-ZINIT_HOME="$HOME/.zshrc.d/zinit.d/zinit"
+ZINIT[PLUGINS_DIR]=$HOME/.config/zinit/share/zinit/plugins
+ZINIT[SNIPPETS_DIR]=$HOME/.config/zinit/share/zinit/snippets
+ZINIT_HOME="$HOME/.config/zinit"
 ZINIT[COMPINIT_OPTS]=-C
 ZINIT[ZCOMET_NO_UPDATE]=1
 ZINIT_DEFAULT_PROTOCOL="SSH"

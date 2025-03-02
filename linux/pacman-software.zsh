@@ -16,6 +16,7 @@ packages=(
 	stow # Manages symlinks (useful for dotfiles)
 	ranger # File manager with VI keybindings
 	tmux # Terminal multiplexer
+	trash-cli # Command-line trash utility 
 	fzf # Fuzzy finder for the command-line
 	xclip # Command-line interface to the X11 clipboard
 	xsel # Command-line clipboard and selection tool
@@ -42,6 +43,7 @@ packages=(
 	yarn # JavaScript package manager
 	jdk21-openjdk # Java Development Kit 21
 	ruby # Ruby programming language
+	go # Go programming language
 	nginx # Web server
 	php # PHP programming language
 	composer # PHP dependency manager

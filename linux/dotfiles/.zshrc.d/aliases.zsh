@@ -9,6 +9,7 @@ alias emacs-kill="killall emacs || echo 'Emacs server not running'; /usr/bin/ema
 
 # common commands
 alias zsh-source='source ~/.zshrc' # source zsh
+alias tmux-source='tmux source ~/.zshrc.d/config.d/tmux/.tmux.conf' # source tmux
 alias zsh-theme='p10k configure' # configure p10k theme
 alias cat='bat' # cat with syntax highlighting
 alias btop='btop -d 5' # top with delay
@@ -29,7 +30,13 @@ alias find-text='grep -r ' # find text in files
 alias cd.='cd ..' # go back one directory
 alias cd..='cd ../..' # go back two directories
 alias cd...='cd ../../..' # go back three directories
-
+alias trash='trash' # move to trash
+alias trash-empty='trash-empty' # empty trash
+alias trash-list='trash-list' # list trash
+alias trash-restore='trash-restore' # restore from trash
+alias trash-rm='trash-rm' # remove from trash
+alias trash-put='trash-put' # put in trash
+alias z="z -c" # z with auto cd jump to directory
 
 # ls commands
 alias ls='eza -al --color=auto --icons --color=auto --group-directories-first' 

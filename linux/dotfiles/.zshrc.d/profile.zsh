@@ -1,6 +1,6 @@
 # Custom Themes
 
-THEMES=$HOME/.zshrc.d/zinit.d/themes
+THEMES=$HOME/.zshrc.d/config.d
 
 # add powerlevel10k theme
 zinit ice depth=1; zinit light romkatv/powerlevel10k
