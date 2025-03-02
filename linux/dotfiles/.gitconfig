@@ -1,11 +1,11 @@
 [user]
-    name = UserName LastName 
-    email = UserEmail
+    name = Name Lastname 
+    email = Email
     # signingkey = ABCDEFG1234567890  # Uncomment if using GPG signing
 
 [core]
-    editor = /usr/bin/emacs -nw
-    pager = bat --paging=always --style=full --color=always --language=git
+    editor = nvim
+    pager = delta
     autocrlf = input
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 
@@ -24,10 +24,10 @@
     prompt = false
 
 [diff]
-    tool = bat
+    tool = nvimdiff
 
-[difftool "bat"]
-    cmd = bat --paging=always --language=gitdiff \"$LOCAL\" \"$REMOTE\"
+[difftool "nvimdiff"]
+    cmd = nvim -d "$LOCAL" "$REMOTE"
     prompt = false
 
 [delta]
@@ -39,4 +39,3 @@
 
 [interactive]
     diffFilter = delta --color-only
-
