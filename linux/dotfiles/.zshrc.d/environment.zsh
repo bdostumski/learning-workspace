@@ -54,10 +54,10 @@ ZSH_IGNORE_ALL_DUPS=1 # ignore all duplicates in history
 # ZSH_AUTOSUGGEST_IGNORE_WIDGET="^i" # ignore autosuggest widget
 
 # Zinit Configuration
-ZINIT[PLUGINS_DIR]=${ZDOTDIR:-$HOME}/.local/share/zinit/plugins
-ZINIT[SNIPPETS_DIR]=${ZDOTDIR:-$HOME}/.local/share/zinit/snippets
+#ZINIT[PLUGINS_DIR]=$HOME/.zshrc.d/zinit.d/share/zinit/plugins
+#ZINIT[SNIPPETS_DIR]=$HOME/.zshrc.d/zinit.d/share/zinit/snippets
+ZINIT_HOME="$HOME/.zshrc.d/zinit.d/zinit"
 ZINIT[COMPINIT_OPTS]=-C
 ZINIT[ZCOMET_NO_UPDATE]=1
-ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit"
 ZINIT_DEFAULT_PROTOCOL="SSH"
 
