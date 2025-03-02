@@ -1,11 +1,11 @@
 [user]
-    name = UserName UserSurname # (required)
-    email = UserEmail # (required)
-    # signingkey = ABCDEFG1234567890  # (optional, if you use GPG signing)
+    name = UserName LastName 
+    email = UserEmail
+    # signingkey = ABCDEFG1234567890  # Uncomment if using GPG signing
 
 [core]
-    editor = nvim
-    pager = delta
+    editor = /usr/bin/emacs -nw
+    pager = bat --paging=always --style=full --color=always --language=git
     autocrlf = input
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 
@@ -20,14 +20,14 @@
     conflictstyle = diff3
 
 [mergetool "nvimdiff"]
-    cmd = nvim -d \"$LOCAL\" \"$BASE\" \"$REMOTE\" \"$MERGED\"
+    cmd = nvim -d "$LOCAL" "$BASE" "$REMOTE" "$MERGED"
     prompt = false
 
 [diff]
-    tool = nvimdiff
+    tool = bat
 
-[difftool "nvimdiff"]
-    cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+[difftool "bat"]
+    cmd = bat --paging=always --language=gitdiff \"$LOCAL\" \"$REMOTE\"
     prompt = false
 
 [delta]
@@ -39,3 +39,4 @@
 
 [interactive]
     diffFilter = delta --color-only
+

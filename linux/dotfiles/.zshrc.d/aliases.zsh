@@ -16,7 +16,6 @@ alias htop='htop -d 5' # htop with delay
 alias less='less -R' # less with colors
 alias more='less' # less is more
 alias mkdir='mkdir -p' # create parent directories
-alias diff='diff --color=auto' # diff with colors
 alias du='du -h' # disk usage
 alias ncdu='ncdu --color dark' # disk usage with colors
 alias httpie='http --print=HhBb' # httpie with headers and body
@@ -76,32 +75,52 @@ alias psgrep='ps aux | grep -v grep | grep -i -e VSZ -e'
 alias psmem='ps auxf | sort -nr -k 4'
 alias pscpu='ps auxf | sort -nr -k 3'
 
-# git
-alias add='git add'
-alias addall='git add .'
-alias branch='git branch'
-alias checkout='git checkout'
-alias clone='git clone'
+# git aliases
+alias status='git status'
 alias commit='git commit -m'
-alias fetch='git fetch'
+alias fixup='git commit --fixup'
+alias squash='git commit --squash'
+alias amend='git commit --amend --no-edit'
+alias checkout='git checkout'
+alias branch='git branch -vv'
+alias diff='git diff --color-words'
+alias difftool='git difftool -y'
+alias mergetool='git mergetool -y'
+alias add='git add'
+alias addall='git add -A .'
+alias colone='git clone --recurse-submodules'
+alias fetch='git fetch origin'
 alias pull='git pull origin'
 alias push='git push origin'
-alias status='git status'
 alias rebase='git rebase'
 alias reset='git reset'
-alias stash='git stash'
-alias log='git log --oneline --graph --decorate'
-alias log-all='git log --all --decorate --oneline --graph'
-alias last-log='git log -1 --oneline --decorate HEAD'
-alias blame='git blame'
-alias gitignore="cat '$HOME/.zshrc.d/templates.d/.gitignore' >> .gitignore"
-alias difftool='difftool' # diff tool
-alias mergetool='mergetool' # merge tool
-# gh cli
+alias reset-hard='git reset --hard'
+alias uncommit='git reset --soft HEAD~1'
+alias unstage='git reset HEAD --'
+alias stash='git stash -m'
+alias apply='git stash apply'
+alias list='git stash list'
+alias pop='git stash pop'
+alias log='git log --oneline --graph --decorate | bat --paging=always --language=gitlog'
+alias logall='git log --graph --decorate | bat --paging=always --language=gitlog'
+alias logfull='git log --graph --decorate --full-history | bat --paging=always --language=gitlog'
+alias logauthor='function_logauthor() { git log --graph --decorate --full-history --author="$1" | bat --paging=always --language=gitlog }; function_logauthor'
+#
+# github cli aliases
 alias git-cli='lazygit'
-alias pull-request='gh pr create -f ' # create pull request
-alias gh-copilot='gh copilot' # github copilot
-alias gh='gh --color=always' # github cli with colors
+alias gitignore="cat '$HOME/.zshrc.d/templates.d/.gitignore' >> .gitignore"
+alias gh='gh --color=always'
+alias copilot='gh copilot'
+alias pull='!gh pr create -f'
+alias pull-list='!gh pr list'
+alias pull-view='!gh pr view'
+alias issue='!gh issue create -f'
+alias issue-view='!gh issue view'
+alias issue-comment='!gh issue comment'
+alias issue-list='!gh issue list'
+alias issue-search='!gh issue list --search'
+alias issue-assign='!gh issue assign'
+alias issue-close='!gh issue close'
 
 # error messages
 alias journal='journalctl -xe' # show journalctl with errors
