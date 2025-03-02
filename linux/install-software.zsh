@@ -23,6 +23,8 @@ packages=(
 	vivid # A themeable LS_COLORS generator
 	ripgrep # Faster alternative to grep for searching files
 	lazygit # Terminal UI for git
+	git-delta # A syntax-highlighting pager for git
+	k3diff # A diff tool for comparing files and directories
 	httpie # A user-friendly HTTP client (better than curl)
 	ncdu # Disk usage analyzer
 	neofetch # Show system information with a logo

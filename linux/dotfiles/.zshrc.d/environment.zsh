@@ -56,7 +56,7 @@ ZSH_IGNORE_ALL_DUPS=1 # ignore all duplicates in history
 # Zinit Configuration
 #ZINIT[PLUGINS_DIR]=$HOME/.zshrc.d/zinit.d/share/zinit/plugins
 #ZINIT[SNIPPETS_DIR]=$HOME/.zshrc.d/zinit.d/share/zinit/snippets
-#ZINIT_HOME="$HOME/.zshrc.d/zinit.d/zinit"
+ZINIT_HOME="$HOME/.zshrc.d/zinit.d/zinit"
 ZINIT[COMPINIT_OPTS]=-C
 ZINIT[ZCOMET_NO_UPDATE]=1
 ZINIT_DEFAULT_PROTOCOL="SSH"

@@ -87,10 +87,19 @@ alias fetch='git fetch'
 alias pull='git pull origin'
 alias push='git push origin'
 alias status='git status'
-alias tag='git tag'
-alias newtag='git tag -a'
+alias rebase='git rebase'
+alias reset='git reset'
+alias stash='git stash'
+alias log='git log --oneline --graph --decorate'
+alias log-all='git log --all --decorate --oneline --graph'
+alias last-log='git log -1 --oneline --decorate HEAD'
+alias blame='git blame'
+alias gitignore="cat '$HOME/.zshrc.d/templates.d/.gitignore' >> .gitignore"
+alias difftool='difftool' # diff tool
+alias mergetool='mergetool' # merge tool
 # gh cli
 alias git-cli='lazygit'
+alias pull-request='gh pr create -f ' # create pull request
 alias gh-copilot='gh copilot' # github copilot
 alias gh='gh --color=always' # github cli with colors
 
