@@ -8,7 +8,8 @@ alias emacs-cli="/usr/bin/emacs -nw"
 alias emacs-kill="killall emacs || echo 'Emacs server not running'; /usr/bin/emacs --daemon"
 
 # common commands
-alias source-zsh='source ~/.zshrc' # source zsh
+alias zsh-source='source ~/.zshrc' # source zsh
+alias zsh-theme='p10k configure' # configure p10k theme
 alias cat='bat' # cat with syntax highlighting
 alias btop='btop -d 5' # top with delay
 alias htop='htop -d 5' # htop with delay
