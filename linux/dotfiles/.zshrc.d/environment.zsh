@@ -42,6 +42,11 @@ fi
 if [ -d "$HOME/.config/.tmux/plugins/tpm" ]; then
 	PATH="$HOME/.config/.tmux/plugins/tpm:$PATH"
 fi
+
+if [ -d "$HOME/.config/emacs/bin/doom" ]; then
+	PATH='$HOME/.config/emacs/bin/doom:$PATH'
+fi
+
 #
 # Export path
 export PATH
