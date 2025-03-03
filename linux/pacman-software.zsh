@@ -35,6 +35,7 @@ packages=(
 	# Development Tools 
 	neovim # A modern Vim-based text editor
 	emacs # A powerful text editor (Doom Emacs is recommended)
+	tree-sitter # Parser generator tool and incremental parsing library
 	kitty # A GPU-accelerated terminal 
 	maven # Java build automation tool
 	gradle # Alternative to Maven for Java builds
@@ -58,6 +59,7 @@ packages=(
 	clang # C and C++ compiler
 
 	# Codecs & Fonts
+	vlc # Media player
 	ttf-dejavu # DejaVu fonts
 	ttf-liberation # Liberation fonts
 	ttf-roboto # Roboto fonts
@@ -95,6 +97,7 @@ packages=(
 	discord # Chat application
 	obs-studio # Screen recording and streaming software
 	kdenlive # Video editor
+	gparted # Partition editor
 
 )
 
