@@ -17,5 +17,5 @@ yay -S --noconfirm aur/mu # Maildir indexer
 yay -S --noconfirm aur/visual-studio-code-bin # Code editor
 yay -S --noconfirm aur/postman-bin # API testing
 yay -S --noconfirm aur/stacer-bin # System optimizer
-yay -S --noconfirm aur/viber
+yay -S --noconfirm aur/viber # Messaging app
 yay -S --noconfirm aur/auto-cpufreq # CPU frequency scaling

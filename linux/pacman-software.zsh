@@ -57,6 +57,7 @@ packages=(
 	make # Build automation tool
 	gcc # C and C++ compiler
 	clang # C and C++ compiler
+	lighttpd # Web server
 
 	# Codecs & Fonts
 	vlc # Media player
