@@ -31,8 +31,9 @@
 	autoupdate = 1
 
 [color] # Git color settings
-	ui = false
-	diff = false
+	ui = auto
+	diff = auto
+	status = auto
 
 [color "branch"] # Branch color settings
 	current = yellow bold
