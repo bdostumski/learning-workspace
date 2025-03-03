@@ -1,16 +1,16 @@
 # Key Bindings
 
 # setup zsh key bindings
-# bindkey -v # use vi key bindings
-bindkey -e # use emacs key bindings
+bindkey -v # use vi key bindings
+# bindkey -e # use emacs key bindings
 
 # github copilot key bindings
 bindkey '^[|' zsh_gh_copilot_explain  # bind Alt+shift+\ to explain
 bindkey '^[\' zsh_gh_copilot_suggest  # bind Alt+\ to suggest
 
 # setup auto-suggestions
-bindkey '^V' autosuggest-accept # accept the current suggestion
-bindkey '^X' autosuggest-execute # accept and execute the current suggestion
+bindkey '^F' autosuggest-accept # accept the current suggestion
+bindkey '^D' autosuggest-execute # accept and execute the current suggestion
 # bindkey '' autosuggest-clear # clear autosuggestions
 # bindkey '' autosuggest-fetch # fetch autosuggestions
 # bindkey '' autosuggest-disable # disable autosuggestions
@@ -18,8 +18,8 @@ bindkey '^X' autosuggest-execute # accept and execute the current suggestion
 # bindkey '' autosuggest-toggle # toggle autosuggestions on/off
 
 # setup history search
-bindkey '^P' history-search-backward # search backward in history for a related command
-bindkey '^N' history-search-forward # search forward in history for a related command
+bindkey '^J' history-search-backward # search backward in history for a related command
+bindkey '^K' history-search-forward # search forward in history for a related command
 
 # fzf key bindings
 bindkey '^R' fzf-history-widget # search history with fzf

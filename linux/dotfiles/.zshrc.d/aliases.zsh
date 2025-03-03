@@ -4,7 +4,7 @@
 alias vi='nvim'
 alias vim="nvim"
 alias emacs="emacsclient -c -a 'emacs'"
-alias emacs-cli="/usr/bin/emacs -nw" 
+alias emacs-cli="emacsclient -c -a 'emacs -nw'" 
 alias emacs-kill="killall emacs || echo 'Emacs server not running'; /usr/bin/emacs --daemon"
 
 # common commands
