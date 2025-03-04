@@ -1,42 +1,25 @@
 # Aliases
 
-# neovim and emacs 
+# neovim  
 alias vi='nvim'
 alias vim="nvim"
+
+# emacs 
 alias emacs="emacsclient -c -a 'emacs'"
 alias emacs-cli="emacsclient -c -a 'emacs -nw'" 
 alias emacs-kill="killall emacs || echo 'Emacs server not running'; /usr/bin/emacs --daemon"
 
-# common commands
+# external applications
 alias zsh-source='source ~/.zshrc' # source zsh
 alias tmux-source='tmux source ~/.zshrc.d/config.d/tmux/.tmux.conf' # source tmux
 alias zsh-theme='p10k configure' # configure p10k theme
-alias cat='bat' # cat with syntax highlighting
-alias btop='btop -d 5' # top with delay
-alias htop='htop -d 5' # htop with delay
-alias less='less -R' # less with colors
-alias more='less' # less is more
+
+# navigation commands
 alias mkdir='mkdir -p' # create parent directories
-alias du='du -h' # disk usage
-alias ncdu='ncdu --color dark' # disk usage with colors
-alias httpie='http --print=HhBb' # httpie with headers and body
-alias df='df -h' # disk free
-alias ping='ping -c 5' # ping 5 times
-alias free='free -m' # show memory in MB
-alias grep='grep --color=auto' # grep with colors
-alias find-file='find . -type f -name ' # find file
-alias find-dir='find . -type d -name ' # find directory
-alias find-text='grep -r ' # find text in files
+alias z="z -c" # z with auto cd jump to directory
 alias cd.='cd ..' # go back one directory
 alias cd..='cd ../..' # go back two directories
 alias cd...='cd ../../..' # go back three directories
-alias trash='trash' # move to trash
-alias trash-empty='trash-empty' # empty trash
-alias trash-list='trash-list' # list trash
-alias trash-restore='trash-restore' # restore from trash
-alias trash-rm='trash-rm' # remove from trash
-alias trash-put='trash-put' # put in trash
-alias z="z -c" # z with auto cd jump to directory
 
 # ls commands
 alias ls='eza -al --color=auto --icons --color=auto --group-directories-first' 
@@ -47,26 +30,54 @@ alias l.='eza -a --color=auto --icons --color=auto --group-directories-first ../
 alias l..='eza -a --color=auto --icons --color=auto --group-directories-first ../../'
 alias l...='eza -a --color=auto --icons --color=auto --group-directories-first ../../../'
 
+# find commands
+alias find-file='fd -g -H -t f ' # find file
+alias find-dir='fd -g -H -t d ' # find directory
+alias find-text='rg -u -i ' # find text in files
+
+# trash commands
+alias trash='trash' # move to trash
+alias trash-empty='trash-empty' # empty trash
+alias trash-list='trash-list' # list trash
+alias trash-restore='trash-restore' # restore from trash
+alias trash-rm='trash-rm' # remove from trash
+alias trash-put='trash-put' # put in trash
+
+# read files commands
+alias cat='bat' # cat with syntax highlightig
+alias less='less -R' # less with colors
+alias more='less -R' # less is more
+alias grep='rg --color=auto' # ripgrep with colors
+alias replace='fd -e txt -x sed -i' # replace text in files
+
 # systemctl
-alias sys-start='sudo systemctl start' # start service
-alias sys-stop='sudo systemctl stop' # stop service
-alias sys-restart='sudo systemctl restart' # restart service
-alias sys-enable='sudo systemctl enable' # enable service
-alias sys-disable='sudo systemctl disable' # disable service
-alias sys-status='systemctl status' # status of service
+alias sys-start='sudo systemctl start' # start a service imediatly
+alias sys-stop='sudo systemctl stop' # stop a running service
+alias sys-restart='sudo systemctl restart' # restart service (stop and start)
+alias sys-enable='sudo systemctl enable' # enable service to start at boot time
+alias sys-disable='sudo systemctl disable' # disable service to start at boot time
+alias sys-status='systemctl status' # current status of a service
+
+# system and hardware commands
+alias htop='btop' # top with delay
+alias glances='glances' # system monitor
+alias sysinfo='neofetch' # system information
+alias ncdu='ncdu --color dark' # disk usage with colors
+alias df='df -h' # disk free
+alias grub-install='sudo grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB' # install grub
+alias grub-update='sudo grub-mkconfig -o /boot/grub/grub.cfg' # update grub
 
 # sudo
-alias su-reboot='sudo reboot' # reboot
-alias su-poweroff='sudo poweroff' # poweroff
-alias su-shutdown='sudo shutdown' # shutdown
-alias su-update-grub='sudo update-grub' # update grub
+alias reboot='sudo reboot' # reboot
+alias poweroff='sudo poweroff' # poweroff
+alias shutdown='sudo shutdown -h now' # shutdown
+alias sleep='sudo systemctl suspend' # sleep
 
 # pacman
-alias update='sudo pacman -Syu' # update system
-alias upgrade='sudo pacman -Syu' # upgrade system
 alias install='sudo pacman -S' # install package
 alias remove='sudo pacman -R' # remove package
 alias search='pacman -Ss' # search package
+alias update='sudo pacman -Syu' # update system
 alias clean='sudo pacman -Sc' # clean cache
 alias autoremove='sudo pacman -Rns $(pacman -Qtdq)' # remove orphaned packages
 
@@ -82,7 +93,13 @@ alias psgrep='ps aux | grep -v grep | grep -i -e VSZ -e'
 alias psmem='ps auxf | sort -nr -k 4'
 alias pscpu='ps auxf | sort -nr -k 3'
 
+# web commands 
+alias httpie='http --print=HhBb' # httpie with headers and body
+alias ping='ping -c 5' # ping 5 times
+alias speedtest='speedtest-cli' # speedtest-cli
+
 # git aliases
+alias g='git'
 alias status='git status'
 alias commit='git commit -m'
 alias fixup='git commit --fixup'
@@ -115,7 +132,6 @@ alias logauthor='function_logauthor() { git log --graph --decorate --full-histor
 #
 # github cli aliases
 alias git-cli='lazygit'
-alias gitignore="cat '$HOME/.zshrc.d/templates.d/.gitignore' >> .gitignore"
 alias gh='gh --color=always'
 alias copilot='gh copilot'
 alias pull='gh pr create -f'

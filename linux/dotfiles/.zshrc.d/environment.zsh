@@ -10,6 +10,8 @@ export EDITOR="emacsclient -t -a ''" # Set editor to emacsclient
 export VISUAL="emacsclient -c -a emacs" # Set visual to emacsclient
 export MANPAGER="nvim +Man!"
 export PAGER="nvim +Man!"
+export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
+export LESS='-S -M -R -X --shift 5'
 
 # Path Configuration
 #

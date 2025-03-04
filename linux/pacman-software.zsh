@@ -15,6 +15,8 @@ packages=(
 	htop # An interactive process viewer
 	stow # Manages symlinks (useful for dotfiles)
 	ranger # File manager with VI keybindings
+	speedtest-cli # Command-line interface for speedtest.net
+	glances # An eye on your system
 	tmux # Terminal multiplexer
 	trash-cli # Command-line trash utility 
 	fzf # Fuzzy finder for the command-line

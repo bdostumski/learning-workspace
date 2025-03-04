@@ -36,6 +36,9 @@ fi
 # load aliases
 [ -f "$ZDOTDIR/.zshrc.d/aliases.zsh" ] && source "$ZDOTDIR/.zshrc.d/aliases.zsh"
 
+# load template files
+[ -f "$ZDOTDIR/.zshrc.d/templates.zsh" ] && source "$ZDOTDIR/.zshrc.d/templates.zsh"
+
 # load functions 
 [ -f "$ZDOTDIR/.zshrc.d/functions.zsh" ] && source "$ZDOTDIR/.zshrc.d/functions.zsh"
 
