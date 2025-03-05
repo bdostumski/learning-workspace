@@ -30,10 +30,20 @@ alias l.='eza -a --color=auto --icons --color=auto --group-directories-first ../
 alias l..='eza -a --color=auto --icons --color=auto --group-directories-first ../../'
 alias l...='eza -a --color=auto --icons --color=auto --group-directories-first ../../../'
 
-# find commands
+# find text commands
+alias find-text='rg -u -i ' # find text in files
+
+# find files and directories
 alias find-file='fd -g -H -t f ' # find file
 alias find-dir='fd -g -H -t d ' # find directory
-alias find-text='rg -u -i ' # find text in files
+
+# combine: find-dir "dir-name" | show 
+# combine: find-file "file-name" | show 
+alias show='fzf --preview "exa -al {}" ' # preview files with exa
+
+# combine: find-dir "dir-name" | editor
+# combine: find-file "file-name" | editor 
+alias editor='fzf --preview "exa -al {}" --bind "enter:execute(nvim {})"' # open directory or file in nvim
 
 # trash commands
 alias trash='trash' # move to trash
@@ -62,15 +72,20 @@ alias sys-status='systemctl status' # current status of a service
 alias htop='btop' # top with delay
 alias glances='glances' # system monitor
 alias sysinfo='neofetch' # system information
-alias ncdu='ncdu --color dark' # disk usage with colors
-alias df='df -h' # disk free
+alias du='ncdu --color dark' # disk usage with colors
+alias df='pydf -h' # disk free
 alias grub-install='sudo grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB' # install grub
 alias grub-update='sudo grub-mkconfig -o /boot/grub/grub.cfg' # update grub
 
+# error messages
+alias journal='journalctl -xe' # show journalctl with errors
+alias journalf='journalctl -f' # follow journalctl
+alias journalctl='journalctl -p 3 -xb' # show journalctl with errors
+alias kernel-errors='sudo dmesg -wT --level=err,crit,alert,warn' # show kernel errors
+
 # sudo
-alias reboot='sudo reboot' # reboot
-alias poweroff='sudo poweroff' # poweroff
 alias shutdown='sudo shutdown -h now' # shutdown
+alias reboot='sudo reboot' # reboot
 alias sleep='sudo systemctl suspend' # sleep
 
 # pacman
@@ -96,7 +111,27 @@ alias pscpu='ps auxf | sort -nr -k 3'
 # web commands 
 alias httpie='http --print=HhBb' # httpie with headers and body
 alias ping='ping -c 5' # ping 5 times
-alias speedtest='speedtest-cli' # speedtest-cli
+alias network-speed='speedtest-cli' # speedtest-cli
+
+# gpg encription/decription
+alias gpg-check='gpg2 --keyserver-options auto-key-retrive --verify' # verify signature for isos
+alias gpg-retrive='gpg2 --keyserver-options auto-key-retrive --receive-keys' # receive the key of a developer
+alias gpg-encrypt='gpg2 --encrypt' # encrypt a file
+alias gpg-decrypt='gpg2 --decrypt' # decrypt a file
+alias gpg-sign='gpg2 --sign' # sign a file
+alias gpg-verify='gpg2 --verify' # verify a signature
+alias gpg-list='gpg2 --list-keys' # list keys
+alias gpg-list-secret='gpg2 --list-secret-keys' # list secret keys
+alias gpg-export='gpg2 --export' # export a key
+alias gpg-import='gpg2 --import' # import a key
+alias gpg-delete='gpg2 --delete-key' # delete a key
+
+# ssh encription
+alias ssh-keygen='ssh-keygen -t ed25519 -C' # generate ssh key
+alias ssh-copy='ssh-copy-id' # copy ssh key
+alias ssh-add='ssh-add -K' # add ssh key
+alias ssh-agent='eval $(ssh-agent -s)' # start ssh agent
+alias ssh-kill='killall ssh-agent' # kill ssh agent
 
 # git aliases
 alias g='git'
@@ -144,35 +179,6 @@ alias issue-list='gh issue list'
 alias issue-search='gh issue list --search'
 alias issue-assign='gh issue assign'
 alias issue-close='gh issue close'
-
-# error messages
-alias journal='journalctl -xe' # show journalctl with errors
-alias syslog='grep -i "error" /var/log/syslog' # show syslog with errors
-alias errormsg='grep -i "error" /var/log/messages' # show messages with errors
-alias dmesg='grep -i "error" /var/log/dmesg' # show dmesg with errors
-alias journalf='journalctl -f' # follow journalctl
-alias journalc='journalctl --disk-usage' # show disk usage of journalctl
-alias journalctl='journalctl -p 3 -xb' # show journalctl with errors
-
-# gpg encription/decription
-alias gpg-check='gpg2 --keyserver-options auto-key-retrive --verify' # verify signature for isos
-alias gpg-retrive='gpg2 --keyserver-options auto-key-retrive --receive-keys' # receive the key of a developer
-alias gpg-encrypt='gpg2 --encrypt' # encrypt a file
-alias gpg-decrypt='gpg2 --decrypt' # decrypt a file
-alias gpg-sign='gpg2 --sign' # sign a file
-alias gpg-verify='gpg2 --verify' # verify a signature
-alias gpg-list='gpg2 --list-keys' # list keys
-alias gpg-list-secret='gpg2 --list-secret-keys' # list secret keys
-alias gpg-export='gpg2 --export' # export a key
-alias gpg-import='gpg2 --import' # import a key
-alias gpg-delete='gpg2 --delete-key' # delete a key
-
-# ssh encription
-alias ssh-keygen='ssh-keygen -t ed25519 -C' # generate ssh key
-alias ssh-copy='ssh-copy-id' # copy ssh key
-alias ssh-add='ssh-add -K' # add ssh key
-alias ssh-agent='eval $(ssh-agent -s)' # start ssh agent
-alias ssh-kill='killall ssh-agent' # kill ssh agent
 
 # change shell
 alias tobash="sudo chsh $USER -s /bin/bash && echo 'Log out and log in again'"

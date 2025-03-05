@@ -12,6 +12,7 @@ packages=(
 	zsh # Zsh Shell
 	bat # A cat alternative with syntax highlighting
 	btop # A graphical system monitor (better than htop)
+	pydf # disk space usage analyzer
 	htop # An interactive process viewer
 	stow # Manages symlinks (useful for dotfiles)
 	ranger # File manager with VI keybindings
