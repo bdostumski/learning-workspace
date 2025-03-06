@@ -2,7 +2,6 @@
 # Environment
 
 # ZSH Environment Configuration
-
 export TERM="xterm-256color" # Set terminal to 256 colors
 export LANG='en_US.UTF-8' # Set language to US English
 export LC_ALL='en_US.UTF-8' # Set locale to US English
@@ -12,6 +11,8 @@ export MANPAGER="nvim +Man!"
 export PAGER="nvim +Man!"
 export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
 export LESS='-S -M -R -X --shift 5'
+export ZSH_COMPDUMP='$HOME/.logs.d/.zcompdump'
+export GIT_CONFIG_GLOBAL="$HOME/.zshrc.d/config.d/git/.gitconfig"
 
 # Path Configuration
 #
@@ -40,11 +41,7 @@ if [ -d "$HOME/Applications" ]; then
 	PATH="$HOME/Applications:$PATH"
 fi
 
-# add tmux path
-if [ -d "$HOME/.config/.tmux/plugins/tpm" ]; then
-	PATH="$HOME/.config/.tmux/plugins/tpm:$PATH"
-fi
-
+# add doom emacs to path
 if [ -d "$HOME/.config/emacs/bin/doom" ]; then
 	PATH='$HOME/.config/emacs/bin/doom:$PATH'
 fi

@@ -11,8 +11,9 @@ alias emacs-kill="killall emacs || echo 'Emacs server not running'; /usr/bin/ema
 
 # external applications
 alias zsh-source='source ~/.zshrc' # source zsh
-alias tmux-source='tmux source ~/.zshrc.d/config.d/tmux/.tmux.conf' # source tmux
 alias zsh-theme='p10k configure' # configure p10k theme
+alias tmux-source='tmux source-file ~/.zshrc.d/config.d/tmux/.tmux.conf' # source tmux
+alias tmux='tmux -f ~/.zshrc.d/config.d/tmux/.tmux.conf' # tmux with custom configuration
 
 # navigation commands
 alias mkdir='mkdir -p' # create parent directories
@@ -34,16 +35,8 @@ alias l...='eza -a --color=auto --icons --color=auto --group-directories-first .
 alias find-text='rg -u -i ' # find text in files
 
 # find files and directories
-alias find-file='fd -g -H -t f ' # find file
-alias find-dir='fd -g -H -t d ' # find directory
-
-# combine: find-dir "dir-name" | show 
-# combine: find-file "file-name" | show 
-alias show='fzf --preview "exa -al {}" ' # preview files with exa
-
-# combine: find-dir "dir-name" | editor
-# combine: find-file "file-name" | editor 
-alias editor='fzf --preview "exa -al {}" --bind "enter:execute(nvim {})"' # open directory or file in nvim
+alias find-file='find_file ' # find file and open it with nvim
+alias find-dir='find_dir ' # find directory and open it with nvim
 
 # trash commands
 alias trash='trash' # move to trash
@@ -134,7 +127,7 @@ alias ssh-agent='eval $(ssh-agent -s)' # start ssh agent
 alias ssh-kill='killall ssh-agent' # kill ssh agent
 
 # git aliases
-alias g='git'
+alias g='git' # g for git it is good combination with .gitconfig aliases
 alias status='git status'
 alias commit='git commit -m'
 alias fixup='git commit --fixup'
@@ -146,7 +139,7 @@ alias diff='git diff --color-words'
 alias difftool='git difftool -y'
 alias mergetool='git mergetool -y'
 alias add='git add'
-alias addall='git add -A .'
+alias add.='git add -A .'
 alias colone='git clone --recurse-submodules'
 alias fetch='git fetch origin'
 alias pull='git pull origin'

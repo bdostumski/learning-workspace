@@ -17,12 +17,19 @@ fi
 source "${ZINIT_HOME}/zinit.zsh"
 
 # set tmux as the default terminal multiplexer
-TMUX_HOME="$ZDOTDIR/.config/.tmux/plugins/tpm"
+TMUX_HOME="$HOME/.config/tmux/plugins/tpm/tmp"
 # download tmux plugin manager, if not already installed
 if [[ ! -d "$TMUX_HOME" ]]; then
 	mkdir -p "$(dirname $TMUX_HOME)"
 	git clone https://github.com/tmux-plugins/tpm "$TMUX_HOME"
 fi
+
+# Start tmux automatically if it's not already running
+if command -v tmux &> /dev/null && ! tmux has-session -t main 2>/dev/null; then
+  tmux new-session -d -s main
+  tmux attach -t main
+fi
+
 
 # create logs directory for application history and log files
 if [[ ! -d "$HOME/.logs.d" ]]; then

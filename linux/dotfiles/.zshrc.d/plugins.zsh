@@ -18,7 +18,7 @@ zinit ice wait lucid
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zsh-users/zsh-completions
 rm -f ~/.zcompdump
-compinit
+compinit -d "$HOME/.logs.d/zcompdump"
 
 # autosuggestions - use ctrl+f key to accept suggestion
 zinit light zsh-users/zsh-autosuggestions
