@@ -12,8 +12,6 @@ alias emacs-kill="killall emacs || echo 'Emacs server not running'; /usr/bin/ema
 # external applications
 alias zsh-source='source ~/.zshrc' # source zsh
 alias zsh-theme='p10k configure' # configure p10k theme
-alias tmux-source='tmux source-file ~/.zshrc.d/config.d/tmux/.tmux.conf' # source tmux
-alias tmux='tmux -f ~/.zshrc.d/config.d/tmux/.tmux.conf' # tmux with custom configuration
 
 # navigation commands
 alias mkdir='mkdir -p' # create parent directories
@@ -24,9 +22,9 @@ alias cd...='cd ../../..' # go back three directories
 
 # ls commands
 alias ls='eza -al --color=auto --icons --color=auto --group-directories-first' 
-alias la='eza -a --color=auto --icons --color=auto --group-directories-first'
 alias ll='eza -l --color=auto --icons --color=auto --group-directories-first'
 alias lt='eza -aT --color=auto --icons --color=auto --group-directories-first'
+alias la='eza -a --color=auto --icons --color=auto --group-directories-first'
 alias l.='eza -a --color=auto --icons --color=auto --group-directories-first ../'
 alias l..='eza -a --color=auto --icons --color=auto --group-directories-first ../../'
 alias l...='eza -a --color=auto --icons --color=auto --group-directories-first ../../../'
@@ -126,33 +124,27 @@ alias ssh-add='ssh-add -K' # add ssh key
 alias ssh-agent='eval $(ssh-agent -s)' # start ssh agent
 alias ssh-kill='killall ssh-agent' # kill ssh agent
 
+# kitty terminal
+alias view-image='kitty +kitten icat' # view image in terminal
+alias file-diff='kitty +kitten diff' # view file diff in terminal
+alias unicode='kitty +kitten unicode' # view unicode characters in terminal
+alias kitty-theme='kitty +kitten themes' # change kitty theme
+alias kitty-fonts='kitty +kitten fonts' # change kitty fonts
+
+# Kitty remote file operations
+# Edit, Open or Download files from local computer into remote computer
+alias kitty-remote-file='kitty +kitten remote-file' # edit/open/download remote file in terminal
+# kitty terminal - ssh download/upload files and directories (recursively)
+alias kitty-ssh='kitty +kitten ssh' # ssh in terminal
+# kitty sync download/upload all files and directories (recursively).
+alias ssh-download='kitty +kitten transfer' # download file: ./remote-file to /path/on/local/computer/
+alias ssh-upload='kitty +kitten transfer --direction=upload' # upload file: /path/on/local/computer ./remote-file
+# kitty uses rsync protocol to download/upload only changes between files.
+alias ssh-rsync-download='kitty +kitten transfer' # rsync download file: ./remote-file to /path/on/local/computer/
+alias ssh-rsync-upload='kitty +kitten transfer --direction=upload' # rsync upload file: /path/on/local/computer ./remote-file
+
 # git aliases
 alias g='git' # g for git it is good combination with .gitconfig aliases
-alias status='git status'
-alias commit='git commit -m'
-alias fixup='git commit --fixup'
-alias squash='git commit --squash'
-alias amend='git commit --amend --no-edit'
-alias checkout='git checkout'
-alias branch='git branch -vv'
-alias diff='git diff --color-words'
-alias difftool='git difftool -y'
-alias mergetool='git mergetool -y'
-alias add='git add'
-alias add.='git add -A .'
-alias colone='git clone --recurse-submodules'
-alias fetch='git fetch origin'
-alias pull='git pull origin'
-alias push='git push origin'
-alias rebase='git rebase'
-alias reset='git reset'
-alias reset-hard='git reset --hard'
-alias uncommit='git reset --soft HEAD~1'
-alias unstage='git reset HEAD --'
-alias stash='git stash -m'
-alias apply='git stash apply'
-alias list='git stash list'
-alias pop='git stash pop'
 alias log='git log --oneline --graph --decorate | bat --paging=always --language=gitlog'
 alias logall='git log --graph --decorate | bat --paging=always --language=gitlog'
 alias logfull='git log --graph --decorate --full-history | bat --paging=always --language=gitlog'
@@ -162,7 +154,6 @@ alias logauthor='function_logauthor() { git log --graph --decorate --full-histor
 alias git-cli='lazygit'
 alias gh='gh --color=always'
 alias copilot='gh copilot'
-alias pull='gh pr create -f'
 alias pull-list='gh pr list'
 alias pull-view='gh pr view'
 alias issue='gh issue create -f'
