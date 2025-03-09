@@ -1,5 +1,4 @@
 # Aliases
-alias git-cli='lazygit'
 
 # neovim  
 alias vi='nvim'
@@ -61,10 +60,11 @@ alias sys-disable='sudo systemctl disable' # disable service to start at boot ti
 alias sys-status='systemctl status' # current status of a service
 
 # system and hardware commands
-alias htop='btop' # top with delay
-alias glances='glances' # system monitor
+alias top='btop' # system monitor { htop|btop|gotop|glances }
+alias sysm='glances' # system monitor { htop|btop|gotop|glances }
 alias sysinfo='neofetch' # system information
 alias gitinfo='onefetch' # git information
+alias cpu='lscpu' # cpu information
 alias du='ncdu --color dark' # disk usage with colors
 alias df='pydf -h' # disk free
 alias grub-install='sudo grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB' # install grub
@@ -127,8 +127,7 @@ alias ssh-agent='eval $(ssh-agent -s)' # start ssh agent
 alias ssh-kill='killall ssh-agent' # kill ssh agent
 
 # TUI applications
-alias git-cli='lazygit' # git terminal ui
-alias md='mdcat' # markdown preview
+alias git.='lazygit' # git terminal ui
 alias pdf='zathura' # pdf preview
 alias md='mdfried' # markdown preview
 alias video='mpv' # video player
