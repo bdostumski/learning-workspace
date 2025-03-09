@@ -21,6 +21,7 @@ packages=(
 	zathura # Document viewer with vi keybindings
 	# zathura-pdf-mupdf # PDF support for Zathura
 	zathura-pdf-poppler # PDF support for Zathura
+	mpv # Terminal Media player
 	glances # An eye on your system
 	tmux # Terminal multiplexer
 	trash-cli # Command-line trash utility 
@@ -35,6 +36,7 @@ packages=(
 	k3diff # A diff tool for comparing files and directories
 	httpie # A user-friendly HTTP client (better than curl)
 	ncdu # Disk usage analyzer
+	onefetch # Fetch information about a Git repositories
 	neofetch # Show system information with a logo
 	fastfetch # A faster neofetch alternative. Customization posibbilites are endless.
 	wine # Windows compatibility layer

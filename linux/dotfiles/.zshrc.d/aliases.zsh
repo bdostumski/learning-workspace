@@ -64,6 +64,7 @@ alias sys-status='systemctl status' # current status of a service
 alias htop='btop' # top with delay
 alias glances='glances' # system monitor
 alias sysinfo='neofetch' # system information
+alias gitinfo='onefetch' # git information
 alias du='ncdu --color dark' # disk usage with colors
 alias df='pydf -h' # disk free
 alias grub-install='sudo grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB' # install grub
@@ -130,6 +131,7 @@ alias git-cli='lazygit' # git terminal ui
 alias md='mdcat' # markdown preview
 alias pdf='zathura' # pdf preview
 alias md='mdfried' # markdown preview
+alias video='mpv' # video player
 
 # kitty terminal
 alias kitty-theme='kitty +kitten themes' # change kitty theme

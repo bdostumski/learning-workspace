@@ -19,3 +19,7 @@ yay -S --noconfirm aur/postman-bin # API testing
 yay -S --noconfirm aur/stacer-bin # System optimizer
 yay -S --noconfirm aur/viber # Messaging app
 yay -S --noconfirm aur/auto-cpufreq # CPU frequency scaling
+
+# Important: Suggestions to install
+# yay -S nemu # TUI for QEMU used to manage virual machines, can display the Virual Machine in the terminal using kitty graphics protocol. Should be installed independently (need configuration)
+
