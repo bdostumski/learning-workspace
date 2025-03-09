@@ -10,6 +10,7 @@ packages=(
 	# Command-Line Utilities
 	git # Version control system
 	zsh # Zsh Shell
+	mdcat # A cat alternative with markdown rendering
 	bat # A cat alternative with syntax highlighting
 	btop # A graphical system monitor (better than htop)
 	pydf # disk space usage analyzer

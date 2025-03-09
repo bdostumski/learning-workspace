@@ -12,6 +12,7 @@ yay -S --noconfirm extra/sdl3 # Simple DirectMedia Layer
 yay -S --noconfirm extra/suitesparse # Sparse matrix libraries
 yay -S --noconfirm aur/intellij-idea-community-edition # Java IDE
 # yay -S --noconfirm aur/intellij-idea-ultimate-edition # Java IDE
+yay -S --noconfirm aur/mdfried # Markdown previewer
 yay -S --noconfirm aur/mu # Maildir indexer
 yay -S --noconfirm aur/visual-studio-code-bin # Code editor
 yay -S --noconfirm aur/postman-bin # API testing

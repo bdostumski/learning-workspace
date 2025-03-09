@@ -1,4 +1,5 @@
 # Aliases
+alias git-cli='lazygit'
 
 # neovim  
 alias vi='nvim'
@@ -124,6 +125,12 @@ alias ssh-add='ssh-add -K' # add ssh key
 alias ssh-agent='eval $(ssh-agent -s)' # start ssh agent
 alias ssh-kill='killall ssh-agent' # kill ssh agent
 
+# TUI applications
+alias git-cli='lazygit' # git terminal ui
+alias md='mdcat' # markdown preview
+alias pdf='meowpdf' # pdf preview
+alias md='mdfried' # markdown preview
+
 # kitty terminal
 alias kitty-theme='kitty +kitten themes' # change kitty theme
 alias kitty-fonts='kitty +kitten fonts' # change kitty fonts
@@ -154,7 +161,6 @@ alias logfull='git log --graph --decorate --full-history | bat --paging=always -
 alias logauthor='function_logauthor() { git log --graph --decorate --full-history --author="$1" | bat --paging=always --language=gitlog }; function_logauthor'
 #
 # github cli aliases
-alias git-cli='lazygit'
 alias gh='gh --color=always'
 alias copilot='gh copilot'
 alias pull-list='gh pr list'
