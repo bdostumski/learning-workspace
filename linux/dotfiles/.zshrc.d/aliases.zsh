@@ -16,9 +16,9 @@ alias zsh-theme='p10k configure' # configure p10k theme
 # navigation commands
 alias mkdir='mkdir -p' # create parent directories
 alias z="z -c" # z with auto cd jump to directory
-alias cd.='cd ..' # go back one directory
-alias cd..='cd ../..' # go back two directories
-alias cd...='cd ../../..' # go back three directories
+alias c.='cd ..' # go back one directory
+alias c..='cd ../..' # go back two directories
+alias c...='cd ../../..' # go back three directories
 
 # ls commands
 alias ls='eza -al --color=auto --icons --color=auto --group-directories-first' 
