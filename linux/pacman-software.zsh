@@ -18,6 +18,9 @@ packages=(
 	stow # Manages symlinks (useful for dotfiles)
 	ranger # File manager with VI keybindings
 	speedtest-cli # Command-line interface for speedtest.net
+	zathura # Document viewer with vi keybindings
+	# zathura-pdf-mupdf # PDF support for Zathura
+	zathura-pdf-poppler # PDF support for Zathura
 	glances # An eye on your system
 	tmux # Terminal multiplexer
 	trash-cli # Command-line trash utility 

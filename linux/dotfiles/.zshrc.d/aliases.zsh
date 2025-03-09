@@ -128,7 +128,7 @@ alias ssh-kill='killall ssh-agent' # kill ssh agent
 # TUI applications
 alias git-cli='lazygit' # git terminal ui
 alias md='mdcat' # markdown preview
-alias pdf='meowpdf' # pdf preview
+alias pdf='zathura' # pdf preview
 alias md='mdfried' # markdown preview
 
 # kitty terminal
