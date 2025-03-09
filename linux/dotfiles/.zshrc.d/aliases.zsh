@@ -1,12 +1,13 @@
 # Aliases
 
 # neovim  
+alias v='vim'
 alias vi='nvim'
 alias vim="nvim"
 
 # emacs 
 alias emacs="emacsclient -c -a 'emacs'"
-alias emacs-cli="emacsclient -c -a 'emacs -nw'" 
+alias emacs.="emacsclient -c -a 'emacs -nw'" 
 alias emacs-kill="killall emacs || echo 'Emacs server not running'; /usr/bin/emacs --daemon"
 
 # external applications
@@ -60,8 +61,8 @@ alias sys-disable='sudo systemctl disable' # disable service to start at boot ti
 alias sys-status='systemctl status' # current status of a service
 
 # system and hardware commands
-alias top='btop' # system monitor { htop|btop|gotop|glances }
-alias sysm='glances' # system monitor { htop|btop|gotop|glances }
+alias top='btop' # system monitor { htop|btop|gotop }
+alias sysm='glances' # system monitor 
 alias sysinfo='neofetch' # system information
 alias gitinfo='onefetch' # git information
 alias cpu='lscpu' # cpu information
