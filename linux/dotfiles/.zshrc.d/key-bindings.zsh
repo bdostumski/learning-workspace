@@ -1,4 +1,6 @@
+#
 # Key Bindings
+#
 
 # setup zsh key bindings
 bindkey -v # use vi key bindings

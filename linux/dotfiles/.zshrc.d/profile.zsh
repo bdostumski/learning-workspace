@@ -1,17 +1,30 @@
-# Custom Themes
+#
+# Custom Configurations & Themes
+#
 
-THEMES=$HOME/.zshrc.d/config.d
-
+# -----------------
+# TERMINAL THEME 
+# -----------------
+# Notes:
+# To create new prompt configuration, run `p10k configure`
+#
+# theme home directory path
+THEMES=$HOME/.zshrc.d/config.d 
+#
 # add powerlevel10k theme
 zinit ice depth=1; zinit light romkatv/powerlevel10k
-
-# prompt themes
+#
+# setup terminal theme
 local CLASSIC_THEME='.classic_theme.zsh'
 local PURE_THEME='.pure_theme.zsh'
 # prompt pure theme using (p10k plugin)
 [[ ! -f $THEMES/zsh-themes/$PURE_THEME ]] || source $THEMES/zsh-themes/$PURE_THEME
 
-# ls color schemes
+# -----------------
+# LS COLOR SCHMES
+# -----------------
+#
+# ls color scheme names
 local ALABASTER_DARK='alabaster_dark'
 local AYU='ayu'
 local CATPPUCCIN_FRAPE='catppuccin-frappe'
@@ -42,26 +55,26 @@ local TOKYONIGHT_MOON='tokyonight-moon'
 local TOKYONIGHT_NIGHT='tokyonight-night'
 local TOKYONIGHT_STORM='tokyonight-storm'
 local ZENBURN='zenburn'
-
-# ls color schemes
+# 
+# choose ls color scheme
 local LS_COLOR_SCHEME="$THEMES/ls-color-schemes/$SNAZZY"
-
-# custom ls colors | and prebuild with vivid plugin
+# 
+# setup vivid plugin color scheme | else use default custom color scheme
 if [ -d $LS_COLOR_SHEME ]; then
 	export LS_COLORS="$(cat $LS_COLOR_SCHEME)"
 else
 	export LS_COLORS="di=36:fi=0:ln=34:mh=00:pi=33:so=35:do=35:bd=33;1:cd=33;1:or=31;1:mi=0:su=31:sg=31:ca=31:tw=32:ow=32:st=34;1:ex=92"
 fi
 
+# -----------------
+# FZF CONFIGURATIONS
+# -----------------
+#
 # completion styling
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-
+# 
 # fzf shell integration
 eval "$(fzf --zsh)"
-
-# Notes:
-# To create new prompt configuration, run `p10k configure`
-

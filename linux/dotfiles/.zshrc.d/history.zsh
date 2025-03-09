@@ -1,4 +1,6 @@
+#
 # History
+#
 
 HISTFILE=$HOME/.logs.d/.zsh_history
 if [ ! -f "$HISTFILE" ]; then

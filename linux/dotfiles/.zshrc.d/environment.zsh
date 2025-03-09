@@ -1,5 +1,6 @@
-#!/bin/zsh
+#
 # Environment
+#
 
 # ZSH Environment Configuration
 export TERM="xterm-256color" # Set terminal to 256 colors

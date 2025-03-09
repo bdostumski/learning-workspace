@@ -1,4 +1,6 @@
+#
 # Plugins
+#
 
 # Load the plugin manager
 zinit snippet OMZ::plugins/z # z jump around directories with ease
