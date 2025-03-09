@@ -125,11 +125,11 @@ alias ssh-agent='eval $(ssh-agent -s)' # start ssh agent
 alias ssh-kill='killall ssh-agent' # kill ssh agent
 
 # kitty terminal
-alias view-image='kitty +kitten icat' # view image in terminal
-alias file-diff='kitty +kitten diff' # view file diff in terminal
-alias unicode='kitty +kitten unicode' # view unicode characters in terminal
 alias kitty-theme='kitty +kitten themes' # change kitty theme
 alias kitty-fonts='kitty +kitten fonts' # change kitty fonts
+alias compare='kitty +kitten diff' # view file diff in terminal
+alias image='kitty +kitten icat' # view image in terminal
+alias unicode='kitty +kitten unicode' # view unicode characters in terminal
 
 # Kitty remote file operations
 # Edit, Open or Download files from local computer into remote computer
@@ -144,6 +144,9 @@ alias ssh-rsync-download='kitty +kitten transfer' # rsync download file: ./remot
 alias ssh-rsync-upload='kitty +kitten transfer --direction=upload' # rsync upload file: /path/on/local/computer ./remote-file
 
 # git aliases
+alias diff='git diff --color-words'
+alias difftool='git difftool -y'
+alias mergetool='git mergetool -y'
 alias g='git' # g for git it is good combination with .gitconfig aliases
 alias log='git log --oneline --graph --decorate | bat --paging=always --language=gitlog'
 alias logall='git log --graph --decorate | bat --paging=always --language=gitlog'
@@ -167,6 +170,3 @@ alias issue-close='gh issue close'
 # change shell
 alias tobash="sudo chsh $USER -s /bin/bash && echo 'Log out and log in again'"
 alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Log out and log in again'"
-
-
-

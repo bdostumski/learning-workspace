@@ -64,3 +64,4 @@ eval "$(fzf --zsh)"
 
 # Notes:
 # To create new prompt configuration, run `p10k configure`
+
