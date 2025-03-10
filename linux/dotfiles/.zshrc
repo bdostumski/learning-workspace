@@ -1,56 +1,84 @@
+#
 # Zsh Config
+# Description: This file is the main configuration file for zsh. It loads all
+#
 
-# if not running shell interactively, don't do anyting
+# -----------------
+# Shell Configuration
+# -----------------
+# If not running shell interactively, don't do anyting
 [[ $- != *i* ]] && return
+# ---------- 
 
-# set ZDOTDIR
-export ZDOTDIR="$HOME"
+# -----------------
+# Create Direcotries 
+# &
+# Copy Config Files
+# -----------------
+LOGS="$HOME/.logs.d"
+# Create .logs.d to store application messages
+if [[ ! -d "$LOGS" ]]; then
+	mkdir -p "$LOGS"
+fi
 
-# set the directory we want to store zinit and plugins
+# -----------------
+# Setup history file
+# -----------------
+# Create history file if it does not exist
+if [ ! -f "$LOGS/.zsh_history" ]; then
+	touch "$LOGS/.zsh_history"
+fi
+
+# -----------------
+# Zinit Configuration
+# -----------------
+# Home Directory
+export SHELLDIR="$HOME/.zshrc.d"
 ZINIT_HOME="$HOME/.config/zinit/.zinit.git"
-# download zinit, if not already installed
+# ---------- 
+# Download Zinit, if not already installed
 if [[ ! -d "$ZINIT_HOME" ]]; then
 	mkdir -p "$(dirname $ZINIT_HOME)"
 	git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
-
-# load zinit plugin manager
+# ---------- 
+# Plugin Manager
 source "${ZINIT_HOME}/zinit.zsh"
 
-# create logs directory for application history and log files
-if [[ ! -d "$HOME/.logs.d" ]]; then
-	mkdir -p "$HOME/.logs.d"
-	touch "$HOME/.logs.d/.zsh_history"
-fi
-
-# load enviroment variables
-[ -f "$ZDOTDIR/.zshrc.d/environment.sh" ] && source "$ZDOTDIR/.zshrc.d/environment.sh"
-
+# -----------------
+# Shell Configuration Files
+# -----------------
+# load common enviroment variables
+[ -f "$SHELLDIR/environment.sh" ] && source "$SHELLDIR/environment.sh"
+# ---------- 
 # load aliases
-[ -f "$ZDOTDIR/.zshrc.d/aliases.sh" ] && source "$ZDOTDIR/.zshrc.d/aliases.sh"
-
+[ -f "$SHELLDIR/aliases.sh" ] && source "$SHELLDIR/aliases.sh"
+# ---------- 
 # load template files
-[ -f "$ZDOTDIR/.zshrc.d/templates.sh" ] && source "$ZDOTDIR/.zshrc.d/templates.sh"
-
+[ -f "$SHELLDIR/templates.sh" ] && source "$SHELLDIR/templates.sh"
+# ---------- 
 # load functions 
-[ -f "$ZDOTDIR/.zshrc.d/functions.sh" ] && source "$ZDOTDIR/.zshrc.d/functions.sh"
-
+[ -f "$SHELLDIR/functions.sh" ] && source "$SHELLDIR/functions.sh"
+# ---------- 
 # load history settings
-[ -f "$ZDOTDIR/.zshrc.d/history.sh" ] && source "$ZDOTDIR/.zshrc.d/history.sh"
-
+[ -f "$SHELLDIR/history.sh" ] && source "$SHELLDIR/history.sh"
+# ---------- 
 # load key bindings
-[ -f "$ZDOTDIR/.zshrc.d/key-bindings.sh" ] && source "$ZDOTDIR/.zshrc.d/key-bindings.sh"
-
+[ -f "$SHELLDIR/key-bindings.sh" ] && source "$SHELLDIR/key-bindings.sh"
+# ---------- 
 # load plugins
-[ -f "$ZDOTDIR/.zshrc.d/plugins.sh" ] && source "$ZDOTDIR/.zshrc.d/plugins.sh"
-
+[ -f "$SHELLDIR/plugins.sh" ] && source "$SHELLDIR/plugins.sh"
+# ---------- 
 # custom profile settings
-[ -f "$ZDOTDIR/.zshrc.d/profile.sh" ] && source "$ZDOTDIR/.zshrc.d/profile.sh"
-
+[ -f "$SHELLDIR/profile.sh" ] && source "$SHELLDIR/profile.sh"
+# ---------- 
 # load local machine-specific configuration (optional)
 # this file is for settings that should not be shared between machines
-[ -f "$ZDOTDIR/.zshrc.d/local.sh" ] && source "$ZDOTDIR/.zshrc.d/local.sh"
+[ -f "$SHELLDIR/local.sh" ] && source "$SHELLDIR/local.sh"
 
+# -----------------
+# Zinit Configuration
+# -----------------
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
 zinit light-mode for \

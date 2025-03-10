@@ -3,14 +3,14 @@
 # Description: setup history options
 #
 
-HISTFILE=$HOME/.logs.d/.zsh_history
-if [ ! -f "$HISTFILE" ]; then
-	touch "$HISTFILE"
-fi
-
+# -----------------
+# History Configuration
+# -----------------
+# Max number of lines in history file
 HISTSIZE=50000
 SAVEHIST=50000
-
+# ---------- 
+# History options
 setopt appendhistory # append history insted of overwriting
 setopt sharehistory # share history across sessions
 setopt inc_append_history # write commands to history imediately

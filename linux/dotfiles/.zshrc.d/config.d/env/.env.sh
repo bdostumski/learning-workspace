@@ -1,5 +1,5 @@
 #
-# Local Environment Variables
+# Environment Variables
 # Description: Expose local environment variables
 # Path: ~/.env.sh
 #
