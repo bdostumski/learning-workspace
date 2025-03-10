@@ -40,6 +40,8 @@ alias network-speed='speedtest-cli' # speedtest-cli
 # -----------------
 # navigation
 alias mkdir='mkdir -p' # create parent directories
+alias rmi='rm -rfi' # remove with confirmation, files and directories
+alias up='cd_up ' # go up {level_number} directory: up 5 
 alias z="z -c" # z with auto cd jump to directory
 alias c.='cd ..' # go back one directory
 alias c..='cd ../..' # go back two directories
@@ -184,7 +186,7 @@ alias mirrora='sudo reflector --latest 50 --number 20 --sort age --save /etc/pac
 # ---------- 
 # system and hardware commands
 alias top='btop' # system monitor { htop|btop|gotop }
-alias sysm='glances' # system monitor 
+alias sysremote='glances' # system monitor can expose information about the system usage by using HTTP API 
 alias sysinfo='neofetch' # system information
 alias cpu='lscpu' # cpu information
 alias du='ncdu --color dark' # disk usage with colors

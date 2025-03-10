@@ -1,10 +1,11 @@
-#!/usr/bin/env zsh
 #
-# navigation
-# example usage: cd-up 3 
-# this will navigate up 3 directories
+# Navigation
+# Description: Change several directories up 
+# Example: up 3 
 #
-cd-up () {
+
+
+cd_up () {
 	local d=""
 	local limit="$1"
 

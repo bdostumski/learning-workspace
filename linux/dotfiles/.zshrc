@@ -24,32 +24,32 @@ if [[ ! -d "$HOME/.logs.d" ]]; then
 fi
 
 # load enviroment variables
-[ -f "$ZDOTDIR/.zshrc.d/environment.zsh" ] && source "$ZDOTDIR/.zshrc.d/environment.zsh"
+[ -f "$ZDOTDIR/.zshrc.d/environment.sh" ] && source "$ZDOTDIR/.zshrc.d/environment.sh"
 
 # load aliases
-[ -f "$ZDOTDIR/.zshrc.d/aliases.zsh" ] && source "$ZDOTDIR/.zshrc.d/aliases.zsh"
+[ -f "$ZDOTDIR/.zshrc.d/aliases.sh" ] && source "$ZDOTDIR/.zshrc.d/aliases.sh"
 
 # load template files
-[ -f "$ZDOTDIR/.zshrc.d/templates.zsh" ] && source "$ZDOTDIR/.zshrc.d/templates.zsh"
+[ -f "$ZDOTDIR/.zshrc.d/templates.sh" ] && source "$ZDOTDIR/.zshrc.d/templates.sh"
 
 # load functions 
-[ -f "$ZDOTDIR/.zshrc.d/functions.zsh" ] && source "$ZDOTDIR/.zshrc.d/functions.zsh"
+[ -f "$ZDOTDIR/.zshrc.d/functions.sh" ] && source "$ZDOTDIR/.zshrc.d/functions.sh"
 
 # load history settings
-[ -f "$ZDOTDIR/.zshrc.d/history.zsh" ] && source "$ZDOTDIR/.zshrc.d/history.zsh"
+[ -f "$ZDOTDIR/.zshrc.d/history.sh" ] && source "$ZDOTDIR/.zshrc.d/history.sh"
 
 # load key bindings
-[ -f "$ZDOTDIR/.zshrc.d/key-bindings.zsh" ] && source "$ZDOTDIR/.zshrc.d/key-bindings.zsh"
+[ -f "$ZDOTDIR/.zshrc.d/key-bindings.sh" ] && source "$ZDOTDIR/.zshrc.d/key-bindings.sh"
 
 # load plugins
-[ -f "$ZDOTDIR/.zshrc.d/plugins.zsh" ] && source "$ZDOTDIR/.zshrc.d/plugins.zsh"
+[ -f "$ZDOTDIR/.zshrc.d/plugins.sh" ] && source "$ZDOTDIR/.zshrc.d/plugins.sh"
 
 # custom profile settings
-[ -f "$ZDOTDIR/.zshrc.d/profile.zsh" ] && source "$ZDOTDIR/.zshrc.d/profile.zsh"
+[ -f "$ZDOTDIR/.zshrc.d/profile.sh" ] && source "$ZDOTDIR/.zshrc.d/profile.sh"
 
 # load local machine-specific configuration (optional)
 # this file is for settings that should not be shared between machines
-[ -f "$ZDOTDIR/.zshrc.d/local.zsh" ] && source "$ZDOTDIR/.zshrc.d/local.zsh"
+[ -f "$ZDOTDIR/.zshrc.d/local.sh" ] && source "$ZDOTDIR/.zshrc.d/local.sh"
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)

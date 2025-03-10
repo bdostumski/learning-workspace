@@ -1,5 +1,6 @@
 #
 # History
+# Description: setup history options
 #
 
 HISTFILE=$HOME/.logs.d/.zsh_history

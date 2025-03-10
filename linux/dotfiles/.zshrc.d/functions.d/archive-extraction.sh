@@ -1,8 +1,9 @@
-#!/bin/zsh
 #
-# archive extration
-# usage: extract <file>
+# Archive Extration
+# Usage: extract <file>
 #
+
+
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 

@@ -1,5 +1,6 @@
 #
 # Plugins
+# Description: Install and configure shell plugins
 #
 
 # Load the plugin manager

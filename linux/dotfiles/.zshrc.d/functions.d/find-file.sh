@@ -1,4 +1,9 @@
+#
 # Find files and open selected in nvim
+# Description: This function uses fd to find files and open select one
+# Usage: find-file <file name>
+#
+
 find_file() {
   fd -g -H -t f "$1" | \
   fzf --preview "exa -al {}" \

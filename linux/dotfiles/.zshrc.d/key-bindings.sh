@@ -1,5 +1,6 @@
 #
 # Key Bindings
+# Desciption: This file contains custom key bindings for shell configuration
 #
 
 # setup zsh key bindings
