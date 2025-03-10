@@ -1,10 +1,10 @@
 #
-# Plugins
+# PLUGINS
 # Description: Install and configure shell plugins
 #
 
 # -----------------
-# Load the plugin manager
+# LOAD THE PLUGIN MANAGER
 # -----------------
 zinit snippet OMZ::plugins/z # z jump around directories with ease
 zinit light loiccoyle/zsh-github-copilot # github copilot
@@ -14,7 +14,7 @@ zinit light Aloxaf/fzf-tab # fzf - fuzzy finder completion tab
 zinit light zsh-users/zsh-syntax-highlighting # syntax highlighting - colorize commands and options
 
 # -----------------
-# Completions - use tabkey to complete commands and options
+# COMPLETIONS - USE TABKEY TO COMPLETE COMMANDS AND OPTIONS
 # -----------------
 autoload -Uz compinit
 zinit ice wait lucid

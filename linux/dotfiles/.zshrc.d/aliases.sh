@@ -1,5 +1,5 @@
 #
-# Aliases 
+# ALIASES 
 # Description: Aliases are short commands that can be used to replace long commands.
 #
 

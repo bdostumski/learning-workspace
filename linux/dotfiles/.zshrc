@@ -1,19 +1,19 @@
 #
-# Zsh Config
+# ZSH CONFIGURATION
 # Description: This file is the main configuration file for zsh. It loads all
 #
 
 # -----------------
-# Shell Configuration
+# ZSH SHELL CONFIGURATION
 # -----------------
 # If not running shell interactively, don't do anyting
 [[ $- != *i* ]] && return
 # ---------- 
 
 # -----------------
-# Create Direcotries 
+# CREATE DIRECOTRIES 
 # &
-# Copy Config Files
+# COPY CONFIG FILES
 # -----------------
 LOGS="$HOME/.logs.d"
 # Create .logs.d to store application messages
@@ -22,7 +22,7 @@ if [[ ! -d "$LOGS" ]]; then
 fi
 
 # -----------------
-# Setup history file
+# SETUP HISTORY FILE
 # -----------------
 # Create history file if it does not exist
 if [ ! -f "$LOGS/.zsh_history" ]; then
@@ -30,7 +30,7 @@ if [ ! -f "$LOGS/.zsh_history" ]; then
 fi
 
 # -----------------
-# Zinit Configuration
+# ZINIT CONFIGURATION
 # -----------------
 # Home Directory
 export SHELLDIR="$HOME/.zshrc.d"
@@ -46,7 +46,7 @@ fi
 source "${ZINIT_HOME}/zinit.zsh"
 
 # -----------------
-# Shell Configuration Files
+# SHELL CONFIGURATION FILES
 # -----------------
 # load common enviroment variables
 [ -f "$SHELLDIR/environment.sh" ] && source "$SHELLDIR/environment.sh"
@@ -77,7 +77,7 @@ source "${ZINIT_HOME}/zinit.zsh"
 [ -f "$SHELLDIR/local.sh" ] && source "$SHELLDIR/local.sh"
 
 # -----------------
-# Zinit Configuration
+# ZINIT CONFIGURATION
 # -----------------
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)

@@ -1,5 +1,5 @@
 #
-# Custom Configurations & Themes
+# CUSTOM CONFIGURATIONS & THEMES
 #
 
 # -----------------

@@ -1,10 +1,10 @@
 #
-# Local
+# LOCAL
 # Description: configuration for machine-specific settings
 #
 
 # -----------------
-# Load enviroment variables file
+# LOAD ENVIROMENT VARIABLES FILE
 # -----------------
 if [ -f "~/.env.sh" ]; then
 	source "~/.env.sh"

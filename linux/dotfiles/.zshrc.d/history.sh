@@ -1,10 +1,10 @@
 #
-# History
+# HISTORY
 # Description: setup history options
 #
 
 # -----------------
-# History Configuration
+# HISTORY CONFIGURATION
 # -----------------
 # Max number of lines in history file
 HISTSIZE=50000

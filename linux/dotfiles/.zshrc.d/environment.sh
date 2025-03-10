@@ -1,10 +1,10 @@
 #
-# Environment
+# ENVIRONMENT
 # Description: Export configuration paths and environment configuration variables
 #
 
 # -----------------
-# Environment Configuration
+# ENVIRONMENT CONFIGURATION
 # -----------------
 export TERM="xterm-256color" # Set terminal to 256 colors
 export LANG='en_US.UTF-8' # Set language to US English
@@ -17,7 +17,7 @@ export ZSH_COMPDUMP='$HOME/.logs.d/.zcompdump'
 export GIT_CONFIG_GLOBAL="$HOME/.zshrc.d/config.d/git/.gitconfig"
 
 # -----------------
-# Path Configuration
+# PATH CONFIGURATION
 # -----------------
 # add bin to path
 if [ -d "$HOME/.bin" ]; then
@@ -53,7 +53,7 @@ fi
 export PATH
 
 # -----------------
-# Plugins Environment Configuration
+# PLUGINS ENVIRONMENT CONFIGURATION
 # -----------------
 ZSH_AUTOSUGGEST_STRATEGY=(history completion) # set autosuggest strategy (history, completion, match_prev_cmd)
 ZSH_AUTOSUGGEST_HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|cd -|cd ..)" # ignore these commands in autosuggest history
@@ -66,7 +66,7 @@ ZSH_IGNORE_ALL_DUPS=1 # ignore all duplicates in history
 # ZSH_AUTOSUGGEST_IGNORE_WIDGET="^i" # ignore autosuggest widget
 
 # -----------------
-# Zinit Configuration
+# ZINIT CONFIGURATION
 # -----------------
 ZINIT[PLUGINS_DIR]=$HOME/.config/zinit/share/zinit/plugins
 ZINIT[SNIPPETS_DIR]=$HOME/.config/zinit/share/zinit/snippets
