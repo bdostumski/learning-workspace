@@ -1,5 +1,5 @@
 #
-# Navigation
+# NAVIGATION
 # Description: Change several directories up 
 # Example: up 3 
 #

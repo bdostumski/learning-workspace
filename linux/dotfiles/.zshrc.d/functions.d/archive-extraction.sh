@@ -1,5 +1,5 @@
 #
-# Archive Extration
+# ARCHIVE EXTRATION
 # Usage: extract <file>
 #
 

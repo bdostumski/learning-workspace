@@ -1,5 +1,5 @@
 #
-# Find directories and open selected in nvim
+# FIND DIRECTORIES AND OPEN SELECTED IN NVIM
 # Description: This script uses fd to find directories and open the selected
 # Usage: find-dir <search dir>
 #

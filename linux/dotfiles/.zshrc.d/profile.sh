@@ -15,10 +15,10 @@ THEMES=$HOME/.zshrc.d/config.d/themes
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 # ---------- 
 # Setup terminal theme
-local CLASSIC_THEME='.classic_theme.zsh'
-local PURE_THEME='.pure_theme.zsh'
+local CLASSIC_THEME='.classic_theme.sh'
+local PURE_THEME='.pure_theme.sh'
 # Prompt pure theme using (p10k plugin)
-[[ ! -f $THEMES/zsh/$PURE_THEME ]] || source $THEMES/zsh/$PURE_THEME
+[[ ! -f $THEMES/shell/$PURE_THEME ]] || source $THEMES/shell/$PURE_THEME
 
 # -----------------
 # LS COLOR SCHMES
