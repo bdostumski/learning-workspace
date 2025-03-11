@@ -3,7 +3,6 @@
 # Usage: extract <file>
 #
 
-
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 

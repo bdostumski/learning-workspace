@@ -4,7 +4,6 @@
 # Example: up 3 
 #
 
-
 cd_up () {
 	local d=""
 	local limit="$1"

@@ -1,7 +1,7 @@
-#!/usr/bin/env zsh
 #
 # Install common tools for Arch Linux
 #
+
 # Update the system
 sudo pacman -Syu --noconfirm
 #

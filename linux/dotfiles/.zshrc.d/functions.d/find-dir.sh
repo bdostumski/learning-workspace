@@ -4,7 +4,6 @@
 # Usage: find-dir <search dir>
 #
 
-
 find_dir() {
   fd -g -H -t d "$1" | \
   fzf --preview "exa -al {}" \

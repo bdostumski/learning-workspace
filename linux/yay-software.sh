@@ -1,6 +1,6 @@
-#!/bin/zsh
-
+#
 # Install yay packages if not installed
+#
 
 yay -S --noconfirm core/iana-etc # Timezone data
 yay -S --noconfirm extra/libheif # HEIF image format

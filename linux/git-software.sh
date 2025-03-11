@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 # Tmux plugin manager install on ~/.config/.tmux/plugins/tpm directory
 if [ ! -d ~/.config/.tmux/plugins/tpm ]; then
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
