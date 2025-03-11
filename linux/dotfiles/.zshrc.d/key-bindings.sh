@@ -25,12 +25,15 @@ bindkey '^D' autosuggest-execute # accept and execute the current suggestion
 # bindkey '' autosuggest-disable # disable autosuggestions
 # bindkey '' autosuggest-enable # enable autosuggestions
 # bindkey '' autosuggest-toggle # toggle autosuggestions on/off
+# bindkey '^N' autosuggest-next # move to the next suggestion
+# bindkey '^P' autosuggest-previous # move to the previous suggestion
 
 # -----------------
 # SETUP HISTORY SEARCH
 # -----------------
-bindkey '^J' history-search-backward # search backward in history for a related command
-bindkey '^K' history-search-forward # search forward in history for a related command
+# bindkey '^J' history-search-backward # search backward in history for a related command
+# bindkey '^K' history-search-forward # search forward in history for a related command
+bindkey '^R' history-incremental-search-backward # search backward in history for a related command
 
 # -----------------
 # FZF KEY BINDINGS

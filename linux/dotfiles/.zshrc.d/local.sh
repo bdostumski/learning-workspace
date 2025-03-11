@@ -4,9 +4,7 @@
 #
 
 # -----------------
-# LOAD ENVIROMENT VARIABLES FILE
+# LOAD ENVIRONMENT VARIABLES FILE
 # -----------------
-if [ -f "~/.env.sh" ]; then
-	source "~/.env.sh"
-fi
+[ -f "$HOME/.env.sh" ] && source "$HOME/.env.sh" # load environment variables
 

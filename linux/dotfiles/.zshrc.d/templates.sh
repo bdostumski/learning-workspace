@@ -7,5 +7,5 @@
 # -----------------
 # FULL GITIGNORE TEMPLATE
 # -----------------
-alias gitignore="cat '$HOME/.zshrc.d/templates.d/.gitignore' >> .gitignore"
+alias gitignore="cat '$SHELLDIR/templates.d/.gitignore' >> .gitignore"
 

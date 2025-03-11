@@ -20,7 +20,7 @@ alias emacs-kill="killall emacs || echo 'Emacs server not running'; /usr/bin/ema
 # SHELL COMMANDS  
 # -----------------
 # external applications
-alias zsh-source='source ~/.zshrc' # source zsh
+alias zsh-source='source $HOME/.zshrc' # source zsh
 alias zsh-theme='p10k configure' # configure p10k theme
 # ---------- 
 # TUI applications
