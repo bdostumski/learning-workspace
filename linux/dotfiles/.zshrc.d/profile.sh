@@ -58,7 +58,6 @@ local LS_COLOR_SCHEME="$THEMES/ls/$SNAZZY"
 # Setup vivid plugin color scheme | Else use default custom color scheme
 [ -f "$LS_COLOR_SCHEME" ] && export LS_COLORS="$(cat "$LS_COLOR_SCHEME")"
 
-
 # -----------------
 # FZF CONFIGURATIONS
 # -----------------
