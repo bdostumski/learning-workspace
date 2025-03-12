@@ -29,6 +29,7 @@ packages=(
 	xclip # Command-line interface to the X11 clipboard
 	xsel # Command-line clipboard and selection tool
 	eza # A modern replacement for ls
+	lsd # A modern replacement for ls better icons and colors
 	vivid # A themeable LS_COLORS generator
 	ripgrep # Faster alternative to grep for searching files
 	lazygit # Terminal UI for git

@@ -49,13 +49,13 @@ alias c..='cd ../..' # go back two directories
 alias c...='cd ../../..' # go back three directories
 # ---------- 
 # ls commands
-alias ls='eza -al --color=auto --icons --color=auto --group-directories-first' 
-alias ll='eza -l --color=auto --icons --color=auto --group-directories-first'
-alias lt='eza -aT --color=auto --icons --color=auto --group-directories-first'
-alias la='eza -a --color=auto --icons --color=auto --group-directories-first'
-alias l.='eza -a --color=auto --icons --color=auto --group-directories-first ../'
-alias l..='eza -a --color=auto --icons --color=auto --group-directories-first ../../'
-alias l...='eza -a --color=auto --icons --color=auto --group-directories-first ../../../'
+alias ls='lsd -al --color=auto --group-directories-first' 
+alias ll='lsd -l --color=auto --group-directories-first'
+alias lt='lsd -aT --color=auto --group-directories-first'
+alias la='lsd -a --color=auto --group-directories-first'
+alias l.='lsd -a --color=auto --group-directories-first ../'
+alias l..='lsd -a --color=auto --group-directories-first ../../'
+alias l...='lsd -a --color=auto --group-directories-first ../../../'
 # # # # # # # # # #
 
 # -----------------
