@@ -6,8 +6,27 @@
 # -----------------
 # SETUP SHELL KEY BINDINGS
 # -----------------
+# use vi or emacs key bindings
 bindkey -v # use vi key bindings
 # bindkey -e # use emacs key bindings
+# ---------- 
+# shell navigation key bindings
+bindkey '^H' backward-kill-word # delete the word before the cursor "ctrl + { h | backspace }"
+bindkey '^A' beginning-of-line # move to the beginning of the line "ctrl + a"
+bindkey '^E' end-of-line # move to the end of the line "ctrl + e"
+bindkey '^[[3~' delete-char # delete the character under the cursor "delete"
+bindkey '^[[3;5~' kill-word # delete the word after the cursor "ctrl + delete"
+# bindkey '^B' backward-char # move backward one character "ctrl + b"
+# bindkey '^F' forward-char # move forward one character "ctrl + f"
+# bindkey '^P' up-line-or-history # move to the previous line in history "ctrl + p"
+# bindkey '^N' down-line-or-history # move to the next line in history "ctrl + n"
+# bindkey '^K' kill-line # delete from the cursor to the end of the line "ctrl + k"
+# bindkey '^U' backward-kill-line # delete from the cursor to the beginning of the line "ctrl + u"
+# bindkey '^W' backward-kill-word # delete the word before the cursor "ctrl + w"
+# bindkey '^R' history-incremental-search-backward # search backward in history for a related command "ctrl + r"
+# bindkey '^L' clear-screen # clear the screen "ctrl + l"
+
+
 
 # -----------------
 # GITHUB COPILOT KEY BINDINGS
