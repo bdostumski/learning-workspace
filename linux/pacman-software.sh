@@ -13,6 +13,7 @@ packages=(
 	mdcat # A cat alternative with markdown rendering
 	bat # A cat alternative with syntax highlighting
 	btop # A graphical system monitor (better than htop)
+	tldr # Simplified help pages for command-line tools
 	pydf # disk space usage analyzer
 	htop # An interactive process viewer
 	stow # Manages symlinks (useful for dotfiles)
