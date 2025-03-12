@@ -11,12 +11,13 @@ bindkey -v # use vi key bindings
 # bindkey -e # use emacs key bindings
 # ---------- 
 # shell navigation key bindings
-bindkey '^N' beginning-of-line # move to the beginning of the line "ctrl + h"
-bindkey '^M' end-of-line # move to the end of the line "ctrl + e"
-bindkey '^J' backward-word # move backward one word "ctrl + b"
-bindkey '^K' forward-word # move forward one word "ctrl + f"
-bindkey '^H' backward-kill-word # delete the word before the cursor "ctrl + { h | backspace }"
-bindkey '^L' kill-word # delete the word after the cursor "ctrl + l"
+bindkey '^[n' beginning-of-line # move to the beginning of the line "alt + n"
+bindkey '^[m' end-of-line # move to the end of the line "alt + m"
+bindkey '^[j' backward-word # move backward one word "alt + j"
+bindkey '^[k' forward-word # move forward one word "ctrl + f"
+bindkey '^[h' backward-kill-word # delete the word before the cursor "alt +  h"
+bindkey '^H' backward-kill-word # delete the word before the cursor "ctrl + backspace "
+bindkey '^[l' kill-word # delete the word after the cursor "alt + l"
 bindkey '^[[3;5~' kill-word # delete the word after the cursor "ctrl + delete"
 bindkey '^[[3~' delete-char # delete the character under the cursor "delete"
 # bindkey '^B' backward-char # move backward one character "ctrl + b"
