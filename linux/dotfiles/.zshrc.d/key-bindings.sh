@@ -7,30 +7,28 @@
 # SETUP SHELL KEY BINDINGS
 # -----------------
 # use vi or emacs key bindings
-bindkey -v # use vi key bindings
-# bindkey -e # use emacs key bindings
+bindkey -v # use [-v] vi key bindings, or [-e] emacs key bindings
 # ---------- 
 # shell navigation key bindings
-bindkey '^[n' beginning-of-line # move to the beginning of the line "alt + n"
-bindkey '^[m' end-of-line # move to the end of the line "alt + m"
-bindkey '^[j' backward-word # move backward one word "alt + j"
-bindkey '^[k' forward-word # move forward one word "ctrl + f"
-bindkey '^[h' backward-kill-word # delete the word before the cursor "alt +  h"
+# ---------- 
 bindkey '^H' backward-kill-word # delete the word before the cursor "ctrl + backspace "
-bindkey '^[l' kill-word # delete the word after the cursor "alt + l"
 bindkey '^[[3;5~' kill-word # delete the word after the cursor "ctrl + delete"
 bindkey '^[[3~' delete-char # delete the character under the cursor "delete"
-# bindkey '^B' backward-char # move backward one character "ctrl + b"
-# bindkey '^F' forward-char # move forward one character "ctrl + f"
-# bindkey '^P' up-line-or-history # move to the previous line in history "ctrl + p"
-# bindkey '^N' down-line-or-history # move to the next line in history "ctrl + n"
-# bindkey '^K' kill-line # delete from the cursor to the end of the line "ctrl + k"
-# bindkey '^U' backward-kill-line # delete from the cursor to the beginning of the line "ctrl + u"
-# bindkey '^W' backward-kill-word # delete the word before the cursor "ctrl + w"
-# bindkey '^R' history-incremental-search-backward # search backward in history for a related command "ctrl + r"
-# bindkey '^L' clear-screen # clear the screen "ctrl + l"
-
-
+# ---------- 
+# [alt] key navigation use one word at a time
+bindkey '^[j' backward-word # move backward one word "alt + j"
+bindkey '^[k' forward-word # move forward one word "ctrl + k"
+bindkey '^[h' backward-kill-word # delete the word before the cursor "alt +  h"
+bindkey '^[l' kill-word # delete the word after the cursor "alt + l"
+# ---------- 
+bindkey '^[n' beginning-of-line # move to the beginning of the line "alt + n"
+bindkey '^[m' end-of-line # move to the end of the line "alt + m"
+# ---------- 
+# [alt] key navigation use one word at a time
+bindkey '\e^j' backward-char # move backward one character "ctrl + alt + j"
+bindkey '\e^k' forward-char # move forward one character "ctrl + alt + k"
+bindkey '\e^h' backward-delete-char # delete the word before the cursor "ctrl + alt + h"
+bindkey '\e^l' delete-char # delete the word after the cursor "ctrl + alt + l"
 
 # -----------------
 # GITHUB COPILOT KEY BINDINGS
