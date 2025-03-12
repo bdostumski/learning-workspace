@@ -51,7 +51,7 @@ alias c...='cd ../../..' # go back three directories
 # ls commands
 alias ls='lsd -al --color=auto --group-directories-first' 
 alias ll='lsd -l --color=auto --group-directories-first'
-alias lt='lsd -aT --color=auto --group-directories-first'
+alias lt='lsd -a --tree --color=auto --group-directories-first'
 alias la='lsd -a --color=auto --group-directories-first'
 alias l.='lsd -a --color=auto --group-directories-first ../'
 alias l..='lsd -a --color=auto --group-directories-first ../../'

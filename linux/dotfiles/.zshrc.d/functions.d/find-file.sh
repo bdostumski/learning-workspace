@@ -6,7 +6,7 @@
 
 find_file() {
   fd -g -H -t f "$1" | \
-  fzf --preview "exa -al {}" \
+  fzf --preview "lsd -al --color=auto {}" \
       --bind "enter:execute(nvim {})"
 }
 
