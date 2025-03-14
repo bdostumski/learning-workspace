@@ -41,20 +41,12 @@ bindkey '^[\' zsh_gh_copilot_suggest  # bind Alt+\ to suggest
 # -----------------
 bindkey '^F' autosuggest-accept # accept the current suggestion
 bindkey '^D' autosuggest-execute # accept and execute the current suggestion
-# bindkey '' autosuggest-clear # clear autosuggestions
-# bindkey '' autosuggest-fetch # fetch autosuggestions
-# bindkey '' autosuggest-disable # disable autosuggestions
-# bindkey '' autosuggest-enable # enable autosuggestions
 # bindkey '' autosuggest-toggle # toggle autosuggestions on/off
-# bindkey '' autosuggest-next # move to the next suggestion
-# bindkey '' autosuggest-previous # move to the previous suggestion
 
 # -----------------
 # SETUP HISTORY SEARCH
 # -----------------
 bindkey '^R' history-incremental-search-backward # search backward in history for a related command
-# bindkey '' history-search-backward # search backward in history for a related command
-# bindkey '' history-search-forward # search forward in history for a related command
 
 # -----------------
 # FZF KEY BINDINGS
