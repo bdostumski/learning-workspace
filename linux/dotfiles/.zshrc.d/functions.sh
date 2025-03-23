@@ -18,7 +18,7 @@ source "$(dirname "$0")/functions.d/archive-extraction.sh"
 source "$(dirname "$0")/functions.d/change-dir-up.sh"
 
 # -----------------
-# FIND DIRECTORY 
+# FIND DIRECTORY
 # -----------------
 # Find directory and open selected in Nvim
 source "$(dirname "$0")/functions.d/find-dir.sh"
@@ -28,4 +28,3 @@ source "$(dirname "$0")/functions.d/find-dir.sh"
 # -----------------
 # Find file and open selected in Nvim
 source "$(dirname "$0")/functions.d/find-file.sh"
-

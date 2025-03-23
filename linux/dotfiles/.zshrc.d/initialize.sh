@@ -19,17 +19,17 @@ LOGS="$HOME/.logs.d"
 # ZINIT CONFIGURATION
 # -----------------
 ZINIT_HOME="$HOME/.config/zinit/.zinit.git"
-# ---------- 
+# ----------
 # Download Zinit, if not already installed
-if [[ ! -d "$ZINIT_HOME" ]]; then
-	mkdir -p "$(dirname $ZINIT_HOME)"
-	git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+if [ ! -d "$ZINIT_HOME" ]; then
+    mkdir -p "$(dirname $ZINIT_HOME)"
+    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
-# ---------- 
+# ----------
 # Plugin Manager
 source "${ZINIT_HOME}/zinit.zsh"
-# ---------- 
+# ----------
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
 zinit light-mode for \
@@ -37,4 +37,3 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-bin-gem-node \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust
-
