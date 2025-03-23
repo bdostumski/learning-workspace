@@ -1,3 +1,4 @@
+#!/usr/bin/env zsh
 #
 # ZSH CONFIGURATION
 # Description: This file is the main configuration file for zsh. It loads all
@@ -14,37 +15,37 @@
 # -----------------
 # Shell Home Directory
 export SHELLDIR="$HOME/.zshrc.d"
-# ---------- 
+# ----------
 # load shell initialization
-[ -f "$SHELLDIR/initialize.sh" ] && source "$SHELLDIR/initialize.sh"
+[ -f "$SHELLDIR/initialize.zsh" ] && source "$SHELLDIR/initialize.zsh"
 
 # -----------------
 # SHELL CONFIGURATION FILES
 # -----------------
 # load common enviroment variables
-[ -f "$SHELLDIR/environment.sh" ] && source "$SHELLDIR/environment.sh"
-# ---------- 
+[ -f "$SHELLDIR/environment.zsh" ] && source "$SHELLDIR/environment.zsh"
+# ----------
 # load aliases
-[ -f "$SHELLDIR/aliases.sh" ] && source "$SHELLDIR/aliases.sh"
-# ---------- 
+[ -f "$SHELLDIR/aliases.zsh" ] && source "$SHELLDIR/aliases.zsh"
+# ----------
 # load template files
-[ -f "$SHELLDIR/templates.sh" ] && source "$SHELLDIR/templates.sh"
-# ---------- 
-# load functions 
-[ -f "$SHELLDIR/functions.sh" ] && source "$SHELLDIR/functions.sh"
-# ---------- 
+[ -f "$SHELLDIR/templates.zsh" ] && source "$SHELLDIR/templates.zsh"
+# ----------
+# load functions
+[ -f "$SHELLDIR/functions.zsh" ] && source "$SHELLDIR/functions.zsh"
+# ----------
 # load history settings
-[ -f "$SHELLDIR/history.sh" ] && source "$SHELLDIR/history.sh"
-# ---------- 
+[ -f "$SHELLDIR/history.zsh" ] && source "$SHELLDIR/history.zsh"
+# ----------
 # load key bindings
-[ -f "$SHELLDIR/key-bindings.sh" ] && source "$SHELLDIR/key-bindings.sh"
-# ---------- 
+[ -f "$SHELLDIR/key-bindings.zsh" ] && source "$SHELLDIR/key-bindings.zsh"
+# ----------
 # load plugins
-[ -f "$SHELLDIR/plugins.sh" ] && source "$SHELLDIR/plugins.sh"
-# ---------- 
+[ -f "$SHELLDIR/plugins.zsh" ] && source "$SHELLDIR/plugins.zsh"
+# ----------
 # custom profile settings
-[ -f "$SHELLDIR/profile.sh" ] && source "$SHELLDIR/profile.sh"
-# ---------- 
+[ -f "$SHELLDIR/profile.zsh" ] && source "$SHELLDIR/profile.zsh"
+# ----------
 # load local machine-specific configuration (optional)
 # this file is for settings that should not be shared between machines
-[ -f "$SHELLDIR/local.sh" ] && source "$SHELLDIR/local.sh"
+[ -f "$SHELLDIR/local.zsh" ] && source "$SHELLDIR/local.zsh"
