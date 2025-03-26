@@ -122,7 +122,6 @@ alias logfull='git log --graph --decorate --full-history | bat --paging=always -
 alias logauthor='function_logauthor() { git log --graph --decorate --full-history --author="$1" | bat --paging=always --language=gitlog }; function_logauthor'
 # ----------
 # github cli aliases
-alias gh='gh --color=always'
 alias copilot='gh copilot'
 alias pull-list='gh pr list'
 alias pull-view='gh pr view'
@@ -138,7 +137,7 @@ alias issue-close='gh issue close'
 # ENCRYPTION / DECRIPTION
 # -----------------
 # ssh encription
-alias ssh-keygen='ssh-keygen -t ed25519 -C' # generate ssh key
+alias ssh-ed='ssh-keygen -t ed25519 -C'     # generate ssh key
 alias ssh-copy='ssh-copy-id'                # copy ssh key
 alias ssh-add='ssh-add -K'                  # add ssh key
 alias ssh-agent='eval $(ssh-agent -s)'      # start ssh agent

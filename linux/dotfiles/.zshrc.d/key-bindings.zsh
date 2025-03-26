@@ -10,7 +10,7 @@
 
 # ----------
 # use vi or emacs key bindings
-bindkey -v # use [-v] vi key bindings, or [-e] emacs key bindings
+# bindkey -v # use [-v] vi key bindings, or [-e] emacs key bindings
 # ----------
 # shell navigation key bindings
 # ----------
