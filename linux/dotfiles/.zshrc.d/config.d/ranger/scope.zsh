@@ -343,6 +343,13 @@ MIMETYPE="$( file --dereference --brief --mime-type -- "${FILE_PATH}" )"
 if [[ "${PV_IMAGE_ENABLED}" == 'True' ]]; then
     handle_image "${MIMETYPE}"
 fi
+
+# Image preview handling
+if [ "$kitty" ]; then
+    kitty +kitten icat --silent --transfer-mode=stream --align=left --clear --stdin no
+    exit 1
+fi
+
 handle_extension
 handle_mime "${MIMETYPE}"
 handle_fallback

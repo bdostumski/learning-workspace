@@ -45,7 +45,7 @@ alias network-speed='speedtest-cli' # speedtest-cli
 alias mkdir='mkdir -p'   # create parent directories
 alias rmi='rm -rfi'      # remove with confirmation, files and directories
 alias up='cd_up '        # go up {level_number} directory: up 5
-alias z="z -c"           # z with auto cd jump to directory
+alias c="z -c"           # z with auto cd jump to directory
 alias c.='cd ..'         # go back one directory
 alias c..='cd ../..'     # go back two directories
 alias c...='cd ../../..' # go back three directories
@@ -55,6 +55,7 @@ alias ls='lsd -al --color=auto --group-directories-first'
 alias ll='lsd -l --color=auto --group-directories-first'
 alias lt='lsd -a --tree --color=auto --group-directories-first'
 alias la='lsd -a --color=auto --group-directories-first'
+alias l='lsd -a --color=auto --group-directories-first'
 alias l.='lsd -a --color=auto --group-directories-first ../'
 alias l..='lsd -a --color=auto --group-directories-first ../../'
 alias l...='lsd -a --color=auto --group-directories-first ../../../'
