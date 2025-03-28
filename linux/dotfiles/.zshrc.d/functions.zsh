@@ -29,3 +29,9 @@
 # -----------------
 # Find file and open selected in Nvim
 . "$(dirname "$0")/functions.d/find-file.zsh"
+
+# -----------------
+# RANGER
+# -----------------
+# Automatically change the current working directory after closing ranger
+. "$(dirname "$0")/functions.d/ranger-cd.zsh"
