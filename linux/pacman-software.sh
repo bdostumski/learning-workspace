@@ -21,6 +21,15 @@ packages=(
 	htop # An interactive process viewer
 	stow # Manages symlinks (useful for dotfiles)
 	ranger # File manager with VI keybindings
+	ueberzug # Image preview
+	ffmpegthumbnailer # Video thumbnails
+	highlight # Syntax highlithing for text previews 
+	poppler # PDF previews
+	mediainfo # Medatada for media files
+	feh # image
+	mpv # video 
+	zathura # pdf
+	sxiv # X image viewr
 	speedtest-cli # Command-line interface for speedtest.net
 	zathura # Document viewer with vi keybindings
 	# zathura-pdf-mupdf # PDF support for Zathura
