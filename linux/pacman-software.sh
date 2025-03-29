@@ -12,6 +12,7 @@ packages=(
 	zsh # Zsh Shell
 	mdcat # A cat alternative with markdown rendering
   fd # 
+  shellcheck # 
 	bat # A cat alternative with syntax highlighting
 	btop # A graphical system monitor (better than htop)
 	tldr # Simplified help pages for command-line tools
@@ -50,6 +51,7 @@ packages=(
 	git-delta # A syntax-highlighting pager for git
 	k3diff # A diff tool for comparing files and directories
 	httpie # A user-friendly HTTP client (better than curl)
+  curl # 
 	ncdu # Disk usage analyzer
 	onefetch # Fetch information about a Git repositories
 	neofetch # Show system information with a logo
