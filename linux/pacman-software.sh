@@ -11,6 +11,7 @@ packages=(
 	git # Version control system
 	zsh # Zsh Shell
 	mdcat # A cat alternative with markdown rendering
+  fd # 
 	bat # A cat alternative with syntax highlighting
 	btop # A graphical system monitor (better than htop)
 	tldr # Simplified help pages for command-line tools
