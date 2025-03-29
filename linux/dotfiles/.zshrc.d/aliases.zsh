@@ -93,6 +93,7 @@ alias grep='rg --color=auto' # ripgrep with colors
 alias kitty-theme='kitty +kitten themes' # change kitty theme
 alias kitty-fonts='kitty +kitten fonts'  # change kitty fonts
 alias compare='kitty +kitten diff'       # view file diff in terminal
+alias vimdiff='vim -d'		         # vim diff tool compare two files
 alias image='kitty +kitten icat'         # view image in terminal
 alias unicode='kitty +kitten unicode'    # view unicode characters in terminal
 # ----------

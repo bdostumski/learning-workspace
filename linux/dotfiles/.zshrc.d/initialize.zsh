@@ -11,6 +11,7 @@ LOGS="$HOME/.logs.d"
 # Create .logs.d to store application messages
 [ ! -d "$LOGS" ] && mkdir -p "$LOGS"
 
+
 # -----------------
 # HISTORY FILE
 # -----------------

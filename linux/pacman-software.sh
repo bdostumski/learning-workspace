@@ -9,10 +9,12 @@ sudo pacman -Syu --noconfirm
 packages=(
 	# Command-Line Utilities
 	git # Version control system
+  clamav # 
 	zsh # Zsh Shell
 	mdcat # A cat alternative with markdown rendering
   fd # 
   shellcheck # 
+  ufw # 
 	bat # A cat alternative with syntax highlighting
 	btop # A graphical system monitor (better than htop)
 	tldr # Simplified help pages for command-line tools
@@ -136,3 +138,11 @@ for package in "${packages[@]}"; do
 		echo "Error installing $package. Continuing..."
 	fi
 done
+
+# Setup UFW
+sudo systemctl enable ufw
+sudo systemctl start ufw
+sudo systemctl status ufw
+
+
+
