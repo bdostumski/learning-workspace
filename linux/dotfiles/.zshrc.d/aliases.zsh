@@ -189,6 +189,29 @@ alias mirrord='sudo reflector --latest 50 --number 20 --sort delay --save /etc/p
 alias mirrors='sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist'
 alias mirrora='sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist'
 # ----------
+# system security commands
+# common ufw aliases
+alias ufw-on="sudo ufw enable"
+alias ufw-off="sudo ufw disable"
+alias ufw-status="sudo ufw status verbose"
+alias ufw-logs="sudo journalctl -u ufw --no-pager"
+alias ufw-reset="sudo ufw reset && echo 'UFW rules reset!'"
+alias ufw-allow="sudo ufw allow"
+alias ufw-deny="sudo ufw deny"
+alias ufw-delete="sudo ufw delete"
+alias ufw-reload="sudo ufw reload && echo 'UFW rules reloaded!'"
+alias ufw-deny-out-to="sudo ufw deny out to " # Block outgoing traffic to malicious domains - example: 192.168.1.1/24 or 192.168.1.1
+alias ufw-list="sudo ufw status numbered"
+# email-related ufw aliases
+alias ufw-mail-allow="sudo ufw allow 25,465,587,143,993,110,995/tcp"
+alias ufw-mail-status="sudo ufw status | grep -E '25|465|587|143|993|110|995'"
+alias ufw-mail-deny="sudo ufw deny 25,465,587,143,993,110,995/tcp"
+# clamav linux antivirus
+alias clamscan-home="clamscan -r --bell -i /home/$USER"
+alias clamscan-full="sudo clamscan -r --bell -i --exclude-dir=/sys --exclude-dir=/proc --exclude-dir=/dev /"
+alias clamscan--home-quarantine="clamscan -r --move=/home/$USER/quarantine /home/$USER"
+alias clamscan-logs="sudo tail -f /var/log/clamav/clamd.log"
+alias clamscan-update="sudo freshclam"
 # system and hardware commands
 alias top='btop'                                                                                          # system monitor { htop|btop|gotop }
 alias sysremote='glances'                                                                                 # system monitor can expose information about the system usage by using HTTP API

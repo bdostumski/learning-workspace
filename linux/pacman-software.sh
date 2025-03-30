@@ -9,12 +9,14 @@ sudo pacman -Syu --noconfirm
 packages=(
 	# Command-Line Utilities
 	git # Version control system
-  clamav # 
 	zsh # Zsh Shell
 	mdcat # A cat alternative with markdown rendering
+  openssh # SSH protocol implemantation for remote login, comman execution and file transfer
+  man # System manuals
   fd # 
   shellcheck # 
-  ufw # 
+  ufw # Linux firewall
+  clamav # Linux antivirus
 	bat # A cat alternative with syntax highlighting
 	btop # A graphical system monitor (better than htop)
 	tldr # Simplified help pages for command-line tools
@@ -139,10 +141,28 @@ for package in "${packages[@]}"; do
 	fi
 done
 
-# Setup UFW
-sudo systemctl enable ufw
-sudo systemctl start ufw
+# UFW Configuration
+sudo systemctl enable --now ufw
 sudo systemctl status ufw
+sudo ufw enable
+#
+# sudo ufw allow 5432 # Allow PostgreSQL
+sudo ufw allow http # Allow HTTP (port 80)
+sudo ufw allow https # Allow HTTPS (port 443)
+sudo ufw logging high # Enable logging for debugging
+sudo ufw deny 5900 # Block VNC if not needed
+sudo ufw limit 22/tcp # Limit SSH to prevent brute force attacs
+sudo ufw default allow outgoing # Allow outgoing connections
+sudo ufw default deny incoming # Deny incoming connections
 
+# ClamAV Configuration
+mkdir ~/quarantine
+sudo freshclam # update virus definition
+sudo systemctl enable --now clamav-freshclam # enable automaticaly update virus definition
+sudo systemctl enable --now clamav-daemon # enable clamav daemon
+systemctl status clamav-daemon
+sudo chown clamav:clamav "/home/$USER/quarantine"
+sudo chown -R clamav:clamav /var/lib/clamav
+sudo chown -R clamav:clamav /var/run/clamav
 
 
