@@ -1,3 +1,0 @@
-#!/bin/zsh
-clamscan -r --quiet --bell -i /home/$USER
-

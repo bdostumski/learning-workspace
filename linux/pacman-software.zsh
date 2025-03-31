@@ -1,3 +1,4 @@
+#!/bin/zsh
 #
 # Install common tools for Arch Linux
 #
@@ -156,13 +157,62 @@ sudo ufw default allow outgoing # Allow outgoing connections
 sudo ufw default deny incoming # Deny incoming connections
 
 # ClamAV Configuration
-mkdir ~/quarantine
-sudo freshclam # update virus definition
-sudo systemctl enable --now clamav-freshclam # enable automaticaly update virus definition
-sudo systemctl enable --now clamav-daemon # enable clamav daemon
-systemctl status clamav-daemon
-sudo chown clamav:clamav "/home/$USER/quarantine"
+
+sudo systemctl stop clamav-clamonacc.service
+sudo systemctl stop clamav-daemon.service
+sudo systemctl stop clamav-freshclam.service
+
+sudo groupadd shadow
+sudo usermod -aG shadow clamav
+sudo useradd -r -s /usr/bin/nologin clamav
+sudo crontab -u clamav -e
+echo 'clamav ALL = (ALL) NOPASSWD: SETENV: /usr/bin/notify-send' | sudo tee /etc/sudoers.d/clamav
+
+cat << EOF > ~/.config/systemd/user/clamav-clamonacc.service
+[Service]
+ExecStart=
+ExecStart=/usr/sbin/clamonacc -F --fdpass --log=/var/log/clamav/clamonacc.log
+EOF
+
+sudo chown -R root:shadow /etc/shadow
+sudo chmod -R 755 /etc/shadow
+
+sudo mkdir -p /root/quarantine
+sudo chown -R clamav:clamav /root/quarantine
+sudo chmod -R 755 /root/quarantine
+
 sudo chown -R clamav:clamav /var/lib/clamav
+sudo chmod -R 755 /var/lib/clamav
+
+mkdir -p ~/quarantine
+sudo chown -R clamav:clamav ~/quarantine
+sudo chmod -R 755 /var/run/clamav
 sudo chown -R clamav:clamav /var/run/clamav
 
+sudo mkdir -p /var/lib/clamav
+sudo chmod -R 755 /var/lib/clamav
+sudo chown -R 1000:1000 /var/lib/clamav
+sudo chown -R clamav:clamav /var/lib/clamav
+
+sudo mkdir -p /var/log/clamav
+sudo chmod -R 755 /var/log/clamav
+sudo chown -R clamav:clamav /var/log/clamav
+
+sudo touch /var/log/clamav/freshclam.log
+sudo chmod -R 755 /var/log/clamav/freshclam.log
+sudo chown -R clamav:clamav /var/log/clamav/freshclam.log
+
+sudo systemctl enable --now clamav-daemon # enable clamav daemon
+sudo systemctl start clamav-daemon
+systemctl status clamav-daemon
+sudo systemctl enable --now clamav-freshclam # enable automaticaly update virus definition
+sudo systemctl start clamav-freshclam
+systemctl status clamav-freshclam
+sudo freshclam # update virus definition
+sudo systemctl enable --now clamav-clamonacc.service 
+sudo systemctl start clamav-clamonacc.service
+systemctl status clamav-clamonacc.service
+
+sudo systemctl enable --now cronie.service
+sudo systemctl start cronie.service
 

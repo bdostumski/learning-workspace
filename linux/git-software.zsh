@@ -1,3 +1,5 @@
+#!/bin/zsh
+#
 # -----------------
 # INSTALL Tmux plugin manager 
 # Directory: ~/.config/.tmux/plugins/tpm directory

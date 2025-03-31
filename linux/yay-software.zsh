@@ -1,3 +1,4 @@
+#!/bin/zsh
 #
 # Install yay packages if not installed
 #
