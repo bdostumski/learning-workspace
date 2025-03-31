@@ -174,8 +174,8 @@ ExecStart=
 ExecStart=/usr/sbin/clamonacc -F --fdpass --log=/var/log/clamav/clamonacc.log
 EOF
 
-sudo chown -R root:shadow /etc/shadow
-sudo chmod -R 755 /etc/shadow
+sudo chown root:shadow /etc/shadow
+sudo chmod 640 /etc/shadow
 
 sudo mkdir -p /root/quarantine
 sudo chown -R clamav:clamav /root/quarantine
