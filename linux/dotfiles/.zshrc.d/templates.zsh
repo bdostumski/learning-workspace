@@ -1,11 +1,175 @@
+#!/bin/env zsh
 #
 # FILE TEMPLATES
 # Description: File templates for various functionalities
 # Path: ~/.zshrc.d/templates.d/
 #
 
-# -----------------
-# FULL GITIGNORE TEMPLATE
-# -----------------
-alias gitignore="cat '$SHELLDIR/templates.d/.gitignore' >> .gitignore"
+function templates() { 
+  
+  printf "\n"
+  printf "= = = = = = = = ="
+  printf "\n"
+  printf "T e m p l a t e s"
+  printf "\n"
+  printf "= = = = = = = = ="
+  printf "\n"
+  printf "\n1. Git"
+  printf "\n2. Docker"
+  printf "\n3. Docker Compose"
+  printf "\n4. Kubernetes"
+  printf "\n5. Vagrant"
+  printf "\n0. Exit"
+  printf "\n"
+  printf "\nChoice: "
+  read -r choice
 
+  if [ "$choice" = "0" ]; then
+    break
+  fi
+
+  case $choice in
+    1) 
+      printf "\n"
+      printf "= = = = = = = = ="
+      printf "\n"
+      printf "Git Templates"
+      printf "\n"
+      printf "= = = = = = = = ="
+      printf "\n"
+      printf "\n1. gitignore"
+      printf "\n0. Exit"
+      printf "\n "
+      printf "\nChoice: "
+      read -r git
+      case $git in
+        1) 
+          cat ~/.zshrc.d/templates.d/git/.gitignore >> .gitignore
+          ;;
+
+        *)
+          break
+          ;;
+      esac
+      ;;
+
+    2) 
+      printf "\n"
+      printf "= = = = = = = = ="
+      printf "\n"
+      printf "Docker Templates"
+      printf "\n"
+      printf "= = = = = = = = ="
+      printf "\n"
+      printf "\n0. Exit"
+      printf "\n"
+      printf "\nChoice: "
+      read -r docker
+      case $docker in
+        *)
+          break
+          ;;
+      esac
+      ;;
+
+    3) 
+      printf "\n"
+      printf "= = = = = = = = ="
+      printf "\n"
+      printf "Docker Compose Templates"
+      printf "\n"
+      printf "= = = = = = = = ="
+      printf "\n"
+      printf "\n0. Exit"
+      printf "\n"
+      printf "\nChoice: "
+      read -r compose 
+      case $compose in
+        *)
+          break
+          ;;
+      esac
+      ;;
+
+    3) 
+      printf "\n"
+      printf "= = = = = = = = ="
+      printf "\n"
+      printf "Docker Compose Templates"
+      printf "\n"
+      printf "= = = = = = = = ="
+      printf "\n"
+      printf "\n0. Exit"
+      printf "\n"
+      printf "\nChoice: "
+      read -r compose 
+      case $compose in
+        *)
+          break
+          ;;
+      esac
+      ;;
+
+    4) 
+      printf "\n"
+      printf "= = = = = = = = ="
+      printf "\n"
+      printf "Kubernetes Templates"
+      printf "\n"
+      printf "= = = = = = = = ="
+      printf "\n"
+      printf "\n0. Exit"
+      printf "\n"
+      printf "\nChoice: "
+      read -r kubernetes 
+      case $kubernetes in
+        *)
+          break
+          ;;
+      esac
+      ;;
+
+    4) 
+      printf "\n"
+      printf "= = = = = = = = ="
+      printf "\n"
+      printf "Kubernetes Templates"
+      printf "\n"
+      printf "= = = = = = = = ="
+      printf "\n"
+      printf "\n0. Exit"
+      printf "\n"
+      printf "\nChoice: "
+      read -r kubernetes 
+      case $kubernetes in
+        *)
+          break
+          ;;
+      esac
+      ;;
+
+    5) 
+      printf "\n"
+      printf "= = = = = = = = ="
+      printf "\n"
+      printf "Vagrant Templates"
+      printf "\n"
+      printf "= = = = = = = = ="
+      printf "\n"
+      printf "\n0. Exit"
+      printf "\n"
+      printf "\nChoice: "
+      read -r vagrant 
+      case $vagrant in
+        *)
+          break
+          ;;
+      esac
+      ;;
+
+    *)
+      break
+      ;;
+  esac
+
+}
