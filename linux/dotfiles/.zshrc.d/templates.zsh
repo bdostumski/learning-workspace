@@ -25,7 +25,7 @@ function templates() {
   read -r choice
 
   if [ "$choice" = "0" ]; then
-    return
+    exit
   fi
 
   case $choice in
@@ -48,7 +48,7 @@ function templates() {
           ;;
 
         *)
-          return
+          exit
           ;;
       esac
       ;;
@@ -67,7 +67,7 @@ function templates() {
       read -r docker
       case $docker in
         *)
-          return
+          exit
           ;;
       esac
       ;;
@@ -86,26 +86,7 @@ function templates() {
       read -r compose 
       case $compose in
         *)
-          return
-          ;;
-      esac
-      ;;
-
-    3) 
-      printf "\n"
-      printf "= = = = = = = = ="
-      printf "\n"
-      printf "Docker Compose Templates"
-      printf "\n"
-      printf "= = = = = = = = ="
-      printf "\n"
-      printf "\n0. Exit"
-      printf "\n"
-      printf "\nChoice: "
-      read -r compose 
-      case $compose in
-        *)
-          return
+          exit
           ;;
       esac
       ;;
@@ -124,26 +105,7 @@ function templates() {
       read -r kubernetes 
       case $kubernetes in
         *)
-          return
-          ;;
-      esac
-      ;;
-
-    4) 
-      printf "\n"
-      printf "= = = = = = = = ="
-      printf "\n"
-      printf "Kubernetes Templates"
-      printf "\n"
-      printf "= = = = = = = = ="
-      printf "\n"
-      printf "\n0. Exit"
-      printf "\n"
-      printf "\nChoice: "
-      read -r kubernetes 
-      case $kubernetes in
-        *)
-          return
+          exit
           ;;
       esac
       ;;
@@ -162,13 +124,13 @@ function templates() {
       read -r vagrant 
       case $vagrant in
         *)
-          return
+          exit
           ;;
       esac
       ;;
 
     *)
-      return
+      exit
       ;;
   esac
 
