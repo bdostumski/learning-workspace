@@ -25,7 +25,7 @@ function templates() {
   read -r choice
 
   if [ "$choice" = "0" ]; then
-    exit
+    return 
   fi
 
   case $choice in
@@ -48,7 +48,7 @@ function templates() {
           ;;
 
         *)
-          exit
+          return
           ;;
       esac
       ;;
@@ -67,7 +67,7 @@ function templates() {
       read -r docker
       case $docker in
         *)
-          exit
+          return
           ;;
       esac
       ;;
@@ -86,7 +86,7 @@ function templates() {
       read -r compose 
       case $compose in
         *)
-          exit
+          return
           ;;
       esac
       ;;
@@ -105,7 +105,7 @@ function templates() {
       read -r kubernetes 
       case $kubernetes in
         *)
-          exit
+          return
           ;;
       esac
       ;;
@@ -124,13 +124,13 @@ function templates() {
       read -r vagrant 
       case $vagrant in
         *)
-          exit
+          return 
           ;;
       esac
       ;;
 
     *)
-      exit
+      return 
       ;;
   esac
 
