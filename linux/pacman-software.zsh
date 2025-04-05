@@ -67,6 +67,8 @@ packages=(
   direnv
 	neovim # A modern Vim-based text editor
 	emacs # A powerful text editor (Doom Emacs is recommended)
+  wl-clipboard
+  gnome-screenshot
 	tree-sitter # Parser generator tool and incremental parsing library
 	kitty # A GPU-accelerated terminal 
 	maven # Java build automation tool
