@@ -145,5 +145,58 @@
   :config
   (dap-auto-configure-mode))
 
+;; Rest Client Config
+(use-package! restclient
+  :mode ("\\.http\\'" . restclient-mode))
+
+(use-package! company-restclient
+  :after restclient
+  :config
+  (add-to-list 'company-backends 'company-restclient))
+
+;; Docker Integration
+(use-package! docker
+  :commands (docker)
+  :config
+  (setq docker-run-as-root nil))
+
+(use-package! dockerfile-mode
+  :mode "Dockerfile\\'")
+
+;; Kubernetes Configuration
+(use-package! kubernetes
+  :commands (kubernetes-overview)
+  :config
+  (setq kubernetes-poll-frequency 3600))
+
+(use-package! kubernetes-evil
+  :after kubernetes)
+
+;; Mail Configuration
+(set-email-account!
+ "Gmail"
+ '((mu4e-sent-folder       . "/gmail/[Gmail]/Sent Mail")
+   (mu4e-drafts-folder     . "/gmail/[Gmail]/Drafts")
+   (mu4e-trash-folder      . "/gmail/[Gmail]/Trash")
+   (mu4e-refile-folder     . "/gmail/[Gmail]/All Mail")
+   (smtpmail-smtp-user     . "your@gmail.com")
+   (smtpmail-smtp-server   . "smtp.gmail.com")
+   (smtpmail-smtp-service  . 587)
+   (smtpmail-stream-type   . starttls)
+   (user-mail-address      . "your@gmail.com")
+   (user-full-name         . "Your Name")
+   (mu4e-compose-signature . "---\nYour Name"))
+ t)
+
+(setq mu4e-get-mail-command "mbsync gmail"
+      mu4e-update-interval 1800
+      mu4e-maildir "~/.mail/gmail"
+      mu4e-compose-format-flowed t)
+
+;; Direnv Configuration
+(use-package! envrc
+  :config
+  (envrc-global-mode))
+
 
 

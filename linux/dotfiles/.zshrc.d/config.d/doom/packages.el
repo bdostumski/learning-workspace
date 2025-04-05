@@ -75,3 +75,20 @@
 (package! impatient-mode)
 (package! browse-at-remote)
 
+;; Rest Client
+(package! restclient)
+(package! company-restclient)
+
+;; Docker Integration
+(package! docker)
+(package! dockerfile-mode)
+
+;; Kubernetes Integration
+(package! kubernetes)
+
+;; YAML and TOML Integration
+(package! yaml-mode)
+(package! toml-mode)
+(package! jsonnet-mode)
+
+

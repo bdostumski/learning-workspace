@@ -8,7 +8,7 @@
 	defaultBranch = main
 
 [core] # Basic Git settings
-	editor = nvim
+	editor = vim
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	pager = "bat --paging=always --style=plain"
 
@@ -53,27 +53,31 @@
 	untracked = red bold
 
 [merge] # Merge settings
-    	tool = nvimdiff
-    	conflictstyle = diff3
+  tool = vimdiff
+  conflictstyle = diff3
 
-[mergetool "nvimdiff"] # Merge tool settings
-    	cmd = nvim -d "$LOCAL" "$BASE" "$REMOTE" "$MERGED"
+[mergetool "vimdiff"] # Merge tool settings
+  cmd = vim -d "$LOCAL" "$BASE" "$REMOTE" "$MERGED"
 	trustExitCode = true
-    	prompt = false
+  prompt = false
 
 [diff] # Diff settings
 	tool = kitty
 	guitool = kitty.gui
 
-[difftool "nvimdiff"] # Diff tool settings
+[difftool "vimdiff"] # Diff tool settings
 	prompt = false
 	trustExitCode = true
 
 [difftool "kitty"]
 	cmd = kitten diff $LOCAL $REMOTE
+  trustExitCode = true
+  prompt = false
 
 [difftool "kitty.gui"]
 	cmd = kitten diff $LOCAL $REMOTE
+  trustExitCode = true
+  prompt = false
 
 [delta] # Delta settings
 	features = line-numbers decorations
