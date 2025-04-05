@@ -23,6 +23,21 @@ yay -S --noconfirm aur/auto-cpufreq # CPU frequency scaling
 yay -S --noconfirm aur/backintime # gui backup system
 yay -S --noconfirm aur/backintime-cli # cli backup system
 yay -S --noconfirm aur/downgrade # downgrade one or more packages
+yay -S --noconfirm aur/scala
+yay -S --noconfirm aur/scalafmt
+yay -S --noconfirm aur/metals
+yay -S --noconfirm aur/js-beautify
+yay -S --noconfirm aur/clj-kondo
+yay -S --noconfirm aur/cljfmt
+yay -S --noconfirm aur/mbsync
+yay -S --noconfirm aur/offlineimap
+yay -S --noconfirm aur/stylelint-order
+yay -S --noconfirm aur/stylelint-scss
+yay -S --noconfirm aur/stylelint-less
+yay -S --noconfirm aur/stylelint-lsp
+yay -S --noconfirm aur/gomodifytags
+yay -S --noconfirm aur/gotests
+yay -S --noconfirm aur/dart
 
 # Important: Suggestions to install
 # yay -S nemu # TUI for QEMU used to manage virual machines, can display the Virual Machine in the terminal using kitty graphics protocol. Should be installed independently (need configuration)

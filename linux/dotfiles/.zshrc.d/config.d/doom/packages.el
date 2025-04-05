@@ -47,3 +47,37 @@
 ;; (unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
+
+;; Org Roam + Noter + Journal
+(package! org-roam-ui)
+(package! org-noter)
+(package! org-journal)
+
+;; DevOps/Cloud
+(package! kubernetes)
+(package! kubernetes-evil)
+(package! k8s-mode)
+(package! terraform-mode)
+(package! yaml-mode)
+
+;; Pen Testing / RE
+(package! hackernews)
+(package! burly)
+(package! gptel)
+(package! vterm-toggle)
+
+;; Databases
+(package! sqlformat)
+(package! ob-sql-mode)
+(package! ob-redis)
+(package! ob-mongo)
+(package! ejc-sql)
+
+;; AI/ML
+(package! jupyter)
+
+;; Misc
+(package! devdocs)
+(package! impatient-mode)
+(package! browse-at-remote)
+

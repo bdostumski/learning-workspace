@@ -64,6 +64,7 @@ packages=(
 	wine # Windows compatibility layer
 
 	# Development Tools 
+  direnv
 	neovim # A modern Vim-based text editor
 	emacs # A powerful text editor (Doom Emacs is recommended)
 	tree-sitter # Parser generator tool and incremental parsing library
@@ -73,14 +74,36 @@ packages=(
 	nodejs # JavaScript runtime
 	npm # Node.js package manager
 	yarn # JavaScript package manager
-	jdk21-openjdk # Java Development Kit 21
+	jdk17-openjdk # Java Development Kit 21
 	ruby # Ruby programming language
 	go # Go programming language
+  gopls
+  gore
+  hoogle
+  kotlin
+  ktlint
+  clojure 
+  sbcl 
+  gnuplot
+  tidy
+  haskell-language-server
+  emacs-haskell-mode
+  shfmt
+  cabal-install
+  stylelilnt
 	nginx # Web server
 	php # PHP programming language
 	composer # PHP dependency manager
 	python # Python programming language
+  python-pyflakes
+  python-isort
+  python-pipenv
+  python-nose
+  python-pytest
+  python-black
 	pyenv # Python version manager
+  rust 
+  rust-analyzer
 	mariadb # MySQL database
 	postgresql # Object-relational database
 	redis # In-memory data structure store
@@ -109,7 +132,8 @@ packages=(
 	ttf-opensans # Open Sans fonts
 
 	# DevOps & Containeriztion
-	docker # Container engine
+  docker # Container engine
+  terraform
 	minikube # Run Kubernetes locally
 	kubeadm # Kubernetes cluster setup tool
 	kubectl # Kubernetes command-line tool

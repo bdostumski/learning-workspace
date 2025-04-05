@@ -74,3 +74,21 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+;; Auto completion +LSP Performance
+(setq company-idle-delay 0.1
+      company-minimum-prefix-length 1)
+
+(setq lsp-idle-delay 0.2
+      lsp-headerline-breadcrumb-enable t
+      lsp-ui-doc-enable t)
+
+(use-package! org-roam-ui
+  :after org-roam
+  :hook (after-init . org-roam-ui-mode)
+  :config
+  (setq org-roam-ui-sync-theme t
+        org-roam-ui-follow t
+        org-roam-ui-update-on-save t))
+
+

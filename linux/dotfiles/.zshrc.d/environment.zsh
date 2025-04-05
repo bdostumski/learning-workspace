@@ -37,6 +37,7 @@ export ZINIT_HOME="$HOME/.config/zinit"
 export ZINIT[COMPINIT_OPTS]=-C
 export ZINIT[ZCOMET_NO_UPDATE]=1
 export ZINIT_DEFAULT_PROTOCOL="SSH"
+export PYENV_ROOT="$HOME/.pyenv"
 
 # -----------------
 # PATH CONFIGURATION
@@ -71,5 +72,13 @@ if [ -d "$HOME/.config/emacs/bin/doom" ]; then
 	PATH='$HOME/.config/emacs/bin/doom:$PATH'
 fi
 # ----------
+# add go lang to path
+PATH="$HOME/go/bin:$PATH"
+# ----------
+# add python to path 
+PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+# ----------
 # Export path
 export PATH
+
