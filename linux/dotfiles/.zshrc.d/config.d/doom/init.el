@@ -155,7 +155,7 @@
        ;;nim               ; python + lisp at the speed of c
        ;;nix               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
-       (org +roam2 +noter +pandoc +gnuplot)               ; organize your plain life in plain text
+       (org +roam2 +noter +pandoc +gnuplot +brain +dragndrop +hugo +jupyter)               ; organize your plain life in plain text
        (php +lsp)               ; perl's insecure younger brother
        plantuml          ; diagrams for confusing people more
        ;;graphviz          ; diagrams for confusing yourself even more
@@ -170,7 +170,7 @@
        (rust +lsp)       ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        (scala +lsp)             ; java, but good
        (scheme +guile)   ; a fully conniving family of lisps
-       (sh +lsp)                ; she sells {ba,z,fi}sh shells on the C xor
+       (sh +zsh +lsp)                ; she sells {ba,z,fi}sh shells on the C xor
        (sql +lsp)
        ;;sml
        ;;solidity          ; do you need a blockchain? No.

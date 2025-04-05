@@ -60,12 +60,6 @@
 (package! terraform-mode)
 (package! yaml-mode)
 
-;; Pen Testing / RE
-(package! hackernews)
-(package! burly)
-(package! gptel)
-(package! vterm-toggle)
-
 ;; Databases
 (package! sqlformat)
 (package! ob-sql-mode)
