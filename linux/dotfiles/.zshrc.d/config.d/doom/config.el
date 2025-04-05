@@ -21,8 +21,8 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
-      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
+;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
+;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -32,7 +32,50 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+;;(setq doom-theme 'doom-one)
+
+;; UI/UX Add-ons
+(setq doom-theme 'doom-one
+      doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14)
+      display-line-numbers-type 'relative)
+
+(map! :leader
+      :desc "Project sidebar" "t p" #'treemacs)
+
+;; Project & File Management
+(setq projectile-project-search-path '("~/Workspace/" "~/Documents/"))
+
+;; Terminal & Shells
+(setq shell-file-name "/bin/zsh") ;; or bash/fish
+
+;; Git Integration
+(map! :leader
+      :desc "Magit status" "g s" #'magit-status)
+
+;; Install forge
+(after! magit
+  (require 'forge))
+
+;; Database Tools
+;; Use ejc-sql or sqlup-mode for advanced DB work.
+;;(setq sql-connection-alist
+;;      '((local-pg
+;;         (sql-product 'postgres)
+;;         (sql-user "postgres")
+;;         (sql-database "mydb")
+;;         (sql-server "localhost")
+;;         (sql-port 5432))))
+
+;; Notes, Org-mode, and Docs
+(after! org
+  (setq org-directory "~/Documents/org/"
+        org-log-done 'time))
+
+(use-package! org-roam
+  :init
+  (setq org-roam-directory "~/Documents/org/roam")
+  :config
+  (org-roam-db-autosync-mode))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -78,9 +121,16 @@
 (setq company-idle-delay 0.1
       company-minimum-prefix-length 1)
 
-(setq lsp-idle-delay 0.2
+(setq lsp-enable-snippet t
       lsp-headerline-breadcrumb-enable t
+      lsp-idle-delay 0.5
+      lsp-log-io nil
+      lsp-ui-sideline-enable t
       lsp-ui-doc-enable t)
+
+(after! lsp-mode
+  (setq lsp-inlay-hint-enable t
+        lsp-completion-provider :capf))
 
 (use-package! org-roam-ui
   :after org-roam
@@ -89,5 +139,11 @@
   (setq org-roam-ui-sync-theme t
         org-roam-ui-follow t
         org-roam-ui-update-on-save t))
+
+(use-package! dap-mode
+  :after lsp-mode
+  :config
+  (dap-auto-configure-mode))
+
 
 

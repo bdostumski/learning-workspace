@@ -91,13 +91,13 @@
        ;;collab            ; buffers with friends
        (debugger +lsp)          ; FIXME stepping through code, to help you add bugs
        (direnv +env)
-       docker
+       (docker +lsp)
        editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
        (eval +overlay)     ; run code, run (also, repls)
-       lookup              ; navigate your code and its documentation
+       (lookup +docsets)              ; navigate your code and its documentation
        lsp               ; M-x vscode
-       magit             ; a git porcelain for Emacs
+       (magit +forge)             ; a git porcelain for Emacs
        gist
        make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
@@ -106,7 +106,7 @@
        ;;prodigy           ; FIXME managing external services & code builders
        terraform         ; infrastructure as code
        tmux              ; an API for interacting with tmux
-       ;;tree-sitter       ; syntax and parsing, sitting in a tree...
+       tree-sitter       ; syntax and parsing, sitting in a tree...
        upload            ; map local to remote projects via ssh/ftp
 
        :os
@@ -143,8 +143,10 @@
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ; a language you can depend on
        (json +lsp)              ; At least it ain't XML
+       xml
        (java +lsp)       ; the poster child for carpal tunnel syndrome
-       (javascript +lsp)        ; all(hope(abandon(ye(who(enter(here))))))
+       (javascript +lsp +tree-sitter)        ; all(hope(abandon(ye(who(enter(here))))))
+       (typescript +lsp +tree-sitter)
        ;;julia             ; a better, faster MATLAB
        (kotlin +lsp)            ; a better, slicker Java(Script)
        (latex +lsp)             ; writing papers in Emacs has never been so fun
@@ -176,7 +178,7 @@
        ;;solidity          ; do you need a blockchain? No.
        ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
-       (web +html +css +tailwind +lsp)               ; the tubes
+       (web +html +css +tailwind +lsp +tree-sitter)               ; the tubes
        (yaml +lsp)              ; JSON, but readable
        ;;zig               ; C, but simpler
 
