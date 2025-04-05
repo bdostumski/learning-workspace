@@ -15,6 +15,7 @@ packages=(
   openssh # SSH protocol implemantation for remote login, comman execution and file transfer
   man # System manuals
   fd # 
+  isync
   shellcheck # 
   ufw # Linux firewall
   clamav # Linux antivirus

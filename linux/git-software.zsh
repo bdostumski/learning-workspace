@@ -56,6 +56,29 @@ Restart=on-failure
 WantedBy=default.target
 EOF
 
+cat << EOF > ~/.mbsyncrc
+IMAPAccount gmail
+Host imap.gmail.com
+User your@gmail.com
+PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.authinfo.gpg"
+SSLType IMAPS
+
+IMAPStore gmail-remote
+Account gmail
+
+MaildirStore gmail-local
+Path ~/.mail/gmail/
+Inbox ~/.mail/gmail/INBOX
+
+Channel gmail
+Master :gmail-remote:
+Slave :gmail-local:
+Patterns *
+Create Both
+Sync All
+Expunge Both
+EOF
+
   mv ~/.emacs.d ~/.emacs.d-bak
   systemctl --user enable --now emacs.service
   systemctl --user restart emacs.service    
