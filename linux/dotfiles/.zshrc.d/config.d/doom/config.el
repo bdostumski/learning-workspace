@@ -58,13 +58,13 @@
 
 ;; Database Tools
 ;; Use ejc-sql or sqlup-mode for advanced DB work.
-;;(setq sql-connection-alist
-;;      '((local-pg
-;;         (sql-product 'postgres)
-;;         (sql-user "postgres")
-;;         (sql-database "mydb")
-;;         (sql-server "localhost")
-;;         (sql-port 5432))))
+(setq sql-connection-alist
+      '((local-pg
+         (sql-product 'postgres)
+         (sql-user "postgres")
+         (sql-database "mydb")
+         (sql-server "localhost")
+         (sql-port 5432))))
 
 ;; Notes, Org-mode, and Docs
 (after! org
@@ -134,7 +134,7 @@
 
 (use-package! org-roam-ui
   :after org-roam
-  :hook (after-init . org-roam-ui-mode)
+  ;; :hook (after-init . org-roam-ui-mode)
   :config
   (setq org-roam-ui-sync-theme t
         org-roam-ui-follow t
@@ -148,7 +148,6 @@
 ;; Rest Client Config
 (use-package! restclient
   :mode ("\\.http\\'" . restclient-mode))
-
 (use-package! company-restclient
   :after restclient
   :config
@@ -173,6 +172,11 @@
   :after kubernetes)
 
 ;; Mail Configuration
+(setq mu4e-get-mail-command "mbsync gmail"
+      mu4e-update-interval 1800
+      mu4e-maildir "~/.mail/gmail"
+      mu4e-compose-format-flowed t)
+
 (set-email-account!
  "Gmail"
  '((mu4e-sent-folder       . "/gmail/[Gmail]/Sent Mail")
@@ -188,15 +192,46 @@
    (mu4e-compose-signature . "---\nYour Name"))
  t)
 
-(setq mu4e-get-mail-command "mbsync gmail"
-      mu4e-update-interval 1800
-      mu4e-maildir "~/.mail/gmail"
-      mu4e-compose-format-flowed t)
-
 ;; Direnv Configuration
 (use-package! envrc
   :config
   (envrc-global-mode))
 
+;; COPILOT
+(use-package! copilot
+  :hook (prog-mode . copilot-mode)
+  :config
+  (define-key copilot-mode-map (kbd "C-TAB") 'copilot-accept-completion))
 
+;; ORUI
+;;(use-package! orui
+;;  :hook (org-mode . orui-mode))
 
+;; Ein - Jupyter
+(use-package! ein
+  :commands (ein:notebooklist-open))
+
+;; Grip (markdown preview)
+(use-package! grip-mode
+  :hook (markdown-mode . grip-mode) ;; grip-mode only when needed
+  :config
+  (setq grip-update-after-change nil
+        grip-github-user "your-username"
+        grip-github-password "your-token")) ;; replace or use authinfo.gpg
+
+;; Circe (IRC)
+(setq circe-default-nick "doomdev"
+      circe-default-user "doomdev"
+      circe-network-options
+      '(("Freenode" :tls t :nick "doomdev" :sasl-username "doomdev" :sasl-password "yourpass")))
+
+;; Ement (Matrix)
+(use-package! ement
+  :commands (ement-connect))
+
+;; RSS Feeds
+(setq elfeed-feeds
+      '("https://hnrss.org/frontpage"
+        "https://lobste.rs/rss"
+        "https://www.reddit.com/r/linux/.rss"
+        "https://xkcd.com/rss.xml"))

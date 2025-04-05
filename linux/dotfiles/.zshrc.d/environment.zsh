@@ -75,10 +75,9 @@ fi
 # add go lang to path
 PATH="$HOME/go/bin:$PATH"
 # ----------
-# add python to path 
+# add python to path
 PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 # ----------
 # Export path
 export PATH
-

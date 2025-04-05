@@ -54,6 +54,8 @@
 (package! org-journal)
 
 ;; DevOps/Cloud
+(package! docker)
+(package! dockerfile-mode)
 (package! kubernetes)
 (package! kubernetes-evil)
 (package! k8s-mode)
@@ -69,6 +71,12 @@
 
 ;; AI/ML
 (package! jupyter)
+(package! ein)
+
+;; Chat
+(package! circe)
+(package! plz)
+(package! ement)
 
 ;; Misc
 (package! devdocs)
@@ -79,16 +87,18 @@
 (package! restclient)
 (package! company-restclient)
 
-;; Docker Integration
-(package! docker)
-(package! dockerfile-mode)
+;; Markdown live preview
+(package! grip-mode)
 
-;; Kubernetes Integration
-(package! kubernetes)
+;; Image/EXIF
+(package! image+)
 
 ;; YAML and TOML Integration
 (package! yaml-mode)
 (package! toml-mode)
 (package! jsonnet-mode)
+
+;; AI
+(package! copilot :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
 
 
