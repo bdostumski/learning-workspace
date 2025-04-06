@@ -29,6 +29,8 @@ bindkey '^[j' backward-char        # move backward one character "alt + j"
 bindkey '^[k' forward-char         # move forward one character "alt + k"
 bindkey '^[h' backward-delete-char # delete the word before the cursor "alt + h"
 bindkey '^[l' delete-char          # delete the word after the cursor "alt + l"
+bindkey '^[i' backward-kill-word   # delete the word before the cursor "alt +  i"
+bindkey '^[o' kill-word            # delete the word after the cursor "alt + o"
 # ----------
 bindkey '^[n' beginning-of-line # move to the beginning of the line "alt + n"
 bindkey '^[m' end-of-line       # move to the end of the line "alt + m"
@@ -50,7 +52,9 @@ bindkey '^D' autosuggest-execute # accept and execute the current suggestion
 # SETUP HISTORY SEARCH
 # -----------------
 bindkey '^R' history-incremental-search-backward # search backward in history for a related command
-
+bindkey '^[]' history-beginning-search-forward   # search forward in history for a related command
+bindkey '^[[' history-beginning-search-backward  # search backward in history for a related command
+#
 # -----------------
 # FZF KEY BINDINGS
 # -----------------
