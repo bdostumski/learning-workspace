@@ -36,7 +36,7 @@
 
 ;; UI/UX Add-ons
 (setq doom-theme 'doom-one
-      doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14)
+      doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 16)
       display-line-numbers-type 'relative)
 
 (map! :leader
@@ -132,6 +132,12 @@
   (setq lsp-inlay-hint-enable t
         lsp-completion-provider :capf))
 
+(after! lsp-mode
+  (setq lsp-enable-symbol-highlighting t
+        lsp-modeline-diagnostics-enable t))
+
+(add-hook 'prog-mode-hook #'company-mode)
+
 (use-package! org-roam-ui
   :after org-roam
   ;; :hook (after-init . org-roam-ui-mode)
@@ -197,11 +203,57 @@
   :config
   (envrc-global-mode))
 
-;; COPILOT
+;; COPILOT and LSP
+;; Enable Copilot in programming modes
 (use-package! copilot
   :hook (prog-mode . copilot-mode)
   :config
-  (define-key copilot-mode-map (kbd "C-TAB") 'copilot-accept-completion))
+  ;; Keybinding to accept Copilot suggestions
+  (define-key copilot-mode-map (kbd "C-<return>") 'copilot-accept-completion)
+
+  ;; Configure Copilot-specific settings
+  (setq copilot-completion-delay 0.5)  ;; Delay Copilot suggestions to avoid being too aggressive
+  (setq copilot-enable-prompting t)    ;; Allow Copilot to prompt for suggestions
+  (defun copilot--infer-indentation-offset ()
+    (or tab-width 4))  ;; Set an indentation offset for Copilot
+
+  ;; Disable Copilot by default
+  (setq copilot-mode nil))  ;; Keep Copilot off unless explicitly enabled
+
+;; Enable Company in programming modes
+(use-package! company
+  :hook (prog-mode . company-mode)
+  :config
+  ;; Keybinding to trigger Company completion manually
+  (global-set-key (kbd "C-M-i") 'company-complete)  ;; Manually trigger completion
+
+  ;; Set Company-specific configurations
+  (setq company-idle-delay 0.2)  ;; Show suggestions after a short delay
+  (setq company-minimum-prefix-length 2)  ;; Trigger suggestions after typing 2 characters
+  (setq company-backends '((company-capf company-dabbrev-code company-files company-yasnippet))))  ;; Include Capf and other backends
+
+;; Define the toggle function for Copilot and Company suggestions
+(defun toggle-copilot-and-company ()
+  "Toggle Copilot and Company suggestions."
+  (interactive)
+  (if copilot-mode
+      (progn
+        (copilot-mode -1)
+        (add-to-list 'company-backends 'company-capf)) ;; Enable Company when Copilot is off
+    (progn
+      (copilot-mode 1)
+      (setq company-backends
+            (delete 'company-capf company-backends))))) ;; Remove Company-capf backend when Copilot is on
+
+(global-set-key (kbd "C-S-C") 'toggle-copilot-and-company) ;; Bind the toggle function to a key combination   
+
+;; Additional configuration for indentation (for Copilot)
+(setq-default tab-width 4)
+(setq-default standard-indent 4)
+
+;; Enable both Copilot and Company completion (using their respective backends)
+(after! company
+  (add-to-list 'company-backends 'company-capf))  ;; Add company-capf as backend for Company
 
 ;; ORUI
 ;;(use-package! orui

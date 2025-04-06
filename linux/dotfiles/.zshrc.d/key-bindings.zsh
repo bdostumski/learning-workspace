@@ -19,16 +19,16 @@ bindkey '^[[3;5~' kill-word     # delete the word after the cursor "ctrl + delet
 bindkey '^[[3~' delete-char     # delete the character under the cursor "delete"
 # ----------
 # [alt + key] key navigation use one word at a time
-bindkey '^[j' backward-word      # move backward one word "alt + j"
-bindkey '^[k' forward-word       # move forward one word "alt + k"
-bindkey '^[h' backward-kill-word # delete the word before the cursor "alt +  h"
-bindkey '^[l' kill-word          # delete the word after the cursor "alt + l"
+bindkey '\e^j' backward-word      # move backward one word "ctrl + alt + j"
+bindkey '\e^k' forward-word       # move forward one word "ctrl + alt + k"
+bindkey '\e^h' backward-kill-word # delete the word before the cursor "ctrl + alt +  h"
+bindkey '\e^l' kill-word          # delete the word after the cursor "ctrl + alt + l"
 # ----------
 # [ctrl + alt + key] key navigation use one char at a time
-bindkey '\e^j' backward-char        # move backward one character "ctrl + alt + j"
-bindkey '\e^k' forward-char         # move forward one character "ctrl + alt + k"
-bindkey '\e^h' backward-delete-char # delete the word before the cursor "ctrl + alt + h"
-bindkey '\e^l' delete-char          # delete the word after the cursor "ctrl + alt + l"
+bindkey '^[j' backward-char        # move backward one character "alt + j"
+bindkey '^[k' forward-char         # move forward one character "alt + k"
+bindkey '^[h' backward-delete-char # delete the word before the cursor "alt + h"
+bindkey '^[l' delete-char          # delete the word after the cursor "alt + l"
 # ----------
 bindkey '^[n' beginning-of-line # move to the beginning of the line "alt + n"
 bindkey '^[m' end-of-line       # move to the end of the line "alt + m"
