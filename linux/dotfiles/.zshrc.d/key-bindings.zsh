@@ -18,19 +18,15 @@ bindkey '^H' backward-kill-word # delete the word before the cursor "ctrl + back
 bindkey '^[[3;5~' kill-word     # delete the word after the cursor "ctrl + delete"
 bindkey '^[[3~' delete-char     # delete the character under the cursor "delete"
 # ----------
-# [alt + key] key navigation use one word at a time
-bindkey '\e^j' backward-word      # move backward one word "ctrl + alt + j"
-bindkey '\e^k' forward-word       # move forward one word "ctrl + alt + k"
-bindkey '\e^h' backward-kill-word # delete the word before the cursor "ctrl + alt +  h"
-bindkey '\e^l' kill-word          # delete the word after the cursor "ctrl + alt + l"
-# ----------
-# [ctrl + alt + key] key navigation use one char at a time
-bindkey '^[j' backward-char        # move backward one character "alt + j"
-bindkey '^[k' forward-char         # move forward one character "alt + k"
-bindkey '^[h' backward-delete-char # delete the word before the cursor "alt + h"
-bindkey '^[l' delete-char          # delete the word after the cursor "alt + l"
+# [alt + key] key navigation use one char at a time
+bindkey '^[h' backward-char        # move backward one character "alt + j"
+bindkey '^[l' forward-char         # move forward one character "alt + k"
+bindkey '^[j' backward-delete-char # delete the word before the cursor "alt + h"
+bindkey '^[k' delete-char          # delete the word after the cursor "alt + l"
 bindkey '^[i' backward-kill-word   # delete the word before the cursor "alt +  i"
 bindkey '^[o' kill-word            # delete the word after the cursor "alt + o"
+bindkey '^[u' backward-word        # move backward one word "alt + u"
+bindkey '^[p' forward-word         # move forward one word "alt + p"
 # ----------
 bindkey '^[n' beginning-of-line # move to the beginning of the line "alt + n"
 bindkey '^[m' end-of-line       # move to the end of the line "alt + m"
@@ -51,12 +47,11 @@ bindkey '^D' autosuggest-execute # accept and execute the current suggestion
 # -----------------
 # SETUP HISTORY SEARCH
 # -----------------
-bindkey '^R' history-incremental-search-backward # search backward in history for a related command
-bindkey '^[]' history-beginning-search-forward   # search forward in history for a related command
-bindkey '^[[' history-beginning-search-backward  # search backward in history for a related command
+bindkey '^[]' history-beginning-search-forward   # search forward in history for a related command "alt + ]"
+bindkey '^[[' history-beginning-search-backward  # search backward in history for a related command "alt + ["
 #
 # -----------------
 # FZF KEY BINDINGS
 # -----------------
 bindkey '^R' fzf-history-widget # search history with fzf
-# bindkey '^T' fzf-file-widget # search files with fzf
+bindkey '^T' fzf-file-widget # search files with fzf

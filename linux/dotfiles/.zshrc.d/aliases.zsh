@@ -8,9 +8,9 @@
 # MAIN EDITORS
 # -----------------
 # neovim
-alias v='vim'
-alias vi='nvim'
-alias vim="nvim"
+alias v="/bin/vim"
+alias vi="/bin/nvim"
+alias vim="~/.local/bin/lvim"
 # ----------
 # emacs
 alias emacs="emacsclient -c -a 'emacs'"
@@ -94,7 +94,7 @@ alias grep='rg --color=auto' # ripgrep with colors
 alias kitty-theme='kitty +kitten themes' # change kitty theme
 alias kitty-fonts='kitty +kitten fonts'  # change kitty fonts
 alias compare='kitty +kitten diff'       # view file diff in terminal
-alias vimdiff='vim -d'		         # vim diff tool compare two files
+alias vimdiff='vim -d'                   # vim diff tool compare two files
 alias image='kitty +kitten icat'         # view image in terminal
 alias unicode='kitty +kitten unicode'    # view unicode characters in terminal
 # ----------
@@ -141,11 +141,11 @@ alias issue-close='gh issue close'
 # ENCRYPTION / DECRIPTION
 # -----------------
 # ssh encription
-alias ssh-ed='ssh-keygen -t ed25519 -C'     # generate ssh key
-alias ssh-copy='ssh-copy-id'                # copy ssh key
-alias ssh-add='ssh-add -K'                  # add ssh key
-alias ssh-agent='eval $(ssh-agent -s)'      # start ssh agent
-alias ssh-kill='killall ssh-agent'          # kill ssh agent
+alias ssh-ed='ssh-keygen -t ed25519 -C' # generate ssh key
+alias ssh-copy='ssh-copy-id'            # copy ssh key
+alias ssh-add='ssh-add -K'              # add ssh key
+alias ssh-agent='eval $(ssh-agent -s)'  # start ssh agent
+alias ssh-kill='killall ssh-agent'      # kill ssh agent
 # ----------
 # gpg encription/decription
 alias gpg-check='gpg2 --keyserver-options auto-key-retrive --verify'         # verify signature for isos
