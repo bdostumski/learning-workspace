@@ -37,6 +37,8 @@ set laststatus=2
 
 " General keybindings
 let mapleader = " "
+nnoremap <leader>t :terminal<CR>
+nnoremap <leader>n :Ntree<CR>
 
 " Window navigation
 nnoremap <leader>s <c-w>j
