@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 #
 # Install yay packages if not installed
 #
@@ -38,6 +38,8 @@ yay -S --noconfirm aur/stylelint-lsp
 yay -S --noconfirm aur/gomodifytags
 yay -S --noconfirm aur/gotests
 yay -S --noconfirm aur/dart
+yay -S --noconfirm aur/elixir
+yay -S --noconfirm aur/haskell-language-server
 
 # Important: Suggestions to install
 # yay -S nemu # TUI for QEMU used to manage virual machines, can display the Virual Machine in the terminal using kitty graphics protocol. Should be installed independently (need configuration)

@@ -29,11 +29,11 @@ PURE_THEME='.pure_theme.sh'
 # LS_COLOR_SCHEME="$THEMES/ls/dracula"
 # LS_COLOR_SCHEME="$THEMES/ls/gruvbox-dark"
 # LS_COLOR_SCHEME="$THEMES/ls/gruvbox-dark-hard"
- LS_COLOR_SCHEME="$THEMES/ls/gruvbox-dark-soft"
+# LS_COLOR_SCHEME="$THEMES/ls/gruvbox-dark-soft"
 # LS_COLOR_SCHEME="$THEMES/ls/gruvbox-light"
 # LS_COLOR_SCHEME="$THEMES/ls/gruvbox-light-hard"
 # LS_COLOR_SCHEME="$THEMES/ls/gruvbox-light-soft"
-# LS_COLOR_SCHEME="$THEMES/ls/iceberg-dark"
+LS_COLOR_SCHEME="$THEMES/ls/iceberg-dark"
 # LS_COLOR_SCHEME="$THEMES/ls/jellybeans"
 # LS_COLOR_SCHEME="$THEMES/ls/lava"
 # LS_COLOR_SCHEME="$THEMES/ls/modus-operandi"
@@ -71,4 +71,6 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath' # Preview fil
 # ---------- 
 # fzf shell integration
 eval "$(fzf --zsh)"
+# 
+eval "$(direnv hook zsh)"
 

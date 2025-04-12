@@ -14,11 +14,14 @@ packages=(
 	mdcat # A cat alternative with markdown rendering
   openssh # SSH protocol implemantation for remote login, comman execution and file transfer
   man # System manuals
+  eslint
+  prettier
   fd # 
   isync
   shellcheck # 
   ufw # Linux firewall
   clamav # Linux antivirus
+  ansible
 	bat # A cat alternative with syntax highlighting
 	btop # A graphical system monitor (better than htop)
 	tldr # Simplified help pages for command-line tools

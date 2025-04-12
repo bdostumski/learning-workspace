@@ -54,4 +54,4 @@ bindkey '^[[' history-beginning-search-backward  # search backward in history fo
 # FZF KEY BINDINGS
 # -----------------
 bindkey '^R' fzf-history-widget # search history with fzf
-bindkey '^T' fzf-file-widget # search files with fzf
+bindkey '^F' fzf-file-widget # search files with fzf

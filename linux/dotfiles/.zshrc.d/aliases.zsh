@@ -9,8 +9,8 @@
 # -----------------
 # neovim
 alias v="/bin/vim"
-alias vi="/bin/nvim"
-alias vim="~/.local/bin/lvim"
+alias vi="lvim"
+alias vim="lvim"
 # ----------
 # emacs
 alias emacs="emacsclient -c -a 'emacs'"
