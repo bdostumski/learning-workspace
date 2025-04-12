@@ -1,8 +1,27 @@
 -- General
 lvim.log.level = "warn"
-lvim.format_on_save = true
+lvim.format_on_save = false
 lvim.colorscheme = "lunar"
 lvim.leader = "space"
+
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.wrap = false
+vim.opt.incsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.showcmd = true
+vim.opt.showmode = true
+vim.opt.showmatch = true
+vim.opt.hlsearch = true
+vim.opt.history = 1000
+vim.opt.wildmenu = true
+vim.opt.wildmode = "list:longest"
+vim.opt.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx"
+vim.opt.cursorline = true
+vim.opt.clipboard = "unnamedplus"
 
 -- Plugins
 lvim.plugins = {
