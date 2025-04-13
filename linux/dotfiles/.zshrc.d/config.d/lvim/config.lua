@@ -38,7 +38,26 @@ lvim.plugins = {
   { "williamboman/mason.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
   { "williamboman/mason-null-ls.nvim" }, -- Correct plugin for null-ls integration
-  { "goolord/alpha-nvim", dependencies = { "nvim-tree/nvim-web-devicons" } }
+  { "goolord/alpha-nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    build = ":Copilot auth",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = { enabled = true, auto_trigger = true },
+        panel = { enabled = true },
+      })
+    end,
+  },
+  {
+    "zbirenbaum/copilot-cmp",
+    dependencies = { "zbirenbaum/copilot.lua" },
+    config = function()
+      require("copilot_cmp").setup()
+    end,
+  },
 }
 
 -- Treesitter
@@ -49,6 +68,8 @@ lvim.builtin.treesitter.ensure_installed = {
   "tsx", "typescript", "vim", "yaml", "xml"
 }
 lvim.builtin.treesitter.highlight.enable = true
+lvim.builtin.treesitter.auto_install = true
+lvim.builtin.treesitter.indent.enable = false
 
 -- Core Built-ins
 lvim.builtin.alpha.active = true
@@ -73,6 +94,11 @@ mason_null_ls.setup({
     "shellcheck",
     "luacheck",
     "hadolint",
+    "jsonlint",
+    "markdownlint",
+    "ansible-lint",
+    "stylua",
+    "zsh",    
   },
   automatic_installation = true, -- Automatically install missing tools
 })
@@ -82,10 +108,6 @@ mason_null_ls.setup({
 local lsp = require("lvim.lsp.manager")
 
 -- LSP servers setup
-lsp.setup("jsonls")                 -- JSON
-lsp.setup("yamlls")                 -- YAML
-lsp.setup("tsserver")               -- TypeScript
-lsp.setup("gopls")                  -- Go
 lsp.setup("pyright")                -- Python
 lsp.setup("rust_analyzer")          -- Rust
 lsp.setup("terraformls")            -- Terraform
@@ -95,9 +117,31 @@ lsp.setup("cssls")                  -- CSS
 lsp.setup("marksman")               -- Markdown
 lsp.setup("clojure_lsp")            -- Clojure
 lsp.setup("elixirls")               -- Elixir
-lsp.setup("kotlin_language_server") -- Kotlin
 lsp.setup("sqlls")                  -- SQL
 lsp.setup("jdtls")                  -- Java
+
+-- Markdown + LaTeX + Diagrams Configuration
+-- Markdown preview
+vim.g.mkdp_auto_start = 1
+-- PlantUML integration
+vim.g.instant_markdown_autostart = 0
+
+-- DAP Debug 
+lvim.builtin.dap.active = true
+require("dap.ext.vscode").load_launchjs(nil, {node = {"typescript", "javascript"}})
+local dap = require("dap")
+local dapui = require("dapui")
+require("dapui").setup()
+require("nvim-dap-virtual-text").setup()
+dap.listeners.after.event_initialized["dapui_config"] = function()
+  dapui.open()
+end
+dap.listeners.before.event_terminated["dapui_config"] = function()
+  dapui.close()
+end
+dap.listeners.before.event_exited["dapui_config"] = function()
+  dapui.close()
+end
 
 -- Example of adding custom configuration for 'pyright'
 lsp.setup("pyright", {
@@ -160,6 +204,18 @@ lvim.builtin.which_key.mappings["D"] = {
     a = { "<cmd>echo 'Ansible Playbooks'<cr>", "Ansible" },
     h = { "<cmd>echo 'Helm charts TBD'<cr>", "Helm" },
     v = { "<cmd>echo 'Vagrant up / halt / status TBD'<cr>", "Vagrant" }
+}
+
+-- Debugging Submenu
+lvim.builtin.which_key.mappings["d"] = {
+  name = "+debug",
+  b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
+  c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
+  s = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
+  i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
+  o = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
+  r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle REPL" },
+  u = { "<cmd>lua require'dapui'.toggle()<cr>", "Toggle UI" },
 }
 
 -- Window Navigation Submenu

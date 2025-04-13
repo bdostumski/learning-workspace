@@ -11,7 +11,7 @@
 [[ $- != *i* ]] && return
 
 # -----------------
-# INITIALIZE SHELL
+# Initialize SHELL
 # -----------------
 # Shell Home Directory
 export SHELLDIR="$HOME/.zshrc.d"
