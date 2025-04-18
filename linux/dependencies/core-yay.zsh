@@ -1,22 +1,48 @@
 #!/usr/bin/env zsh
-#
-# Install yay packages if not installed
-#
 
-yay -S --noconfirm aur/visual-studio-code-bin          # Code editor
-yay -S --noconfirm aur/postman-bin                     # API testing
-yay -S --noconfirm aur/stacer-bin                      # System optimizer
-yay -S --noconfirm aur/viber                           # Messaging app
-yay -S --noconfirm aur/backintime                      # gui backup system
-yay -S --noconfirm aur/backintime-cli                  # cli backup system
-yay -S --noconfirm aur/downgrade                       # downgrade one or more packages
-yay -S --noconfirm aur/scala                           # Scala programming language
-yay -S --noconfirm aur/metals                          # Scala language server
-yay -S --noconfirm aur/elixir                          # Elixir programming language
-yay -S --noconfirm aur/haskell-language-server         # Haskell language server
-yay -S --noconfirm aur/intellij-idea-community-edition # Java IDE
-yay -S --noconfirm aur/elixir                          # Elixir programming language
+# Install yay packages one by one with status icons
 
-# Important: Suggestions to install
-# yay -S --noconfirm aur/intellij-idea-ultimate-edition # Java IDE
-# yay -S nemu # TUI for QEMU used to manage virual machines, can display the Virual Machine in the terminal using kitty graphics protocol. Should be installed independently (need configuration)
+packages=(
+    # Code editor
+    aur/visual-studio-code-bin
+    # API testing
+    aur/postman-bin
+    # System optimizer
+    aur/stacer-bin
+    # Messaging app
+    aur/viber
+    # GUI backup system
+    aur/backintime
+    # CLI backup system
+    aur/backintime-cli
+    # Downgrade packages
+    aur/downgrade
+    # Scala programming language
+    aur/scala
+    # Scala language server
+    aur/metals
+    # Elixir programming language
+    aur/elixir
+    # Haskell language server
+    aur/haskell-language-server
+    # Java IDE
+    aur/intellij-idea-community-edition
+)
+
+echo "\n🔧 Starting installation of AUR packages...\n"
+
+for pkg in "${packages[@]}"; do
+    echo "📦 Installing: $pkg"
+    if yay -S --noconfirm "$pkg" &>/dev/null; then
+        echo "✅ Success: $pkg installed"
+    else
+        echo "❌ Failed: $pkg installation failed"
+    fi
+    echo ""
+done
+
+echo "🏁 All packages processed."
+
+# Suggestions (manual install/configuration may be required):
+# yay -S --noconfirm aur/intellij-idea-ultimate-edition  # Java IDE (Ultimate)
+# yay -S nemu  # TUI for QEMU, supports Kitty graphics protocol (requires config)

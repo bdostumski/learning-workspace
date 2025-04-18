@@ -11,15 +11,15 @@ while true; do
     echo "- - Created by: Borislav Aleksandrov Dostumski - - "
     echo "\n"
     echo "Install Dependencies"
-    echo "1) Install core dependencies [System, Security, Wine, VirtualBox, Vim, Zsh]"
+    echo "1) Install core dependencies [System, Security, Wine, VirtualBox, Vim, Emacs, Zsh]"
     echo "2) Install Virtual and DevOps tools [Docker, Vagrant, K8s, etc.]"
     echo "3) Install basic editor for shell scripts and DevOps [LunarVim]"
     echo "4) Install IDE for programming [Doom Emacs]"
-    echo "0) Exit"
+    echo "x) Exit"
     echo "\n"
     echo -n "Enter your choise: "
     read -r choice
-    if [ "$choice" = "0" ]; then
+    if [ "$choice" = "x" ]; then
         echo "Exiting..."
         break
     fi
@@ -28,7 +28,7 @@ while true; do
     1)
         echo "\n"
         echo "= = = = = = = = = ="
-        echo "Starting installation [System, Security, Wine, VirtualBox, Vim, Zsh] . . ."
+        echo "Starting installation [System, Security, Wine, VirtualBox, Vim, Emacs, Zsh] . . ."
         source ./dependencies/core-pacman.zsh
         source ./dependencies/core-git.zsh
         source ./dependencies/core-yay.zsh
