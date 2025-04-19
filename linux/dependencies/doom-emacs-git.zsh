@@ -15,16 +15,11 @@ if [[ ! -d "$HOME/.config/emacs" ]]; then
     fi
 
     echo "🔧 Installing Doom Emacs..."
-    if ~/.config/emacs/bin/doom install &>/dev/null; then
-        echo "✅ Doom installed."
-    else
-        echo "❌ Doom install failed."
-        exit 1
-    fi
+    ~/.config/emacs/bin/doom install
 
     echo "🔄 Syncing Doom Emacs profiles..."
-    ~/.config/emacs/bin/doom profile sync --all &>/dev/null
-    ~/.config/emacs/bin/doom sync --rebuild &>/dev/null
+    ~/.config/emacs/bin/doom profile sync --all
+    ~/.config/emacs/bin/doom sync --rebuild
     echo "✅ Doom profiles synced and rebuilt."
 
     # -------------------------
@@ -87,10 +82,10 @@ EOF
     [[ -d ~/.emacs.d ]] && mv ~/.emacs.d ~/.emacs.d-bak && echo "✅ Backup created."
 
     echo "🌀 Enabling and starting Emacs systemd service..."
-    systemctl --user enable --now emacs.service &>/dev/null
-    systemctl --user restart emacs.service &>/dev/null
+    systemctl --user enable --now emacs.service
+    systemctl --user restart emacs.service
     systemctl --user status emacs.service --no-pager
-    systemctl --user stop emacs.service &>/dev/null
+    systemctl --user stop emacs.service
     echo "✅ Emacs systemd service set up."
 else
     echo "✅ Doom Emacs already installed."

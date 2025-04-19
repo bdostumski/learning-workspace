@@ -9,16 +9,12 @@ sudo pacman -Syu --noconfirm
 
 # Define packages
 packages=(
+
     # System Utilities
     kitty tmux github-cli fd less man bat btop htop pydf tldr reflector stow
     ranger speedtest-cli openssh trash-cli fzf glances lsd ripgrep lazygit vivid
-    k3diff httpie curl ncdu onefetch neofetch fastfetch cronie ufw clamav git-delta
+    kdiff3 httpie curl ncdu onefetch neofetch fastfetch cronie ufw clamav git-delta
     ueberzug wine
-
-    # Fonts
-    ttf-dejavu ttf-liberation ttf-roboto ttf-ubuntu-font-family noto-fonts
-    noto-fonts-emoji noto-fonts-cjk ttf-fira-code ttf-fira-mono ttf-fira-sans
-    ttf-jetbrains-mono ttf-hack ttf-inconsolata nerd-fonts ttf-opensans
 
     # GUI Applications
     virtualbox firefox thunderbird filezilla gimp libreoffice dbeaver steam
@@ -26,7 +22,7 @@ packages=(
 
     # Development Tools
     vim neovim emacs make gcc clang cmake direnv maven gradle nodejs npm yarn
-    jdk17-openjdk go gore ruby python python-pip python-pipenv pyenv rust luarocks
+    jdk17-openjdk go ruby python python-pip python-pipenv pyenv rust luarocks
     cabal-install kotlin clojure lighttpd php composer
 )
 
@@ -42,12 +38,6 @@ done
 
 echo "🧹 Cleaning up orphaned packages..."
 sudo pacman -Rns --noconfirm $(pacman -Qdtq)
-
-# -------------------------------------
-# Python Environment Setup
-# -------------------------------------
-python -m venv ~/.pyenv && source ~/.pyenv/bin/activate
-python -m pip install --upgrade pip
 
 # -------------------------------------
 # UFW Firewall Configuration
