@@ -13,7 +13,7 @@ while true; do
     echo "Install Dependencies"
     echo "0) Install dependencies neede for the script [Zsh, Kitty, Fonts, Python]"
     echo "1) Install core dependencies [System, Security, Wine, VirtualBox, Vim, Emacs]"
-    echo "2) Install Virtual and DevOps tools [Docker, Vagrant, K8s, etc.]"
+    echo "2) Install DevOps tools [Docker, Vagrant, K8s, etc.]"
     echo "3) Install basic editor for shell scripts and DevOps [LunarVim]"
     echo "4) Install IDE for programming [Doom Emacs]"
     echo "x) Exit"

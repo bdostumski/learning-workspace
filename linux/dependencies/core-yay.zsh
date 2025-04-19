@@ -4,36 +4,38 @@
 
 packages=(
     # Code editor
-    aur/visual-studio-code-bin
+    visual-studio-code-bin
     # API testing
-    aur/postman-bin
+    postman-bin
     # System optimizer
-    aur/stacer-bin
+    stacer-bin
     # Messaging app
-    aur/viber
+    viber
     # GUI backup system
-    aur/backintime
+    backintime
     # CLI backup system
-    aur/backintime-cli
+    backintime-cli
     # Downgrade packages
-    aur/downgrade
+    downgrade
     # Scala programming language
-    aur/scala
+    scala
     # Scala language server
-    aur/metals
+    metals
     # Elixir programming language
-    aur/elixir
+    elixir
     # Haskell language server
-    aur/haskell-language-server
+    haskell-language-server
     # Java IDE
-    aur/intellij-idea-community-edition
+    intellij-idea-community-edition
 )
 
 echo "\n🔧 Starting installation of AUR packages...\n"
 
 for pkg in "${packages[@]}"; do
     echo "📦 Installing: $pkg"
-    if yay -S --noconfirm "$pkg" &>/dev/null; then
+    if yay -Qi "$pkg" &>/dev/null; then
+        echo "✅ Already installed: $pkg"
+    elif yay -S --noconfirm "$pkg" &>/dev/null; then
         echo "✅ Success: $pkg installed"
     else
         echo "❌ Failed: $pkg installation failed"

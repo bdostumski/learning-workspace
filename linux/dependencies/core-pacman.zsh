@@ -9,7 +9,6 @@ sudo pacman -Syu --noconfirm
 
 # Define packages
 packages=(
-
     # System Utilities
     kitty tmux github-cli fd less man bat btop htop pydf tldr reflector stow
     ranger speedtest-cli openssh trash-cli fzf glances lsd ripgrep lazygit vivid
@@ -29,23 +28,26 @@ packages=(
 echo "📦 Installing ${#packages[@]} packages..."
 for pkg in "${packages[@]}"; do
     echo -e "\n👉 Installing: \033[1m$pkg\033[0m"
-    if sudo pacman -S --needed --noconfirm "$pkg"; then
-        echo -e "✅ \033[1m$pkg\033[0m installed."
+    if ! pacman -Qi "$pkg" &>/dev/null; then
+        if sudo pacman -S --needed --noconfirm "$pkg"; then
+            echo -e "✅ \033[1m$pkg\033[0m installed."
+        else
+            echo -e "❌ Failed to install: \033[1m$pkg\033[0m"
+        fi
     else
-        echo -e "❌ Failed to install: \033[1m$pkg\033[0m"
+        echo -e "✅ \033[1m$pkg\033[0m is already installed."
     fi
 done
-
-echo "🧹 Cleaning up orphaned packages..."
-sudo pacman -Rns --noconfirm $(pacman -Qdtq)
 
 # -------------------------------------
 # UFW Firewall Configuration
 # -------------------------------------
 echo "🔧 Configuring UFW firewall..."
+
 sudo systemctl enable --now ufw
 sudo ufw --force enable
-sudo ufw allow http https
+sudo ufw allow http
+sudo ufw allow https
 sudo ufw deny 5900
 sudo ufw limit 22/tcp
 sudo ufw default allow outgoing
@@ -61,16 +63,22 @@ echo "🛡️ Setting up ClamAV..."
 sudo systemctl stop clamav-clamonacc.service clamav-daemon.service clamav-freshclam.service
 
 # Ensure clamav user and shadow group exist
-sudo groupadd -f shadow
-sudo usermod -aG shadow clamav
-sudo useradd -r -s /usr/bin/nologin clamav 2>/dev/null || true
+if ! getent group shadow &>/dev/null; then
+    sudo groupadd shadow
+fi
+if ! id -u clamav &>/dev/null; then
+    sudo useradd -r -s /usr/bin/nologin clamav
+fi
 
 # Permissions
 sudo chown root:shadow /etc/shadow && sudo chmod 640 /etc/shadow
 
-# Create required directories
+# Create required directories and set permissions
 sudo install -d -o clamav -g clamav -m 755 /var/lib/clamav /var/log/clamav /var/run/clamav /root/quarantine
-install -d ~/quarantine && sudo chown -R clamav:clamav ~/quarantine
+if [[ ! -d "$HOME/quarantine" ]]; then
+    mkdir -p ~/quarantine
+fi
+sudo chown -R clamav:clamav ~/quarantine
 
 # Freshclam log
 sudo touch /var/log/clamav/freshclam.log
@@ -86,7 +94,9 @@ ExecStart=/usr/sbin/clamonacc -F --fdpass --log=/var/log/clamav/clamonacc.log
 EOF
 
 # Allow notifications
-echo 'clamav ALL=(ALL) NOPASSWD: SETENV: /usr/bin/notify-send' | sudo tee /etc/sudoers.d/clamav >/dev/null
+if ! grep -q 'clamav ALL' /etc/sudoers.d/clamav &>/dev/null; then
+    echo 'clamav ALL=(ALL) NOPASSWD: SETENV: /usr/bin/notify-send' | sudo tee /etc/sudoers.d/clamav >/dev/null
+fi
 
 # Enable and start ClamAV services
 sudo systemctl enable --now clamav-daemon clamav-freshclam clamav-clamonacc.service
