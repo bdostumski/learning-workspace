@@ -22,7 +22,7 @@ packages=(
     # Scala language server
     metals
     # Elixir programming language
-    elixir
+    # elixir
     # Haskell language server
     haskell-language-server
     # Java IDE

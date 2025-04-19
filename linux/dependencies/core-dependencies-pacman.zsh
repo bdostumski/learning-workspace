@@ -18,7 +18,7 @@ packages=(
     ttf-jetbrains-mono ttf-hack ttf-inconsolata nerd-fonts ttf-opensans
 
     # System Utilities
-    zsh kitty
+    zsh kitty tmux git github-cli
 
     # Python + tools
     python python-pip python-virtualenv
@@ -53,12 +53,6 @@ fi
 # -------------------------------------
 
 echo "🐍 Setting up Python environment..."
-
-# Upgrade pip (user install, as it's safer for system management)
-python -m pip install --upgrade --user pip
-
-# Install pipenv (user install)
-pip install --user pipenv
 
 # Create venv (for personal use, optional if using pyenv or pipenv)
 if [[ ! -d "$HOME/.venv" ]]; then
@@ -110,9 +104,9 @@ fi
 # Dotfiles
 # -------------------------------------
 echo "💾 Copying .zshrc and .zshrc.d to home directory..."
-if [[ -d "../dotfiles" ]]; then
-    cp ../dotfiles/.zshrc ~/.zshrc
-    cp -r ../dotfiles/.zshrc.d ~/.zshrc.d
+if [[ -d "dotfiles" ]]; then
+    cp dotfiles/.zshrc ~/.zshrc
+    cp -r dotfiles/.zshrc.d ~/.zshrc.d
 else
     echo "❌ Dotfiles directory not found. Skipping dotfile setup."
 fi
