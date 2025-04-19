@@ -10,14 +10,14 @@ sudo pacman -Syu --noconfirm
 # Define packages
 packages=(
     # System Utilities
-    kitty tmux fd less man bat btop htop pydf tldr reflector stow
+    fd less man bat btop htop pydf tldr reflector stow
     ranger speedtest-cli openssh trash-cli fzf glances lsd ripgrep lazygit vivid
     kdiff3 httpie curl ncdu onefetch neofetch fastfetch cronie ufw clamav git-delta
     ueberzug wine
 
     # GUI Applications
-    virtualbox firefox thunderbird filezilla gimp libreoffice dbeaver steam
-    discord obs-studio kdenlive gparted vlc
+    virtualbox firefox thunderbird filezilla gimp
+    libreoffice dbeaver steam discord obs-studio kdenlive gparted vlc
 
     # Development Tools
     vim neovim emacs make gcc clang cmake direnv maven gradle nodejs npm yarn
@@ -38,6 +38,16 @@ for pkg in "${packages[@]}"; do
         echo -e "✅ \033[1m$pkg\033[0m is already installed."
     fi
 done
+
+# VBox drivers (only if using VirtualBox with Vagrant)
+if lsmod | grep -q vboxdrv; then
+    echo "📦 vboxdrv already loaded"
+else
+    echo "📦 Loading vboxdrv kernel module..."
+    sudo modprobe vboxdrv || echo "⚠️ Failed to load vboxdrv. You may need to reboot or install kernel headers."
+fi
+# Load VirtualBox kernel modules
+sudo modprobe vboxdrv
 
 # -------------------------------------
 # UFW Firewall Configuration

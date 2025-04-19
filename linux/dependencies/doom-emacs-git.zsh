@@ -5,7 +5,7 @@ echo "\n⚙️  Starting Doom Emacs installation...\n"
 # -------------------------------
 # Install Doom Emacs if needed
 # -------------------------------
-if [[ ! -d "$HOME/.config/emacs" ]]; then
+if [[ ! -d "$HOME/.config/doom/" && -d "$HOME/.config/emacs/" ]]; then
     echo "📦 Cloning Doom Emacs..."
     if git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs &>/dev/null; then
         echo "✅ Doom Emacs cloned."

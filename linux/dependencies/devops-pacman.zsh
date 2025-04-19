@@ -15,7 +15,7 @@ sudo pacman -Syu --noconfirm
 official_packages=(
     docker terraform ansible
     minikube kubeadm kubectl
-    containerd helm
+    containerd helm virtualbox
 )
 
 echo "📥 Installing DevOps tools (official repos)..."
@@ -45,14 +45,6 @@ done
 echo "🔧 Configuring Docker..."
 sudo systemctl enable --now docker.service
 sudo usermod -aG docker "$USER"
-
-# 📦 VBox drivers (only if using VirtualBox with Vagrant)
-if lsmod | grep -q vboxdrv; then
-    echo "📦 vboxdrv already loaded"
-else
-    echo "📦 Loading vboxdrv kernel module..."
-    sudo modprobe vboxdrv || echo "⚠️ Failed to load vboxdrv. You may need to reboot or install kernel headers."
-fi
 
 # Libvirt configuration
 echo "🔧 Configuring libvirt..."

@@ -18,7 +18,7 @@ packages=(
     ttf-jetbrains-mono ttf-hack ttf-inconsolata nerd-fonts ttf-opensans
 
     # System Utilities
-    zsh kitty tmux git github-cli
+    zsh kitty tmux git github-cli ranger
 
     # Python + tools
     python python-pip python-virtualenv
@@ -105,12 +105,12 @@ fi
 # -------------------------------------
 echo "💾 Copying main config file to home root directory..."
 if [[ -d "dotfiles" ]]; then
-    cp dotfiles/.zshrc ~/.zshrc
-    cp -r dotfiles/.zshrc.d ~/.zshrc.d
-    cp dotfiles/.zshrc.d/config.d/gitconf/.gitconfig ~/.gitconfig
-    cp -r dotfiles/.zshrc.d/config.d/kitty ~/.config/kitty
-    cp -r dotfiles/.zshrc.d/config.d/ranger ~/.config/ranger
-    cp dotfiles/.zshrc.d/config.d/vim/.vimrc ~/.vimrc
+    cp -f ./dotfiles/.zshrc ~/.zshrc
+    cp -rf ./dotfiles/.zshrc.d ~/
+    cp -f ./dotfiles/.zshrc.d/config.d/gitconf/.gitconfig ~/
+    cp -rf ./dotfiles/.zshrc.d/config.d/kitty ~/.config/
+    cp -rf ./dotfiles/.zshrc.d/config.d/ranger ~/.config/
+    cp -f ./dotfiles/.zshrc.d/config.d/vim/.vimrc ~/
 else
     echo "❌ Dotfiles directory not found. Skipping dotfile setup."
 fi

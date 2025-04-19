@@ -73,4 +73,3 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath' # Preview fil
 eval "$(fzf --zsh)"
 # 
 eval "$(direnv hook zsh)"
-

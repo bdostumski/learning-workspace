@@ -34,3 +34,22 @@ if [ ! -d "$HOME/.config/zinit" ]; then
 else
     echo "✅ Zinit already installed."
 fi
+
+# ----------------------------------------
+# Enable Terraform autocomplete in Zsh
+# ----------------------------------------
+if ! grep -q 'complete -o nospace -C $(which terraform) terraform' "$HOME/.zshrc"; then
+    echo "⚙️ Adding Terraform autocomplete to .zshrc..."
+    echo '\n# Terraform autocomplete' >>"$HOME/.zshrc"
+    echo 'if command -v terraform &>/dev/null; then' >>"$HOME/.zshrc"
+    echo '  complete -o nospace -C $(which terraform) terraform' >>"$HOME/.zshrc"
+    echo 'fi' >>"$HOME/.zshrc"
+    echo "✅ Terraform autocomplete enabled for Zsh."
+else
+    echo "✅ Terraform autocomplete already configured in .zshrc"
+fi
+
+# ----------------------------------------
+# Done
+# ----------------------------------------
+echo "\n🎉 Script finished successfully!"
