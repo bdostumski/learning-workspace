@@ -54,16 +54,17 @@ fi
 
 echo "🐍 Setting up Python environment..."
 
-# Upgrade pip
+# Upgrade pip (user install, as it's safer for system management)
 python -m pip install --upgrade --user pip
 
-# Install pipenv
+# Install pipenv (user install)
 pip install --user pipenv
 
 # Create venv (for personal use, optional if using pyenv or pipenv)
 if [[ ! -d "$HOME/.venv" ]]; then
     python -m venv "$HOME/.venv"
     source "$HOME/.venv/bin/activate"
+    echo "✅ Virtual environment created and activated."
 else
     echo "✅ Virtual environment already exists at $HOME/.venv."
 fi
@@ -74,9 +75,14 @@ if ! command -v python &>/dev/null; then
     sudo ln -sf /usr/bin/python3 /usr/bin/python
 fi
 
-# -------------------------------------
-# Manual pyenv Installation
-# -------------------------------------
+# Check if pipenv was installed properly in the user directory
+if ! command -v pipenv &>/dev/null; then
+    echo "❌ pipenv installation failed."
+else
+    echo "✅ pipenv is installed and ready to use."
+fi
+
+# Handle pyenv (if you want to use it)
 if ! command -v pyenv &>/dev/null; then
     echo "📦 Installing pyenv manually..."
 
