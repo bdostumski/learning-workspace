@@ -103,10 +103,14 @@ fi
 # -------------------------------------
 # Dotfiles
 # -------------------------------------
-echo "💾 Copying .zshrc and .zshrc.d to home directory..."
+echo "💾 Copying main config file to home root directory..."
 if [[ -d "dotfiles" ]]; then
     cp dotfiles/.zshrc ~/.zshrc
     cp -r dotfiles/.zshrc.d ~/.zshrc.d
+    cp dotfiles/.zshrc.d/config.d/gitconf/.gitconfig ~/.gitconfig
+    cp -r dotfiles/.zshrc.d/config.d/kitty ~/.config/kitty
+    cp -r dotfiles/.zshrc.d/config.d/ranger ~/.config/ranger
+    cp dotfiles/.zshrc.d/config.d/vim/.vimrc ~/.vimrc
 else
     echo "❌ Dotfiles directory not found. Skipping dotfile setup."
 fi

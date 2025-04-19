@@ -9,8 +9,8 @@
 export TERM="xterm-256color"                           # Set terminal to 256 colors
 export LANG='en_US.UTF-8'                              # Set language to US English
 export LC_ALL='en_US.UTF-8'                            # Set locale to US English
-export EDITOR="emacsclient -t -a ''"                   # Set editor to emacsclient
-export VISUAL="emacsclient -c -a emacs"                # Set visual to emacsclient
+export EDITOR="lvim"                                   # Set editor to emacsclient
+export VISUAL="lvim"                                   # Set visual to emacsclient
 export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s" # Set lessopen to src-hilite-lesspipe
 export LESS='-S -M -R -X --shift 5'                    # Set less options
 export RANGER_LOAD_DEFAULT_RC=false                    # Load default ranger configuration
