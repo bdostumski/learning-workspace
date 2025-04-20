@@ -64,15 +64,6 @@ else
     echo "🎯 Bitnami Helm repo already exists, skipping."
 fi
 
-# Terraform autocomplete (check if already configured)
-echo "⚙️ Enabling Terraform autocomplete..."
-if ! grep -q "terraform" ~/.zshrc; then
-    terraform -install-autocomplete
-    echo "✅ Terraform autocomplete enabled."
-else
-    echo "⚙️ Terraform autocomplete already configured in ~/.zshrc, skipping."
-fi
-
 # Completion message
 echo -e "\n🎉 All DevOps tools installed and configured successfully!"
 echo "📌 Run: \`newgrp docker\` and \`newgrp libvirt\` or reboot to apply group changes."
