@@ -5,30 +5,32 @@ echo "\n⚙️  Starting Doom Emacs installation...\n"
 # -------------------------------
 # Install Doom Emacs if needed
 # -------------------------------
-if [[ ! -d "$HOME/.config/doom/" && -d "$HOME/.config/emacs/" ]]; then
-    echo "📦 Cloning Doom Emacs..."
-    if git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs &>/dev/null; then
-        echo "✅ Doom Emacs cloned."
-    else
-        echo "❌ Failed to clone Doom Emacs."
-        exit 1
-    fi
+echo "📦 Cloning Doom Emacs..."
+if git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs &>/dev/null; then
+    echo "✅ Doom Emacs cloned."
+else
+    echo "❌ Failed to clone Doom Emacs."
+    exit 1
+fi
 
-    echo "🔧 Installing Doom Emacs..."
-    ~/.config/emacs/bin/doom install
+echo "📦 Copy Doom Configuration..."
+cp -rf ./dotfiles/.zshrc.d/config.d/doom ~/.config/doom
 
-    echo "🔄 Syncing Doom Emacs profiles..."
-    ~/.config/emacs/bin/doom profile sync --all
-    ~/.config/emacs/bin/doom sync --rebuild
-    echo "✅ Doom profiles synced and rebuilt."
+echo "🔧 Installing Doom Emacs..."
+~/.config/emacs/bin/doom install
 
-    # -------------------------
-    # Create systemd service
-    # -------------------------
-    echo "🛠️  Setting up systemd service for Emacs..."
-    mkdir -p ~/.config/systemd/user
+echo "🔄 Syncing Doom Emacs profiles..."
+~/.config/emacs/bin/doom profile sync --all
+~/.config/emacs/bin/doom sync --rebuild
+echo "✅ Doom profiles synced and rebuilt."
 
-    cat <<EOF >~/.config/systemd/user/emacs.service
+# -------------------------
+# Create systemd service
+# -------------------------
+echo "🛠️  Setting up systemd service for Emacs..."
+mkdir -p ~/.config/systemd/user
+
+cat <<EOF >~/.config/systemd/user/emacs.service
 [Unit]
 Description=Emacs text editor
 Documentation=info:emacs man:emacs(1) https://gnu.org/software/emacs/
@@ -44,13 +46,13 @@ Restart=on-failure
 WantedBy=default.target
 EOF
 
-    echo "✅ Emacs systemd service created."
+echo "✅ Emacs systemd service created."
 
-    # -------------------------------
-    # Create basic mbsyncrc config
-    # -------------------------------
-    echo "💾 Writing mbsyncrc config..."
-    cat <<EOF >~/.mbsyncrc
+# -------------------------------
+# Create basic mbsyncrc config
+# -------------------------------
+echo "💾 Writing mbsyncrc config..."
+cat <<EOF >~/.mbsyncrc
 IMAPAccount gmail
 Host imap.gmail.com
 User your@gmail.com
@@ -73,23 +75,20 @@ Sync All
 Expunge Both
 EOF
 
-    echo "✅ mbsyncrc config written."
+echo "✅ mbsyncrc config written."
 
-    # -----------------------
-    # Emacs service start
-    # -----------------------
-    echo "📁 Backing up ~/.emacs.d (if any)..."
-    [[ -d ~/.emacs.d ]] && mv ~/.emacs.d ~/.emacs.d-bak && echo "✅ Backup created."
+# -----------------------
+# Emacs service start
+# -----------------------
+echo "📁 Backing up ~/.emacs.d (if any)..."
+[[ -d ~/.emacs.d ]] && mv ~/.emacs.d ~/.emacs.d-bak && echo "✅ Backup created."
 
-    echo "🌀 Enabling and starting Emacs systemd service..."
-    systemctl --user enable --now emacs.service
-    systemctl --user restart emacs.service
-    systemctl --user status emacs.service --no-pager
-    systemctl --user stop emacs.service
-    echo "✅ Emacs systemd service set up."
-else
-    echo "✅ Doom Emacs already installed."
-fi
+echo "🌀 Enabling and starting Emacs systemd service..."
+systemctl --user enable --now emacs.service
+systemctl --user restart emacs.service
+systemctl --user status emacs.service --no-pager
+systemctl --user stop emacs.service
+echo "✅ Emacs systemd service set up."
 
 # ----------------------------------
 # Link libtree-sitter if missing

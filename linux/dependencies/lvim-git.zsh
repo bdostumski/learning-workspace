@@ -8,6 +8,7 @@ echo "\n🌙 Checking for LunarVim installation...\n"
 if [[ ! -d "$HOME/.config/lvim" ]]; then
     echo "📦 Installing LunarVim..."
     if LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -fsSL https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh); then
+        cp -rf ./dotfiles/.zshrc.d/config.d/lvim ~/.config/
         echo "✅ LunarVim installed successfully."
     else
         echo "❌ LunarVim installation failed."
