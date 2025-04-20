@@ -69,11 +69,29 @@ if ! command -v python &>/dev/null; then
     sudo ln -sf /usr/bin/python3 /usr/bin/python
 fi
 
-# Check if pipenv was installed properly in the user directory
+# -------------------------------------
+# Install pipenv (Arch preferred way)
+# -------------------------------------
+echo "📦 Installing pipenv..."
 if ! command -v pipenv &>/dev/null; then
-    echo "❌ pipenv installation failed."
+    if sudo pacman -S --needed --noconfirm pipenv; then
+        echo "✅ pipenv installed via pacman."
+    else
+        echo "⚠️ pacman failed. Trying pip..."
+        pip install --user pipenv
+        export PATH="$HOME/.local/bin:$PATH"
+        echo 'export PATH="$HOME/.local/bin:$PATH"' >>~/.zshrc.d/environment.zsh
+        source "$HOME/.zshrc"
+    fi
 else
-    echo "✅ pipenv is installed and ready to use."
+    echo "✅ pipenv is already installed."
+fi
+
+# Final check
+if command -v pipenv &>/dev/null; then
+    echo "✅ pipenv is ready at: $(which pipenv)"
+else
+    echo "❌ pipenv installation failed."
 fi
 
 # Handle pyenv (if you want to use it)
