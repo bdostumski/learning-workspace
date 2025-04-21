@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+source "$(dirname "$0")/install-utils.zsh"
+
 echo "\n⚙️  Starting Doom Emacs installation...\n"
 
 # -------------------------------
@@ -9,12 +11,19 @@ echo "📦 Cloning Doom Emacs..."
 if git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs &>/dev/null; then
     echo "✅ Doom Emacs cloned."
 else
-    echo "❌ Failed to clone Doom Emacs."
+    echo "❌ Doom Emacs already exists at ~/.config/emacs. Skipping clone."
     exit 1
 fi
 
-echo "📦 Copy Doom Configuration..."
-cp -rf ./dotfiles/.zshrc.d/config.d/doom ~/.config/doom
+# -------------------------------------
+# Dotfiles
+# -------------------------------------
+echo "💾 Copying main config file to home root directory..."
+if [[ -d "dotfiles" ]]; then
+    backup_and_copy ~/.zshrc.d/config.d/doom ~/.config/doom
+else
+    echo "❌ Dotfiles directory not found. Skipping dotfile setup."
+fi
 
 echo "🔧 Installing Doom Emacs..."
 ~/.config/emacs/bin/doom install

@@ -4,6 +4,8 @@
 # Install Common Tools for Arch Linux
 # -------------------------------------
 
+source "$(dirname "$0")/install-utils.zsh"
+
 echo "🔄 Updating system..."
 sudo pacman -Syu --noconfirm
 
@@ -37,6 +39,24 @@ for pkg in "${packages[@]}"; do
         echo -e "✅ \033[1m$pkg\033[0m is already installed."
     fi
 done
+
+# -------------------------------------
+# Dotfiles
+# -------------------------------------
+echo "💾 Copying main config file to home root directory..."
+if [[ -d "dotfiles" ]]; then
+
+    backup_and_copy ~/.zshrc.d/config.d/kitty ~/.config/kitty
+    backup_and_copy ~/.zshrc.d/config.d/ranger ~/.config/ranger
+    backup_and_copy ~/.zshrc.d/config.d/tmux ~/.config/tmux
+    backup_and_copy ~/.zshrc.d/config.d/clamav /etc/clamav true
+    backup_and_copy ~/.zshrc.d/config.d/cron/cron.daily /etc/cron.daily true
+    backup_and_copy ~/.zshrc.d/config.d//cron/cron.weekly /etc/cron.weekly true
+    backup_and_copy ~/.zshrc.d/config.d/ufw/before.rules /etc/ufw/before.rules true
+
+else
+    echo "❌ Dotfiles directory not found. Skipping dotfile setup."
+fi
 
 # VBox drivers (only if using VirtualBox with Vagrant)
 if lsmod | grep -q vboxdrv; then
