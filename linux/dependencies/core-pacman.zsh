@@ -145,6 +145,9 @@ chsh -s "$(which zsh)"
 source ~/.zshrc
 echo "⚙️ Zsh is now your default shell."
 
+# Make all scripts executable
+chmod +x ~/.zshrc.d/functions.d/*.zsh
+
 echo -e "\n🎉 Setup complete. Your system is ready!"
 echo "💡 Exit default terminal, and run kitty terminal"
 read -r
