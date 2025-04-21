@@ -78,7 +78,6 @@ PATH="$HOME/go/bin:$PATH"
 # add python to path
 PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 # ----------
 # Export path
 export PATH
