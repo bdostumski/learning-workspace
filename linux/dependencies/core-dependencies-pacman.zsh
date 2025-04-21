@@ -53,50 +53,37 @@ fi
 # -------------------------------------
 echo "💾 Copying main config file to home root directory..."
 if [[ -d "dotfiles" ]]; then
-    mv ~/.zshrc ~/.zshrc.bak
-    cp ./dotfiles/.zshrc ~/.zshrc
 
-    mv ~/.zshrc.d ~/.zshrc.d.bak
-    cp -r ./dotfiles/.zshrc.d ~/
+    backup_and_copy() {
+        local src="$1"
+        local dest="$2"
+        local is_root="${3:-false}"
 
-    mv ~/.gitconfig ~/.gitconfig.bak
-    cp ./dotfiles/.zshrc.d/config.d/gitconf/.gitconfig ~/
+        if [[ $is_root == "true" ]]; then
+            [[ -e "$dest" && ! -e "${dest}.bak" ]] && sudo mv "$dest" "${dest}.bak"
+            sudo cp -r "$src" "$dest"
+        else
+            [[ -e "$dest" && ! -e "${dest}.bak" ]] && mv "$dest" "${dest}.bak"
+            cp -r "$src" "$dest"
+        fi
+    }
 
-    mv ~/.config/kitty ~/.config/kitty.bak
-    cp -r ./dotfiles/.zshrc.d/config.d/kitty ~/.config/
+    backup_and_copy ./dotfiles/.zshrc ~/.zshrc
+    backup_and_copy ./dotfiles/.zshrc.d ~/.zshrc.d
+    backup_and_copy ./dotfiles/.zshrc.d/config.d/gitconf/.gitconfig ~/.gitconfig
+    backup_and_copy ./dotfiles/.zshrc.d/config.d/kitty ~/.config/kitty
+    backup_and_copy ./dotfiles/.zshrc.d/config.d/ranger ~/.config/ranger
+    backup_and_copy ./dotfiles/.zshrc.d/config.d/vim/.vimrc ~/.vimrc
+    backup_and_copy ~/.zshrc.d/config.d/doom ~/.config/doom
+    backup_and_copy ~/.zshrc.d/config.d/env/.env.zsh ~/.env.zsh
+    backup_and_copy ~/.zshrc.d/config.d/lvim ~/.config/lvim
+    backup_and_copy ~/.zshrc.d/config.d/tmux ~/.config/tmux
 
-    mv ~/.config ~/.config/ranger.bak
-    cp -r ./dotfiles/.zshrc.d/config.d/ranger ~/.config/
-
-    mv ~/.vimrc ~/.vimrc.bak
-    cp ./dotfiles/.zshrc.d/config.d/vim/.vimrc ~/
-
-    mv ~/.config/doom ~/.config/doom.bak
-    cp -r ~/.zshrc.d/config.d/doom ~/.config/
-
-    mv ~/.env.zsh ~/.env.zsh.bak
-    cp ~/.zshrc.d/config.d/env/.env.zsh ~/
-
-    mv ~/.config/lvim ~/.config/lvim.bak
-    cp -r ~/.zshrc.d/config.d/lvim ~/.config/
-
-    mv ~/.config/tmux ~/.config/tmux.bak
-    cp -r ~/.zshrc.d/config.d/tmux ~/.config/
-
-    sudo mv /etc/pacman.conf /etc/pacman.d/pacman.conf.bak
-    sudo cp ~/.zshrc.d/config.d/arch/pacman.conf /etc/pacman.conf
-
-    sudo mv /etc/clamav /etc/clamav.bak
-    sudo cp -r ~/.zshrc.d/config.d/clamav /etc/clamav
-
-    sudo mv /etc/cron.daily /etc/cron.daily.bak
-    sudo cp -r ~/.zshrc.d/config.d/cron.daily /etc/cron.daily
-
-    sudo mv /etc/cron.weekly /etc/cron.weekly.bak
-    sudo cp -r ~/.zshrc.d/config.d/cron.weekly /etc/cron.weekly
-
-    sudo mv /etc/ufw/before.rules /etc/ufw/before.rules.bak
-    sudo cp ~/.zshrc.d/config.d/ufw/before.rules /etc/ufw/before.rules
+    backup_and_copy ~/.zshrc.d/config.d/arch/pacman.conf /etc/pacman.conf true
+    backup_and_copy ~/.zshrc.d/config.d/clamav /etc/clamav true
+    backup_and_copy ~/.zshrc.d/config.d/cron.daily /etc/cron.daily true
+    backup_and_copy ~/.zshrc.d/config.d/cron.weekly /etc/cron.weekly true
+    backup_and_copy ~/.zshrc.d/config.d/ufw/before.rules /etc/ufw/before.rules true
 
 else
     echo "❌ Dotfiles directory not found. Skipping dotfile setup."
