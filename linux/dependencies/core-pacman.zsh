@@ -65,8 +65,6 @@ else
     echo "📦 Loading vboxdrv kernel module..."
     sudo modprobe vboxdrv || echo "⚠️ Failed to load vboxdrv. You may need to reboot or install kernel headers."
 fi
-# Load VirtualBox kernel modules
-sudo modprobe vboxdrv
 
 # -------------------------------------
 # UFW Firewall Configuration
@@ -148,6 +146,6 @@ source ~/.zshrc
 echo "⚙️ Zsh is now your default shell."
 
 echo -e "\n🎉 Setup complete. Your system is ready!"
-echo "💡 Restart terminal"
+echo "💡 Exit default terminal, and run kitty terminal"
 read -r
 exit 0

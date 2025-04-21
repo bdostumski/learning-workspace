@@ -35,3 +35,15 @@
 # -----------------
 # Automatically change the current working directory after closing ranger
 . "$(dirname "$0")/functions.d/ranger-cd.zsh"
+
+# -----------------
+# EDITOR MAIN LVIM
+# -----------------
+# If lvim exists then use lvim, else nvim, else vim
+. "$(dirname "$0")/functions.d/editor-lvim-nvim-vim.zsh"
+
+# -----------------
+# EDITOR MAIN NVIM
+# -----------------
+# If nvim exists then use nvim, else vim
+. "$(dirname "$0")/functions.d/editor-nvim-vim.zsh"
