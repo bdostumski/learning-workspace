@@ -13,7 +13,7 @@ packages=(
     fd less man bat btop htop pydf tldr reflector stow
     ranger speedtest-cli openssh trash-cli fzf glances lsd ripgrep lazygit vivid
     kdiff3 httpie curl ncdu onefetch neofetch fastfetch cronie ufw clamav git-delta
-    ueberzug wine
+    ueberzug wine fzf cargo
 
     # GUI Applications
     virtualbox firefox thunderbird filezilla gimp
@@ -21,8 +21,7 @@ packages=(
 
     # Development Tools
     vim neovim emacs make gcc clang cmake direnv maven gradle nodejs npm yarn
-    jdk17-openjdk go ruby python python-pip python-pipenv pyenv rust luarocks
-    cabal-install kotlin clojure lighttpd php composer
+    jdk17-openjdk go ruby rust luarocks cabal-install kotlin clojure lighttpd php composer
 )
 
 echo "📦 Installing ${#packages[@]} packages..."

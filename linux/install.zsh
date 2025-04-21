@@ -50,6 +50,8 @@ while true; do
         echo "\n"
         echo "= = = = = = = = = ="
         echo "Starting installation [LunarVim] . . ."
+        echo "Bug fix: When you run installation on the question 'Do you want to install pynvim?' answer 'no'"
+        echo "It will be installed automatically from pacman."
         source ./dependencies/lvim-git.zsh
         ;;
     4)

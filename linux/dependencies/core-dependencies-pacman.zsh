@@ -21,7 +21,7 @@ packages=(
     zsh kitty tmux git github-cli ranger
 
     # Python + tools
-    python python-pip python-virtualenv
+    python python-pip python-virtualenv python-pynvim pyenv
 )
 
 echo "📦 Installing ${#packages[@]} packages..."
