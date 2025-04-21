@@ -12,7 +12,7 @@ sudo pacman -Syu --noconfirm
 # Define packages
 packages=(
     # System Utilities
-    fd less man bat btop htop pydf tldr reflector stow
+    kitty tmux fd less man bat btop htop pydf tldr reflector stow
     ranger speedtest-cli openssh trash-cli fzf glances lsd ripgrep lazygit vivid
     kdiff3 httpie curl ncdu onefetch neofetch fastfetch cronie ufw clamav git-delta
     ueberzug wine fzf cargo
@@ -142,4 +142,12 @@ sudo freshclam
 # Enable scheduled tasks
 sudo systemctl enable --now cronie.service
 
+# Change default shell to Zsh
+chsh -s "$(which zsh)"
+source ~/.zshrc
+echo "⚙️ Zsh is now your default shell."
+
 echo -e "\n🎉 Setup complete. Your system is ready!"
+echo "💡 Restart terminal"
+read -r
+exit 0

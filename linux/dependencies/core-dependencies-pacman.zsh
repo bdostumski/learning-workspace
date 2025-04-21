@@ -19,7 +19,7 @@ packages=(
     ttf-jetbrains-mono ttf-hack ttf-inconsolata nerd-fonts ttf-opensans
 
     # System Utilities
-    zsh kitty tmux git github-cli ranger
+    zsh git github-cli ranger
 
     # Python + tools
     python python-pip python-pipenv python-virtualenv python-pynvim pyenv
@@ -70,7 +70,3 @@ fi
 # Done
 # -------------------------------------
 echo "\n🎉 All setup steps completed!"
-echo "🚀 Continue installation script with kitty terminal"
-echo "💡 Installation completed start Kitty terminal, and rerun installation script ..."
-read -r
-exit 0
