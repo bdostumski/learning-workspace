@@ -97,9 +97,16 @@ sudo chmod 644 /var/log/clamav/freshclam.log
 # Systemd user override
 mkdir -p ~/.config/systemd/user
 cat <<EOF >~/.config/systemd/user/clamav-clamonacc.service
+[Unit]
+Description=ClamAV On-Access Scanner
+After=clamav-daemon.service
+
 [Service]
-ExecStart=
-ExecStart=/usr/sbin/clamonacc -F --fdpass --log=/var/log/clamav/clamonacc.log
+ExecStart=/usr/bin/clamonacc -F --fdpass --log=/var/log/clamav/clamonacc.log
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
 EOF
 
 # Allow notifications
