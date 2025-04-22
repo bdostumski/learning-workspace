@@ -15,10 +15,9 @@ while true; do
     echo "- -"
     echo "Install Dependencies"
     echo "0) Install dependencies neede for the script [Zsh, Kitty, Fonts, Python]"
-    echo "1) Install core dependencies [System, Security, Wine, VirtualBox, Vim, Emacs]"
+    echo "1) Install core dependencies [System, Security, Wine, VirtualBox, Vim, NeoVim, Emacs]"
     echo "2) Install DevOps tools [Docker, Vagrant, K8s, etc.]"
-    echo "3) Install basic editor for shell scripts and DevOps [LunarVim]"
-    echo "4) Install IDE for programming [Doom Emacs]"
+    echo "3) Install IDE for programming [Doom Emacs]"
     echo "x) Exit"
     echo "\n"
     echo -n "Enter your choise: "
@@ -50,14 +49,6 @@ while true; do
         source ./dependencies/devops-pacman.zsh
         ;;
     3)
-        echo "\n"
-        echo "= = = = = = = = = ="
-        echo "Starting installation [LunarVim] . . ."
-        echo "Bug fix: When you run installation on the question 'Do you want to install pynvim?' answer 'no'"
-        echo "It will be installed automatically from pacman."
-        source ./dependencies/lvim-git.zsh
-        ;;
-    4)
         echo "\n"
         echo "= = = = = = = = = ="
         echo "Starting installation [Doom Emacs] . . ."

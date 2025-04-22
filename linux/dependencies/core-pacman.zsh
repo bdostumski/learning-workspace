@@ -150,5 +150,3 @@ chmod +x ~/.zshrc.d/functions.d/*.zsh
 
 echo -e "\n🎉 Setup complete. Your system is ready!"
 echo "💡 Exit default terminal, and run kitty terminal"
-read -r
-exit 0
