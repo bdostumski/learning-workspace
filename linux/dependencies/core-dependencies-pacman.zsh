@@ -14,7 +14,7 @@ sudo pacman -Syu --noconfirm
 # Define packages
 packages=(
     # Fonts
-    ttf-dejavu ttf-liberation ttf-roboto ttf-ubuntu-font-family noto-fonts
+    kitty tmux ttf-dejavu ttf-liberation ttf-roboto ttf-ubuntu-font-family noto-fonts
     noto-fonts-emoji noto-fonts-cjk ttf-fira-code ttf-fira-mono ttf-fira-sans
     ttf-jetbrains-mono ttf-hack ttf-inconsolata nerd-fonts ttf-opensans
 
@@ -70,3 +70,6 @@ fi
 # Done
 # -------------------------------------
 echo "\n🎉 All setup steps completed!"
+echo "💡 Exit default terminal, and run kitty terminal"
+read -r
+exit 0
