@@ -47,9 +47,9 @@ echo "💾 Copying main config file to home root directory..."
 if [[ -d "dotfiles" ]]; then
 
     backup_and_copy ./dotfiles/.zshrc ~/.zshrc
-    backup_and_copy ~/.zshrc.d/config.d/kitty ~/.config/kitty
-    backup_and_copy ~/.zshrc.d/config.d/ranger ~/.config/ranger
+    backup_and_copy ~/.zshrc.d/config.d/nvim ~/.config/nvim
     backup_and_copy ~/.zshrc.d/config.d/tmux ~/.config/tmux
+    backup_and_copy ~/.zshrc.d/config.d/ranger ~/.config/ranger
     backup_and_copy ~/.zshrc.d/config.d/clamav /etc/clamav true
     backup_and_copy ~/.zshrc.d/config.d/cron/cron.daily /etc/cron.daily true
     backup_and_copy ~/.zshrc.d/config.d//cron/cron.weekly /etc/cron.weekly true
@@ -150,4 +150,3 @@ echo "⚙️ Zsh is now your default shell."
 chmod +x ~/.zshrc.d/functions.d/*.zsh
 
 echo -e "\n🎉 Setup complete. Your system is ready!"
-echo "💡 Exit default terminal, and run kitty terminal"

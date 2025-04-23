@@ -70,6 +70,3 @@ fi
 # Done
 # -------------------------------------
 echo "\n🎉 All setup steps completed!"
-echo "💡 Exit default terminal, and run kitty terminal"
-read -r
-exit 0
