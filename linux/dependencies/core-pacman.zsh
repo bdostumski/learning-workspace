@@ -46,6 +46,7 @@ done
 echo "💾 Copying main config file to home root directory..."
 if [[ -d "dotfiles" ]]; then
 
+    backup_and_copy ./dotfiles/.zshrc ~/.zshrc
     backup_and_copy ~/.zshrc.d/config.d/kitty ~/.config/kitty
     backup_and_copy ~/.zshrc.d/config.d/ranger ~/.config/ranger
     backup_and_copy ~/.zshrc.d/config.d/tmux ~/.config/tmux

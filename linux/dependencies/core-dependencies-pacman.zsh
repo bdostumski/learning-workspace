@@ -56,10 +56,10 @@ echo "💾 Copying main config file to home root directory..."
 if [[ -d "dotfiles" ]]; then
 
     backup_and_copy ./dotfiles/.zshrc.d ~/.zshrc.d
-    backup_and_copy ./dotfiles/.zshrc ~/.zshrc
     backup_and_copy ~/.zshrc.d/config.d/vim/.vimrc ~/.vimrc
-    backup_and_copy ~/.zshrc.d/config.d/gitconf/.gitconfig ~/.gitconfig
+    backup_and_copy ~/.zshrc.d/config.d/kitty ~/.config/kitty
     backup_and_copy ~/.zshrc.d/config.d/env/.env.zsh ~/.env.zsh
+    backup_and_copy ~/.zshrc.d/config.d/gitconf/.gitconfig ~/.gitconfig
     backup_and_copy ~/.zshrc.d/config.d/arch/pacman.conf /etc/pacman.conf true
 
 else
