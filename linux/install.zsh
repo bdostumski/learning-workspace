@@ -6,11 +6,10 @@ echo "▐▌ ▐▌▐▌ ▐▌▐▌   ▐▌ ▐▌    ▐▌   ▐▌ ▐▌
 echo "▐▛▀▜▌▐▛▀▚▖▐▌   ▐▛▀▜▌    ▐▛▀▀▘▐▛▀▚▖▐▛▀▜▌▐▌  ▐▌▐▛▀▀▘ "
 echo "▐▌ ▐▌▐▌ ▐▌▝▚▄▄▖▐▌ ▐▌    ▐▌   ▐▌ ▐▌▐▌ ▐▌▐▌  ▐▌▐▙▄▄▖ "
 echo "\n"
-echo "- - Created by: Borislav Aleksandrov Dostumski - - "
-echo "\n"
-echo "- -"
+echo "Let's try to master the chaos 🔥"
+echo "Created by: Borislav Aleksandrov Dostumski"
 echo "Manual dependencies to isntall: zsh"
-echo "- -"
+echo "\n"
 echo "Install Dependencies"
 echo "0) Install dependencies neede for the script [Zsh, Kitty, Fonts, Python]"
 echo "1) Install core dependencies [System, Security, Virtualization, Basic Edittors]"
@@ -22,7 +21,7 @@ echo -n "Enter your choise: "
 read -r choice
 if [ "$choice" = "x" ]; then
     echo "Exiting..."
-    break
+    exit
 fi
 
 case $choice in
