@@ -6,7 +6,7 @@
 #
 #  Make sure the script is being executed with superuser privileges.
 if [[ "${UID}" -ne 0 ]]; then
-    echo 'Please run with sudo or as root.'
+    echo 'Please run with sudo or as root.' 1>&2
     exit 1
 fi
 #
@@ -20,19 +20,19 @@ read -r -p 'Enter the name of the person or application that will be using this 
 read -r -p 'Enter the password to use for the account: ' PASSWORD
 #
 # Create the account.
-useradd -c "${COMMENT}" -m ${USER_NAME}
+useradd -c "${COMMENT}" -m ${USER_NAME} >&/dev/null
 #
 # Check to see if the useradd command succeeded.
 # We don't want to tell the user that an account was created when it hasn't been.
 if [[ "${?}" -ne 0 ]]; then
-    echo 'The account could not be created.'
+    echo 'The account could not be created.' 1>&2
     exit 1
 fi
 #
 # Set the password
-echo ${PASSWORD} | passwd --stdin ${USER_NAME}
+echo ${PASSWORD} | passwd --stdin ${USER_NAME} &> /dev/null
 if [[ "${?}" -ne 0 ]]; then
-    echo 'The password for the account could not be set.'
+    echo 'The password for the account could not be set.' 1>&2
     exit 1
 fi
 #
