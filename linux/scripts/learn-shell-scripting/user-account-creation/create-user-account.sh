@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 #
 #  This script creates a new user on the local system.
 #  You will be prompted to enter the username (login), the person name, and a password.
@@ -30,17 +30,16 @@ if [[ "${?}" -ne 0 ]]; then
 fi
 #
 # Set the password
-echo ${PASSWORD} | passwd --stdin ${USER_NAME} &> /dev/null
+echo ${PASSWORD} | passwd --stdin ${USER_NAME} &>/dev/null
 if [[ "${?}" -ne 0 ]]; then
     echo 'The password for the account could not be set.' 1>&2
     exit 1
 fi
 #
 # Force password change on first login.
-passwd -e ${USER_NAME}
+passwd -e ${USER_NAME} >&/dev/null
 #
 # Display the username, password, and the host where the user was created.
-echo
 echo 'username:'
 echo "${USER_NAME}"
 echo

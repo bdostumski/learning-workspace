@@ -9,13 +9,13 @@ echo "Your UID is ${UID}"
 # Only display if the UID does NOT match 1000
 UID_TO_TEST_FOR='1000'
 if [[ "${UID}" -ne "${UID_TO_TEST_FOR}" ]]; then
-    echo "Your UID does not match ${UID_TO_TEST_FOR}."
+    echo "Your UID does not match ${UID_TO_TEST_FOR}." 1>&2
     exit 1
 fi
 
 # Test if the command succeeded
 if [[ "${?}" -ne 0 ]]; then
-    echo 'The id command did not execute succesfully.'
+    echo 'The id command did not execute succesfully.' 1>&2
     exit 1
 fi
 
@@ -31,7 +31,7 @@ fi
 
 # Test for != (not equal) for the string.
 if [[ "${USER_NAME}" != "${USER_NAME_TO_TEST_FOR}" ]]; then
-    echo "Your username does not match ${USER_NAME_TO_TEST_FOR}"
+    echo "Your username does not match ${USER_NAME_TO_TEST_FOR}" 1>&2
     exit 1
 fi
 
