@@ -45,6 +45,30 @@ while getopts vl:s OPTION; do
     esac
 done
 
+# Print passed arguments
+# echo "Number of args: ${#}"
+# echo "All args: ${*}"
+# echo "Fist arg: ${1}"
+# echo "Second arg: ${2}"
+# echo "Third arg: ${3}"
+
+# Inspect OPTIND
+# echo "OPTIND: ${OPTIND}"
+
+# Remove the options while leaving the remaining arguments.
+shift "$((OPTIND - 1))"
+
+# echo "After the shift:"
+# echo "All args: ${*}"
+# echo "Fist arg: ${1}"
+# echo "Second arg: ${2}"
+# echo "Third arg: ${3}"
+
+# Exit from code
+if [[ "${#}" -gt 0 ]]; then
+    usage
+fi
+
 log 'Generating a password'
 
 # Generate a random password with specific length
