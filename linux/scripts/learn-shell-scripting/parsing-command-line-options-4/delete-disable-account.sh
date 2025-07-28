@@ -56,7 +56,7 @@ for USERNAME in "${@}"; do
         if [[ ! -d "${ARCHIVE_DIR}" ]]; then
             echo "Creating ${ARCHIVE_DIR} directory."
             mkdir -p "${ARCHIVE_DIR}"
-            if [[ "${?}" -ne 0 ]]; then
+            if [[ ! $? ]]; then
                 echo "The archive directory ${ARCHIVE_DIR} could not be created." >&2
                 exit 1
             fi
@@ -68,7 +68,7 @@ for USERNAME in "${@}"; do
         if [[ -d "${HOME_DIR}" ]]; then
             echo "Archiving ${HOME_DIR} to ${ARCHIVE_FILE}"
             tar -zcf "${ARCHIVE_FILE}" "${HOME_DIR}" &> /dev/null
-            if [[ "${?}" -ne 0 ]]; then
+            if [[ ! $? ]]; then
                 echo "Could not create ${ARCHIVE_FILE}." >&2
                 exit 1
             fi
@@ -84,7 +84,7 @@ for USERNAME in "${@}"; do
 
         # Check to see if the userdel command succeeded.
         # We don't want to tell the user that an account was deleted when it hasn't been.
-        if [[ "${?}" -ne 0 ]]; then
+        if [[ ! $? ]]; then
            echo "The account ${USERNAME} was NOT deleted." >&2
            exit 1
         else
@@ -95,7 +95,7 @@ for USERNAME in "${@}"; do
 
         # Check to see if the chage command succeeded.
         # We don't want to tell the user that an account was disabled when it hasn't been.
-        if [[ "${?}" -ne 0 ]]; then
+        if [[ ! $? ]]; then
            echo "The account ${USERNAME} was NOT disabled." >&2
            exit 1
         else
