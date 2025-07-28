@@ -67,7 +67,7 @@ for USERNAME in "${@}"; do
         ARCHIVE_FILE="${ARCHIVE_DIR}/${USERNAME}.tgz"
         if [[ -d "${HOME_DIR}" ]]; then
             echo "Archiving ${HOME_DIR} to ${ARCHIVE_FILE}"
-            tar -zcf ${ARCHIVE_FILE} ${HOME_DIR} &> /dev/null
+            tar -zcf "${ARCHIVE_FILE}" "${HOME_DIR}" &> /dev/null
             if [[ "${?}" -ne 0 ]]; then
                 echo "Could not create ${ARCHIVE_FILE}." >&2
                 exit 1
